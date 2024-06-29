@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b558d62132de3458feeec5e93b636e, type: 3}
+  m_Name: TowerSkeletons
+  m_EditorClassIdentifier: 
+  towerName: 
+  towerDescription: 
+  gameModelTower: {fileID: 0}
+  gameModelAtk: {fileID: 0}
+  gameModelAreaAtk: {fileID: 0}
+  towerType: 
+  atkSpeed: 0
+  atkDamage: 0
+  atkDistance: 0
+  Area: 0
+  areaAtk: 0
