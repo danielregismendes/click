@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour {
 	private float walkTimer;
 	private bool damaged = false;
 	private AudioSource audioS;
-	//private GameManager	gameManager;
+	private GameManager	gameManager;
 
 
     void Start () {
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 		currentHealth = maxHealth;
-        //gameManager = FindFirstObjectByType<GameManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
         velocidade = navMesh.speed;
         aceleracao = navMesh.acceleration;
 
@@ -79,15 +79,6 @@ public class Enemy : MonoBehaviour {
         
     }
 
-   
-    void LookTargert(Transform target)
-    {
-        Vector3 direction = (target.position - transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * navMesh.angularSpeed);
-    }
-
-
     public void TookDamage(int damage)
 	{
 		if (!isDead)
@@ -110,23 +101,6 @@ public class Enemy : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
-	void ResetSpeed()
-	{
-		currentSpeed = maxSpeed;
-    }
-    void ZeroSpeed()
-    {
-        currentSpeed = 0;
-    }
-
-    [Serializable]
-    public class EnemyHit
-	{
-		public int damage = 1;
-		public AudioClip collisionSound;
-        public float knockback;
-    }
-
 	public int GetHealth()
 	{
 		return currentHealth;
@@ -137,5 +111,10 @@ public class Enemy : MonoBehaviour {
 		return isDead;
 
     }
+
+	public void SetRota(Transform[] enemyRota)
+	{
+		rota = enemyRota;
+	}
 
 }

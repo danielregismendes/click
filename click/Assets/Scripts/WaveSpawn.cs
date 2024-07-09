@@ -1,41 +1,71 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveSpawn : MonoBehaviour
 {
 
+    public float timeSpawn;
     public WaveData[] waves;
 
-    private Vector3 spawnPosition;
+    private GameObject currentEnemy;
+    private int spawnOrder = 0;
 
 
-    private void Start()
+    public void NextSpawn()
     {
-        
-        spawnPosition = transform.position;
-
+        SpawnWave(spawnOrder);
+        spawnOrder++;
     }
 
     void SpawnWave(int waveOrder)
     {
-
-        for(int i = 0; i < waves[waveOrder].spawns.Length; i++)
+        if(waveOrder > waves.Length)
         {
-            
-            for (float time = 0; time < waves[waveOrder].spawns[i].timeWaiting; time = +1 * Time.deltaTime)
+
+            return;
+
+        }
+        else
+        {
+            Debug.Log("Else");
+            for (int i = 0; i < waves[waveOrder].spawns.Length; i++)
             {
+                /*
+                for (float time = 0; time < waves[waveOrder].spawns[i].timeWaiting;)
+                {
 
-                
+                    time =+ 1 * Time.deltaTime;
+                    Debug.Log("Timer 1" + time);
 
-            }            
+                }*/
 
+                for (int qtd = 0; qtd < waves[waveOrder].spawns[i].timeWaiting; qtd++)
+                {
+
+                    currentEnemy = Instantiate(waves[waveOrder].spawns[i].enemy, transform.position, transform.rotation);
+                    currentEnemy.GetComponent<Enemy>().SetRota(waves[waveOrder].spawns[i].rota);
+
+                    
+                    /*
+                    for (float time = 0; time < timeSpawn;)
+                    {
+
+                        time = +1 * Time.deltaTime;
+
+                    }
+                    */
+                }
+
+            }
         }
 
     }
 
 }
+
 
 [Serializable]
 public class WaveData
