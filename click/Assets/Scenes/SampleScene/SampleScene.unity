@@ -3265,7 +3265,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.941475, y: -4.57923, z: 14.354085}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3282,7 +3282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9ace446d74f6a4bbe2414e07ecd5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torres: []
+  torres:
+  - torres: {fileID: 11400000, guid: b8b49e5200db2f447ac08c23c5b81c12, type: 2}
+  - torres: {fileID: 11400000, guid: dc5f06df9a23e304f87abeeed5d68287, type: 2}
+  - torres: {fileID: 11400000, guid: 7c322d52ae10e394c9cf92044c8cc32d, type: 2}
   inventario:
   - nome: Corpo Vermelho
     qtd: 10
