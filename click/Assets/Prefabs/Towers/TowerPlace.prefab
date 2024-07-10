@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 891098553793047514}
   - component: {fileID: 4536678307697176571}
   - component: {fileID: 5152731053507621967}
-  - component: {fileID: 8246750067838977711}
+  - component: {fileID: 7243311044058094586}
   m_Layer: 0
   m_Name: TowerPlace
   m_TagString: Untagged
@@ -113,7 +113,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &8246750067838977711
+--- !u!114 &7243311044058094586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,9 +122,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1138902307718060193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c72ff571ff05024d835138e5eb724c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c5ca957b262a534c81396b68af8ab37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  select: {fileID: 8469903296158211662}
+  tower: {fileID: 1875373328405755166}
+  troopArea: {fileID: 5351374628849736005}
+  towerMenu: {fileID: 0}
+  state: 0
+  towerData: {fileID: 0}
 --- !u!1 &1875373328405755166
 GameObject:
   m_ObjectHideFlags: 0

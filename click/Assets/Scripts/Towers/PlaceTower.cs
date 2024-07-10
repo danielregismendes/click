@@ -64,6 +64,8 @@ public class PlaceTower : MonoBehaviour
 
     public void BuildingTower(string nameTower)
     {
+        Debug.Log(nameTower);
+
         string tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso;
         int qtdRecurso = gameManager.GetInventario(tipoRecurso);
         int custoTorre = gameManager.GetTower(nameTower).qtdRecurso;
@@ -71,6 +73,7 @@ public class PlaceTower : MonoBehaviour
         if (qtdRecurso >= custoTorre)
         {
 
+            towerMenu.SetActive(false);
             gameManager.SetInventario(tipoRecurso, custoTorre * -1);
             state = TOWERSTATE.CONSTRUIDO;
             towerData = gameManager.GetTower(nameTower);
@@ -81,39 +84,4 @@ public class PlaceTower : MonoBehaviour
 
     }
 
-
-    /*
-    public void Seeding(string plantName)
-    {
-        int qtdSeed = gameManager.GetSeeds(plantName);
-
-        if (qtdSeed > 0)
-        {
-            gameManager.SetInventario(plantName, 0, -1);
-            state = FARMSTATE.PLANTADO;
-            plantData = gameManager.GetPlantData(plantName);
-            plant = Instantiate(plantData.gameModelPlant, plant.transform.position, plant.transform.rotation);
-            plant.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 100);
-            plant.SetActive(true);
-            initialTime = gameManager.gameTimer;
-
-        }
-    }
-
-    void Growing()
-    {
-        float crescimento = (gameManager.gameTimer - initialTime) / plantData.growTime;
-
-        if (crescimento <= 1)
-        {
-            plant.GetComponent<SkinnedMeshRenderer>().SetBlendShapeWeight(0, 100 - Mathf.Round(crescimento * 100));
-
-        }
-        else
-        {
-            state = FARMSTATE.COLHEITA;
-        }
-
-    }
-    */
 }
