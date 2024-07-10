@@ -14,7 +14,7 @@ public class TowerData : ScriptableObject
     public GameObject gameModelTower;
     public GameObject gameModelTroop;
     public float atkSpeed;
-    public float atkDamage;
+    public int atkDamage;
     public string tipoRecurso;
     public int qtdRecurso;
 

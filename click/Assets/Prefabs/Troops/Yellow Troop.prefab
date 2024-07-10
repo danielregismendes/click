@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6530975833286088868}
   - component: {fileID: 3919311414696130196}
   - component: {fileID: 1336055210220277103}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pern E
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dfea1373b8462e41b7655ae475dfbd7, type: 2}
+  - {fileID: 2100000, guid: 6b42f763f4228514fae8da59b3de4bcd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 4812235246442505236}
   - component: {fileID: 656132444923835601}
   - component: {fileID: 8714982442959141909}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dorso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dfea1373b8462e41b7655ae475dfbd7, type: 2}
+  - {fileID: 2100000, guid: 6b42f763f4228514fae8da59b3de4bcd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -226,8 +226,8 @@ GameObject:
   - component: {fileID: 2737004661795979193}
   - component: {fileID: 3782833834880489395}
   - component: {fileID: 7473940329541139544}
-  m_Layer: 0
-  m_Name: "Cabe\xE7a"
+  m_Layer: 7
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,7 +278,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dfea1373b8462e41b7655ae475dfbd7, type: 2}
+  - {fileID: 2100000, guid: 6b42f763f4228514fae8da59b3de4bcd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -330,8 +330,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5632984268009409130}
-  m_Layer: 0
-  m_Name: Red Troop
+  m_Layer: 7
+  m_Name: Yellow Troop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,7 +347,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.790531, y: -2.5066564, z: 2.2972193}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2542080239858668890}
@@ -362,7 +362,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2542080239858668890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Corpo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 2016773512662571841}
   - component: {fileID: 5129547047460511801}
   - component: {fileID: 4981528364843322129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pern D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4dfea1373b8462e41b7655ae475dfbd7, type: 2}
+  - {fileID: 2100000, guid: 6b42f763f4228514fae8da59b3de4bcd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

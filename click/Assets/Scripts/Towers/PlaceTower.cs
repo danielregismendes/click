@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum TOWERSTATE
@@ -19,11 +20,15 @@ public class PlaceTower : MonoBehaviour
     public TowerData towerData = null;
 
     private GameManager gameManager;
+    private Attack attack;
 
 
     private void Start()
     {
+
         gameManager = FindFirstObjectByType<GameManager>();
+        attack = troopArea.GetComponent<Attack>();
+
     }
 
     void Update()
@@ -64,7 +69,6 @@ public class PlaceTower : MonoBehaviour
 
     public void BuildingTower(string nameTower)
     {
-        Debug.Log(nameTower);
 
         string tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso;
         int qtdRecurso = gameManager.GetInventario(tipoRecurso);
@@ -79,6 +83,11 @@ public class PlaceTower : MonoBehaviour
             towerData = gameManager.GetTower(nameTower);
             tower = Instantiate(towerData.gameModelTower, tower.transform.position, tower.transform.rotation);
             tower.SetActive(true);
+            troopArea.SetActive(true);
+            attack.SetAtk(towerData.atkSpeed, towerData.atkDamage);
+            Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
+            Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(0).rotation);
+            Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(0).rotation);
 
         }
 

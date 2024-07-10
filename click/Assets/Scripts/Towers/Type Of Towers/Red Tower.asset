@@ -17,6 +17,6 @@ MonoBehaviour:
   gameModelTower: {fileID: 4370247311566578446, guid: 18afdf9ef8aa48640b30e4da48791d1d, type: 3}
   gameModelTroop: {fileID: 6840000713685518651, guid: 02e5b02af598c244882c96f6e17aab6c, type: 3}
   atkSpeed: 1
-  atkDamage: 1
+  atkDamage: 3
   tipoRecurso: Corpo Vermelho
   qtdRecurso: 10

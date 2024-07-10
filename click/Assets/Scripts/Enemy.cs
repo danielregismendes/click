@@ -10,45 +10,27 @@ public class Enemy : MonoBehaviour {
 
     public Transform[] rota;
 	public int rotaCount = 0;
-
-    public float velocidade;
-    public float aceleracao;
-    public float velInvestida;
-    public float aceInvestida;
-    public float timerAtaque;
-    public float maxSpeed;
 	public int maxHealth;
 	public AudioClip collisionSound, deathSound;
-    public float maxSlope;
-    public LayerMask layerGround;
-    public Transform groundCheck;
     public int currentHealth;
 
 	private NavMeshAgent navMesh;
 
-    private float currentSpeed;
 	private Rigidbody rb;
 	protected Animator anim;
-	protected bool facingRight = false;
-	private Transform target;
 	protected bool isDead = false;
-	private float zForce;
-	private float walkTimer;
-	private bool damaged = false;
 	private AudioSource audioS;
 	private GameManager	gameManager;
 
 
-    void Start () {
+    void Start () 
+	{
 
         navMesh = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 		currentHealth = maxHealth;
         gameManager = FindFirstObjectByType<GameManager>();
-        velocidade = navMesh.speed;
-        aceleracao = navMesh.acceleration;
-
         navMesh.SetDestination(rota[rotaCount].position);
 
     }
@@ -73,8 +55,19 @@ public class Enemy : MonoBehaviour {
 
         if (navMesh.remainingDistance < navMesh.stoppingDistance+1)
             {
-				navMesh.SetDestination(rota[rotaCount].position);
-				rotaCount++;
+								
+			if(rotaCount >= rota.Length)
+			{
+
+                DisableEnemy();
+
+            }
+			else
+			{
+                navMesh.SetDestination(rota[rotaCount].position);
+                rotaCount++;
+            }
+
             }
         
     }
@@ -83,14 +76,15 @@ public class Enemy : MonoBehaviour {
 	{
 		if (!isDead)
 		{
-			damaged = true;
+
 			currentHealth -= damage;
-			//anim.SetTrigger("HitDamage");
+			anim.SetTrigger("HitDamage");
 			if(currentHealth <= 0)
 			{
+
 				isDead = true;
-				rb.AddRelativeForce(new Vector3(3, 5, 0), ForceMode.Impulse);
-				DisableEnemy();
+				navMesh.enabled = false;
+				anim.SetTrigger("Death");
 
             }
 		}
@@ -98,12 +92,16 @@ public class Enemy : MonoBehaviour {
 	
 	public void DisableEnemy()
 	{
+
 		Destroy(gameObject);
+
 	}
 
 	public int GetHealth()
 	{
+
 		return currentHealth;
+
 	}
 
 	public bool GetIsDead()
@@ -114,7 +112,9 @@ public class Enemy : MonoBehaviour {
 
 	public void SetRota(Transform[] enemyRota)
 	{
+
 		rota = enemyRota;
+
 	}
 
 }

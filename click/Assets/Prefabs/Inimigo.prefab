@@ -230,20 +230,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  velocidade: 0
-  aceleracao: 0
-  velInvestida: 0
-  aceInvestida: 0
-  timerAtaque: 0
-  maxSpeed: 0
-  maxHealth: 0
+  maxHealth: 5
   collisionSound: {fileID: 0}
   deathSound: {fileID: 0}
-  maxSlope: 0
-  layerGround:
-    serializedVersion: 2
-    m_Bits: 0
-  groundCheck: {fileID: 0}
   currentHealth: 0
 --- !u!1 &4600187568336653791
 GameObject:
