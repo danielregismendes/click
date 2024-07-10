@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: edbb61ce7eb50e94cba6fa630e32a58f
+timeCreated: 1491472509
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 26443
+  packageName: Baker's House
+  packageVersion: 1.1
+  assetPath: Assets/Baker House/Models/Materials/Baker_house_snow.mat
+  uploadId: 172095
