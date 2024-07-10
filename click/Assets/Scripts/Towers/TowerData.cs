@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "Tower")]
-public class PlantData : ScriptableObject
+public class TowerData : ScriptableObject
 {
 
     [Header("Tower Settings")]
@@ -15,5 +15,7 @@ public class PlantData : ScriptableObject
     public GameObject gameModelTroop;
     public float atkSpeed;
     public float atkDamage;
+    public string tipoRecurso;
+    public int qtdRecurso;
 
 }

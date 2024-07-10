@@ -21,11 +21,8 @@ public class WaveSpawn : MonoBehaviour
 
     private void Update()
     {
-        SpawnWave();
 
-        Debug.Log("currentWave: " + currentWave);
-        Debug.Log("currentSpawn: " + currentSpawn);
-        Debug.Log("currentSpawnEnemy: " + currentSpawnEnemy);
+        SpawnWave();
 
     }
 

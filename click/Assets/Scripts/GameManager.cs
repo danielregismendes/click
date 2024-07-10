@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 
     private GameManager gameManager;
 
+    [Header("Lista de Torres")]
+    public TowerList[] torres;
+
     [Header("Inventário")]
     public Inventario[] inventario;
 
@@ -57,6 +60,24 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public TowerData GetTower(string towerName)
+    {
+
+        for(int i = 0;i < torres.Length; i++)
+        {
+
+            if(towerName == torres[i].torres.towerName)
+            {
+                return torres[i].torres;
+            }
+
+        }
+
+        return null;
+
+    }
+
+
 }
 
 [Serializable]
@@ -65,5 +86,13 @@ public class Inventario
 
     public string nome;
     public int qtd;
+
+}
+
+[Serializable]
+public class TowerList
+{
+
+    public TowerData torres;
 
 }
