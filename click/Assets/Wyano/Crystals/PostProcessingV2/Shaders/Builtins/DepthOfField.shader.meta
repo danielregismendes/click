@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0ef78d24e85a44f4da9d5b5eaa00e50b
+timeCreated: 1491838816
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/Builtins/DepthOfField.shader
+  uploadId: 383689

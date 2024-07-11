@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 912e288507f1e724492c7c721fa1deb8
+timeCreated: 1493047701
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Runtime/Attributes/DisplayNameAttribute.cs
+  uploadId: 383689

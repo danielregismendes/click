@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d60799ab2a985554ea1a39cd38695018
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Runtime/Unity.Postprocessing.Runtime.asmdef
+  uploadId: 383689

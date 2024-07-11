@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 42496b74c071f5749950ca1abe33e945
+timeCreated: 1494926107
+licenseType: Store
+ComputeShaderImporter:
+  currentAPIMask: 131076
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/Builtins/Lut3DBaker.compute
+  uploadId: 383689

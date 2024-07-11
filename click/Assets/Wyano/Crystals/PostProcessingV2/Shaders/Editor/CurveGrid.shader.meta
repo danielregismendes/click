@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5bb6ef6f3e1b20348b4fdb01e4c404e2
+timeCreated: 1493997957
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/Editor/CurveGrid.shader
+  uploadId: 383689

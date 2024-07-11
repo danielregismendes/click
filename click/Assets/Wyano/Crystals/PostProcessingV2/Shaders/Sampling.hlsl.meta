@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f16ad9ee5ff13554b98568aa655d6bda
+timeCreated: 1489940178
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/Sampling.hlsl
+  uploadId: 383689

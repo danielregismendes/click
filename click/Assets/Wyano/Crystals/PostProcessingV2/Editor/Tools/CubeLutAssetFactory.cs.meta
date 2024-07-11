@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 4d506bd5da20d0248bfa343c6693d655
+timeCreated: 1496740688
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Editor/Tools/CubeLutAssetFactory.cs
+  uploadId: 383689

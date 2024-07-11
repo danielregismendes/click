@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 4b0cd5ddb61a56b4f86ea0fd0a102fe7
+timeCreated: 1492705253
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Editor/Effects/DefaultPostProcessEffectEditor.cs
+  uploadId: 383689

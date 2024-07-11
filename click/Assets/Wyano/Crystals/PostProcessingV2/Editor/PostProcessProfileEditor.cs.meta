@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1fcb2f1e4a7d9ba42bc5940a5611f302
+timeCreated: 1494339151
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Editor/PostProcessProfileEditor.cs
+  uploadId: 383689

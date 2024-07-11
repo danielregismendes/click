@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 34845e0ca016b7448842e965db5890a5
+timeCreated: 1519314976
+licenseType: Store
+ComputeShaderImporter:
+  currentAPIMask: 2228228
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/Builtins/AutoExposure.compute
+  uploadId: 383689
