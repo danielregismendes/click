@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: b7733f6a6fd11474e8fc598901f90fab
+timeCreated: 1488801729
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Runtime/PostProcessRenderContext.cs
+  uploadId: 383689

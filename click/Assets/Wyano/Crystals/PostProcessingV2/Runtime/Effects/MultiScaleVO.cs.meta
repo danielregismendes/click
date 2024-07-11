@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: f59da4cf1b7dee244bc37fa6add23b00
+timeCreated: 1503308000
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Runtime/Effects/MultiScaleVO.cs
+  uploadId: 383689

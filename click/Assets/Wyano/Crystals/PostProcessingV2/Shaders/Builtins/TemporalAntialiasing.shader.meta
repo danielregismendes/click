@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 51bcf79c50dc92e47ba87821b61100c3
+timeCreated: 1490261802
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/Builtins/TemporalAntialiasing.shader
+  uploadId: 383689

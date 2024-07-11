@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5ab0816423f0dfe45841cab3b05ec9ef
+timeCreated: 1496835037
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/Builtins/DiscardAlpha.shader
+  uploadId: 383689

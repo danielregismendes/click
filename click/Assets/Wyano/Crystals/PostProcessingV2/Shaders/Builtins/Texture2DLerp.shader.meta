@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 34a819c9e33402547a81619693adc8d5
+timeCreated: 1493129446
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/Builtins/Texture2DLerp.shader
+  uploadId: 383689

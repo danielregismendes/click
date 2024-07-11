@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a741cbbb27e6ad747a354440a9132a66
+timeCreated: 1489754265
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 106274
+  packageName: Translucent Crystals
+  packageVersion: 1.1
+  assetPath: Assets/SineVFX/PostProcessingV2/Shaders/API/D3D9.hlsl
+  uploadId: 383689
