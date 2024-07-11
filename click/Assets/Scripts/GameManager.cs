@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 
     private GameManager gameManager;
 
+    public int maxHpZigurate;
+    private int currentHpZigurate;
+
     [Header("Lista de Torres")]
     public TowerList[] torres;
 
@@ -17,6 +20,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+
+        currentHpZigurate = maxHpZigurate;
+
         if (gameManager == null)
         {
             gameManager = this;
@@ -76,6 +82,21 @@ public class GameManager : MonoBehaviour
         return null;
 
     }
+
+    public int GetHpZigurate()
+    {
+
+        return currentHpZigurate;
+
+    }
+
+    public void SetHpZigurate(int damage)
+    {
+
+        currentHpZigurate -= damage;
+
+    }
+
 
 
 }

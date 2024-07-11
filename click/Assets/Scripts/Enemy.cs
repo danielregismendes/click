@@ -13,14 +13,21 @@ public class Enemy : MonoBehaviour {
 	public int maxHealth;
 	public AudioClip collisionSound, deathSound;
     public int currentHealth;
+	public int danoZigurate;
 
-	private NavMeshAgent navMesh;
+
+    [Header("Drop de Item")]
+	public string itemDrop;
+	public int qtdDrop;
+
+    private NavMeshAgent navMesh;
 
 	private Rigidbody rb;
 	protected Animator anim;
 	protected bool isDead = false;
 	private AudioSource audioS;
 	private GameManager	gameManager;
+	private UIManager uiManager;
 
 
     void Start () 
@@ -32,6 +39,7 @@ public class Enemy : MonoBehaviour {
 		currentHealth = maxHealth;
         gameManager = FindFirstObjectByType<GameManager>();
         navMesh.SetDestination(rota[rotaCount].position);
+        uiManager = FindFirstObjectByType<UIManager>();
 
     }
 	
@@ -45,8 +53,8 @@ public class Enemy : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-
-        AiRota();
+	
+        if(!isDead) AiRota();
 
     }
 
@@ -59,6 +67,8 @@ public class Enemy : MonoBehaviour {
 			if(rotaCount >= rota.Length)
 			{
 
+				gameManager.SetHpZigurate(danoZigurate);
+                uiManager.AtualizarUI();
                 DisableEnemy();
 
             }
@@ -84,7 +94,9 @@ public class Enemy : MonoBehaviour {
 
 				isDead = true;
 				navMesh.enabled = false;
-				anim.SetTrigger("Death");
+				gameManager.SetInventario(itemDrop, qtdDrop);
+				uiManager.AtualizarUI();
+                anim.SetTrigger("Death");
 
             }
 		}

@@ -17,11 +17,19 @@ public class WaveSpawn : MonoBehaviour
     private int currentSpawnEnemy = 0;
     private float timer = 0;
     private float timerSpawn = 0;
+    private UIManager uiManager;
 
+    private void Start()
+    {
+
+        uiManager = FindFirstObjectByType<UIManager>();
+
+    }
 
     private void Update()
     {
 
+        
         SpawnWave();
 
     }
@@ -29,7 +37,13 @@ public class WaveSpawn : MonoBehaviour
     public void NextSpawn()
     {
 
-        waveOrder++;
+        if (waveOrder < waves.Length)
+        {
+
+            waveOrder++;
+            uiManager.AtualizarUI();
+
+        }
 
     }
 
@@ -92,6 +106,13 @@ public class WaveSpawn : MonoBehaviour
 
     }
     
+    public int GetCurrentWave()
+    {
+
+        return waveOrder;
+
+    }
+
 
     [Serializable]
     public class WaveData

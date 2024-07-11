@@ -21,6 +21,7 @@ public class PlaceTower : MonoBehaviour
 
     private GameManager gameManager;
     private Attack attack;
+    private UIManager uiManager;
 
 
     private void Start()
@@ -28,6 +29,7 @@ public class PlaceTower : MonoBehaviour
 
         gameManager = FindFirstObjectByType<GameManager>();
         attack = troopArea.GetComponent<Attack>();
+        uiManager = FindFirstObjectByType<UIManager>();
 
     }
 
@@ -79,6 +81,7 @@ public class PlaceTower : MonoBehaviour
 
             towerMenu.SetActive(false);
             gameManager.SetInventario(tipoRecurso, custoTorre * -1);
+            uiManager.AtualizarUI();
             state = TOWERSTATE.CONSTRUIDO;
             towerData = gameManager.GetTower(nameTower);
             tower = Instantiate(towerData.gameModelTower, tower.transform.position, tower.transform.rotation);
@@ -88,6 +91,7 @@ public class PlaceTower : MonoBehaviour
             Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
             Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(0).rotation);
             Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(0).rotation);
+
 
         }
 

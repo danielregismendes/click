@@ -234,6 +234,9 @@ MonoBehaviour:
   collisionSound: {fileID: 0}
   deathSound: {fileID: 0}
   currentHealth: 0
+  danoZigurate: 5
+  itemDrop: Corpo Vermelho
+  qtdDrop: 1
 --- !u!1 &4600187568336653791
 GameObject:
   m_ObjectHideFlags: 0

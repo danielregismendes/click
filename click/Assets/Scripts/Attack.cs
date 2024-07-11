@@ -9,31 +9,33 @@ public class Attack : MonoBehaviour
     private float timer;
     private bool canHit = true;
 
-    private void Update()
+
+
+    private void OnTriggerStay(Collider other)
     {
         
+        Enemy[] enemy = other.GetComponents<Enemy>();
+
         if (!canHit)
         {
-            timer += 1*Time.deltaTime;
+            timer += 1 * Time.deltaTime;
         }
 
-        if(!canHit & timer > atkSpeed)
+        if (!canHit & timer > atkSpeed)
         {
             timer = 0;
             canHit = true;
         }
 
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
-        Enemy enemy = other.GetComponent<Enemy>();
-
-        if (enemy != null & canHit)
+        if (enemy[0] != null & canHit)
         {
+            for (int i = 0; i < enemy.Length; i++)
+            {
 
-            enemy.TookDamage(atkDamage);
+                enemy[i].TookDamage(atkDamage);
+
+            }
+            
             canHit = false;
 
         }

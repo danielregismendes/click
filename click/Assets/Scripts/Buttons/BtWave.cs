@@ -7,9 +7,14 @@ public class BtWave : MonoBehaviour
     public WaveSpawn waveSpawn;
 
 
+
+
+
     public void NextWave()
     {
+
         waveSpawn.NextSpawn();
+        
     }
 
 }
