@@ -19,4 +19,4 @@ MonoBehaviour:
   atkSpeed: 0.3
   atkDamage: 1
   tipoRecurso: Corpo Amarelo
-  qtdRecurso: 10
+  qtdRecurso: 4
