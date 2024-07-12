@@ -41,4 +41,19 @@ public class UIManager : MonoBehaviour
 
     }
 
+
+    public void GameOver()
+    {
+
+        gameManager.GameOver();
+
+    }
+
+    public void Win()
+    {
+
+        gameManager.Win();
+
+    }
+
 }

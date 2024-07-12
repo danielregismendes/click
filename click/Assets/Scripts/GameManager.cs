@@ -1,7 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public enum STAGEFASE
+{
+    MENU,
+    FASE,
+    CLEARFASE,
+    GAMEOVER,
+}
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public int maxHpZigurate;
     private int currentHpZigurate;
+    private Inventario[] inventarioInicial;
+    private STAGEFASE stage = STAGEFASE.MENU;
 
     [Header("Lista de Torres")]
     public TowerList[] torres;
@@ -22,6 +34,8 @@ public class GameManager : MonoBehaviour
     {
 
         currentHpZigurate = maxHpZigurate;
+
+        inventarioInicial = inventario;
 
         if (gameManager == null)
         {
@@ -93,11 +107,41 @@ public class GameManager : MonoBehaviour
     public void SetHpZigurate(int damage)
     {
 
-        currentHpZigurate -= damage;
+        Animator animCanvas;
+
+        animCanvas = FindFirstObjectByType<UIManager>().GetComponent<Animator>();
+
+        if (stage != STAGEFASE.GAMEOVER & (currentHpZigurate -= damage) <= 0)
+        {
+
+            stage = STAGEFASE.GAMEOVER;
+            animCanvas.SetTrigger("Game Over");
+
+        }
+        else
+        {
+
+            currentHpZigurate -= damage;
+
+        }
 
     }
 
+    public void GameOver()
+    {
 
+        inventario = inventarioInicial;
+        SceneManager.LoadScene(0);
+
+    }
+
+    public void Win()
+    {
+
+        inventario = inventarioInicial;
+        SceneManager.LoadScene(0);
+
+    }
 
 }
 

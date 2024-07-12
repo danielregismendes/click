@@ -18,6 +18,7 @@ public class WaveSpawn : MonoBehaviour
     private float timer = 0;
     private float timerSpawn = 0;
     private UIManager uiManager;
+    private bool win = false;
 
     private void Start()
     {
@@ -28,9 +29,11 @@ public class WaveSpawn : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Order: "+waveOrder);
+        Debug.Log("Tamanho: "+waves.Length);
+        Debug.Log("Atual: "+currentWave);
 
-        
-        SpawnWave();
+        if (!win) SpawnWave();
 
     }
 
@@ -49,7 +52,7 @@ public class WaveSpawn : MonoBehaviour
 
     void SpawnWave()
     {
-        if (currentWave <= waveOrder)
+        if (currentWave==0 || currentWave < waveOrder)
         {
 
             if (currentSpawn + 1 <= waves[currentWave].spawns.Length)
@@ -101,6 +104,28 @@ public class WaveSpawn : MonoBehaviour
                 currentWave++;
 
             }
+
+        }
+        else
+        {
+
+            if(waveOrder == waves.Length)
+            {
+
+                Enemy enemy;
+                enemy = FindAnyObjectByType<Enemy>();
+
+                if (enemy == null)
+                {
+
+                    Animator animCanvas = uiManager.GetComponent<Animator>();                    
+                    animCanvas.SetTrigger("Win");
+                    win = true;
+
+                }
+
+            }
+
 
         }
 
