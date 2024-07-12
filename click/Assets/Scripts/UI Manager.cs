@@ -8,13 +8,13 @@ public class UIManager : MonoBehaviour
 {
 
     [Header("UI Recursos")]
-    public TextMeshProUGUI recVermelho;
-    public TextMeshProUGUI recAzul;
-    public TextMeshProUGUI recAmarelo;
+    public Text recVermelho;
+    public Text recAzul;
+    public Text recAmarelo;
 
     [Header("UI Gameplay")]
     public TextMeshProUGUI hpZigurate;
-    public TextMeshProUGUI wave;
+    public Text wave;
 
     private GameManager gameManager;
     private WaveSpawn waveSpawn;
