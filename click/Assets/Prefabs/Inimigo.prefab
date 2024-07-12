@@ -208,7 +208,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -234,7 +234,7 @@ MonoBehaviour:
   collisionSound: {fileID: 0}
   deathSound: {fileID: 0}
   currentHealth: 0
-  danoZigurate: 5
+  danoZigurate: 1
   itemDrop: Corpo Vermelho
   qtdDrop: 1
 --- !u!1 &4600187568336653791

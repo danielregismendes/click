@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f502a2403bfd7ab4291415793e7211dd
+guid: 8ec2c3ff3ef9de84dbc8ace2cb2fee41
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Merged_MariaBarraqueira1_3
-    second: {fileID: 2100000, guid: ba92b392691425845ae8661c5b87aa5b, type: 2}
+    second: {fileID: 2100000, guid: 7bea3e43b82faae4b89f31d8be645fd5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
