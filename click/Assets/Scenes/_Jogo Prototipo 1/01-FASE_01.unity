@@ -6716,6 +6716,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3275851503748008545, guid: c625f9863400b62459c085de39a5841f, type: 3}
   m_PrefabInstance: {fileID: 759771487}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &764369107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 764369109}
+  - component: {fileID: 764369108}
+  m_Layer: 0
+  m_Name: Camera Rig Base
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &764369108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764369107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1d90e51d37ade4e830a656c3d4a7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 50
+  acceleration: 10
+  damping: 15
+  stepSize: 500
+  zoomDampening: 7.5
+  minHeight: 25
+  maxHeight: 120
+  zoomSpeed: 200
+  maxRotationSpeed: 0.3
+  edgeTolerance: 0.05
+--- !u!4 &764369109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 764369107}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1434622125}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &766796175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11156,13 +11211,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434622122}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.34223923, y: -0.61444896, z: 0.33550352, w: 0.6267075}
-  m_LocalPosition: {x: 83.88885, y: 131.93027, z: -22.985312}
+  m_LocalRotation: {x: 0.27059805, y: -0.6532815, z: 0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: 100, y: 90, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_Father: {fileID: 764369109}
+  m_LocalEulerAnglesHint: {x: 45, y: -90, z: 0}
 --- !u!114 &1434622126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15778,7 +15833,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1434622125}
+  - {fileID: 764369109}
   - {fileID: 2124688663}
   - {fileID: 1420022189}
   - {fileID: 949666791}

@@ -29,9 +29,6 @@ public class WaveSpawn : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Order: "+waveOrder);
-        Debug.Log("Tamanho: "+waves.Length);
-        Debug.Log("Atual: "+currentWave);
 
         if (!win) SpawnWave();
 
