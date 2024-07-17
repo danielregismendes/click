@@ -18,6 +18,7 @@ public class PlaceTower : MonoBehaviour
     public GameObject towerMenu;
     public TOWERSTATE state = TOWERSTATE.VAZIO;
     public TowerData towerData = null;
+    public bool viewAreaAtk = false;
 
     private GameManager gameManager;
     private Attack attack;
@@ -87,6 +88,8 @@ public class PlaceTower : MonoBehaviour
             tower = Instantiate(towerData.gameModelTower, tower.transform.position, tower.transform.rotation);
             tower.SetActive(true);
             troopArea.SetActive(true);
+            troopArea.GetComponent<SphereCollider>().radius = towerData.atkRaio;
+            DrawAreaAtk();
             attack.SetAtk(towerData.atkSpeed, towerData.atkDamage);
             Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
             Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(0).rotation);
@@ -94,6 +97,14 @@ public class PlaceTower : MonoBehaviour
 
 
         }
+
+    }
+
+    private void DrawAreaAtk()
+    {        
+            
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(troopArea.transform.position, towerData.atkRaio);            
 
     }
 

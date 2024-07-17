@@ -178,8 +178,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8868502042230064847}
-  - component: {fileID: 2397356840965587932}
   - component: {fileID: 4293734462672847997}
+  - component: {fileID: 1668449293235449350}
   m_Layer: 0
   m_Name: Troop Area
   m_TagString: Untagged
@@ -205,8 +205,20 @@ Transform:
   - {fileID: 3594146869303170872}
   m_Father: {fileID: 6175667939783885021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2397356840965587932
-BoxCollider:
+--- !u!114 &4293734462672847997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136411535112437442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b0592ec239b394f83d2b091ab8bc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1668449293235449350
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -224,20 +236,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 15.072205, y: 5.285788, z: 24.074596}
-  m_Center: {x: -2.5140133, y: -2.4762733, z: 1.2880268}
---- !u!114 &4293734462672847997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3136411535112437442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7b0592ec239b394f83d2b091ab8bc72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3484833722571196398
 GameObject:
   m_ObjectHideFlags: 0
