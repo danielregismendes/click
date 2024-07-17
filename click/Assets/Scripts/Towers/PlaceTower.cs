@@ -89,7 +89,7 @@ public class PlaceTower : MonoBehaviour
             tower.SetActive(true);
             troopArea.SetActive(true);
             troopArea.GetComponent<SphereCollider>().radius = towerData.atkRaio;
-            DrawAreaAtk();
+            //DrawAreaAtk();
             attack.SetAtk(towerData.atkSpeed, towerData.atkDamage);
             Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
             Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(0).rotation);
@@ -100,12 +100,17 @@ public class PlaceTower : MonoBehaviour
 
     }
 
-    private void DrawAreaAtk()
-    {        
-            
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(troopArea.transform.position, towerData.atkRaio);            
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if(viewAreaAtk)
+        {
+
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(troopArea.transform.position, towerData.atkRaio);
+
+        }         
 
     }
-
+#endif
 }

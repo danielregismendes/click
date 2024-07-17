@@ -1197,6 +1197,10 @@ PrefabInstance:
       propertyPath: towerMenu
       value: 
       objectReference: {fileID: 1228736086}
+    - target: {fileID: 5806643868596110633, guid: 15463235e57888040bded6391e9df6cb, type: 3}
+      propertyPath: viewAreaAtk
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6175667939783885021, guid: 15463235e57888040bded6391e9df6cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.87
@@ -1705,6 +1709,10 @@ PrefabInstance:
       propertyPath: towerMenu
       value: 
       objectReference: {fileID: 1228736086}
+    - target: {fileID: 5806643868596110633, guid: 15463235e57888040bded6391e9df6cb, type: 3}
+      propertyPath: viewAreaAtk
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6175667939783885021, guid: 15463235e57888040bded6391e9df6cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.6
