@@ -16,6 +16,7 @@ public class PlaceTower : MonoBehaviour
     public GameObject tower;
     public GameObject troopArea;
     public GameObject towerMenu;
+    public GameObject destroyMenu;
     public TOWERSTATE state = TOWERSTATE.VAZIO;
     public TowerData towerData = null;
     public bool viewAreaAtk = false;
@@ -24,6 +25,10 @@ public class PlaceTower : MonoBehaviour
     private Attack attack;
     private UIManager uiManager;
 
+    private GameObject t1;
+    private GameObject t2;
+    private GameObject t3;
+
 
     private void Start()
     {
@@ -31,14 +36,14 @@ public class PlaceTower : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
         attack = troopArea.GetComponent<Attack>();
         uiManager = FindFirstObjectByType<UIManager>();
-
     }
 
     void Update()
     {
+
         switch (state)
 
-        {
+        {           
 
             case TOWERSTATE.VAZIO:
 
@@ -57,6 +62,18 @@ public class PlaceTower : MonoBehaviour
                 break;
 
             case TOWERSTATE.CONSTRUIDO:
+
+                if (select.active & Input.GetMouseButtonDown(0))
+                {
+                    if (!destroyMenu.active)
+                    {
+                        destroyMenu.SetActive(true);
+                        destroyMenu.GetComponent<BtTower>().SetPlaceTower(gameObject);
+                        FindAnyObjectByType<MouseSelect>().SetSelectTower(false);
+                    }
+
+                }
+
                 break;
 
         }
@@ -70,6 +87,16 @@ public class PlaceTower : MonoBehaviour
 
     }
 
+    public void DestroyTower()
+    {
+        
+        Destroy(t1);
+        Destroy(t2);
+        Destroy(t3);
+        tower.SetActive(false);
+        troopArea.SetActive(false);
+        state = TOWERSTATE.VAZIO;
+    }
 
     public void BuildingTower(string nameTower)
     {
@@ -93,9 +120,9 @@ public class PlaceTower : MonoBehaviour
             troopArea.GetComponent<SphereCollider>().radius = towerData.atkRaio;
             //DrawAreaAtk();
             attack.SetAtk(towerData.atkSpeed, towerData.atkDamage);
-            Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
-            Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(0).rotation);
-            Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(0).rotation);
+            t1 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
+            t2 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(0).rotation);
+            t3 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(0).rotation);
 
 
         }

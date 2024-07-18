@@ -53,8 +53,10 @@ MonoBehaviour:
   tower: {fileID: 1747553392940779686}
   troopArea: {fileID: 3136411535112437442}
   towerMenu: {fileID: 0}
+  destroyMenu: {fileID: 0}
   state: 0
   towerData: {fileID: 0}
+  viewAreaAtk: 0
 --- !u!135 &5670213749529672551
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -74,7 +76,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 6.8917465
+  m_Radius: 7
   m_Center: {x: 4.053343, y: 2.5325143, z: 0}
 --- !u!1 &1603764241352332195
 GameObject:
@@ -231,8 +233,8 @@ SphereCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_LayerOverridePriority: 1
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

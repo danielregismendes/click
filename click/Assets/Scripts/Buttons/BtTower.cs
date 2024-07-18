@@ -14,6 +14,15 @@ public class BtTower : MonoBehaviour
 
     }
 
+    public void DestroyTower()
+    {
+
+        FindAnyObjectByType<MouseSelect>().SetSelectTower(true);
+        placeTower.DestroyTower();
+        gameObject.active = false;
+
+    }
+
     public void SetPlaceTower(GameObject placeTowerSet)
     {
 

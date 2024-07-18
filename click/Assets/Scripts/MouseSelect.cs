@@ -25,9 +25,9 @@ public class MouseSelect : MonoBehaviour
                     if (placeTower.transform != hit.transform)
                     {
                         placeTower.Select(false);
+
                     }
                 }
-
 
                 placeTower = hit.transform.GetComponent<PlaceTower>();
                 if (placeTower != null)
@@ -40,6 +40,7 @@ public class MouseSelect : MonoBehaviour
                     {
 
                         placeTower.Select(false);
+                        
 
                     }
 

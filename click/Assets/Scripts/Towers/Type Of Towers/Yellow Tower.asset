@@ -18,6 +18,6 @@ MonoBehaviour:
   gameModelTroop: {fileID: 6840000713685518651, guid: 0bee20f56fe677741b5a6a570d278575, type: 3}
   atkSpeed: 0.3
   atkDamage: 1
-  atkRaio: 20
+  atkRaio: 10
   tipoRecurso: Corpo Amarelo
   qtdRecurso: 4
