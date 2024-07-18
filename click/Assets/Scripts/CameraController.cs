@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
@@ -17,7 +18,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     private float damping = 15f;
 
-    [Header("Horizontal Translation")]
+    [Header("Vertical Translation")]
     [SerializeField]
     private float stepSize = 2f;
     [SerializeField]
@@ -37,6 +38,8 @@ public class CameraMovement : MonoBehaviour
     [SerializeField]
     [Range(0f, 0.1f)]
     private float edgeTolerance = 0.05f;
+    public Vector3 maxXYZ = new Vector3(200, 0, 260);
+    public Vector3 minXYZ = new Vector3(-140, 0, -280);
 
     private Vector3 targetPosition;
 
@@ -118,9 +121,33 @@ public class CameraMovement : MonoBehaviour
         if (plane.Raycast(ray, out float distance))
         {
             if (Mouse.current.rightButton.wasPressedThisFrame)
+            {
                 startDrag = ray.GetPoint(distance);
+            }                
             else
+            {
+
                 targetPosition += startDrag - ray.GetPoint(distance);
+
+                if(this.transform.position.x  > maxXYZ.x && targetPosition.x > 0)
+                {
+                    targetPosition = new Vector3(0, targetPosition.y, targetPosition.z);                    
+                }
+                if (this.transform.position.x < minXYZ.x && targetPosition.x < 0)
+                {
+                    targetPosition = new Vector3(0, targetPosition.y, targetPosition.z);
+                }
+                if (this.transform.position.z > maxXYZ.z && targetPosition.z > 0)
+                {
+                    targetPosition = new Vector3(targetPosition.x , targetPosition.y, 0);
+                }
+                if (this.transform.position.z < minXYZ.z && targetPosition.z < 0)
+                {
+                    targetPosition = new Vector3(targetPosition.x, targetPosition.y, 0);
+                }
+
+            }                
+                
         }
     }
 
@@ -136,13 +163,36 @@ public class CameraMovement : MonoBehaviour
         else if (mousePosition.x > (1f - edgeTolerance) * Screen.width)
             moveDirection += GetCameraRight();
 
+        if (this.transform.localPosition.z > maxXYZ.z && moveDirection.z > 0)
+        {
+            moveDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
+        }
+
+        if (this.transform.localPosition.z < minXYZ.z && moveDirection.z < 0)
+        {
+            moveDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
+        }
+
 
         if (mousePosition.y < edgeTolerance * Screen.height)
             moveDirection += -GetCameraForward();
         else if (mousePosition.y > (1f - edgeTolerance) * Screen.height)
             moveDirection += GetCameraForward();
 
+
+        if (this.transform.localPosition.x > maxXYZ.x && moveDirection.x > 0)
+        {
+            moveDirection = new Vector3(0, moveDirection.y, moveDirection.z);
+        }
+
+        if (this.transform.localPosition.x < minXYZ.x && moveDirection.x < 0)
+        {
+            moveDirection = new Vector3(0, moveDirection.y, moveDirection.z);
+        }
+
+
         targetPosition += moveDirection;
+
     }
 
     private void UpdateBasePosition()
@@ -205,6 +255,8 @@ public class CameraMovement : MonoBehaviour
         Vector3 forward = cameraTransform.forward;
         forward.y = 0f;
         return forward;
+        
+            
     }
 
 
@@ -213,5 +265,6 @@ public class CameraMovement : MonoBehaviour
         Vector3 right = cameraTransform.right;
         right.y = 0f;
         return right;
+                    
     }
 }
