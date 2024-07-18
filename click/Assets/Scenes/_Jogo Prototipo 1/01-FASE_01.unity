@@ -6755,6 +6755,8 @@ MonoBehaviour:
   zoomSpeed: 200
   maxRotationSpeed: 0.3
   edgeTolerance: 0.05
+  maxXYZ: {x: 200, y: 0, z: 260}
+  minXYZ: {x: -140, y: 0, z: -280}
 --- !u!4 &764369109
 Transform:
   m_ObjectHideFlags: 0
@@ -10399,6 +10401,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9190809948646583511, guid: 8b0d73399a870094e8f4f01efa960d30, type: 3}
   m_PrefabInstance: {fileID: 2124688663}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1228736087 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3501396078390621695, guid: 8b0d73399a870094e8f4f01efa960d30, type: 3}
+  m_PrefabInstance: {fileID: 2124688663}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228736086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b468465e21cc046b2a09c4a94188b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1230111328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15330,6 +15343,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a1a2e0262fd5ac24ea8717611e1e0cad, type: 3}
+    - target: {fileID: 8319800992187024106, guid: 8b0d73399a870094e8f4f01efa960d30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319800992187024106, guid: 8b0d73399a870094e8f4f01efa960d30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1228736087}
+    - target: {fileID: 8319800992187024106, guid: 8b0d73399a870094e8f4f01efa960d30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319800992187024106, guid: 8b0d73399a870094e8f4f01efa960d30, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BtTower, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8948426285756585063, guid: 8b0d73399a870094e8f4f01efa960d30, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 781.5

@@ -47,6 +47,7 @@ public class PlaceTower : MonoBehaviour
                     if (!towerMenu.active)
                     {
                         towerMenu.SetActive(true);
+                        FindAnyObjectByType<MouseSelect>().SetSelectTower(false);
                     }
 
                     towerMenu.GetComponent<BtTower>().SetPlaceTower(gameObject);
@@ -81,6 +82,7 @@ public class PlaceTower : MonoBehaviour
         {
 
             towerMenu.SetActive(false);
+            FindAnyObjectByType<MouseSelect>().SetSelectTower(true);
             gameManager.SetInventario(tipoRecurso, custoTorre * -1);
             uiManager.AtualizarUI();
             state = TOWERSTATE.CONSTRUIDO;

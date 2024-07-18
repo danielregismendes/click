@@ -21,4 +21,11 @@ public class BtTower : MonoBehaviour
 
     }
 
+    public void CloseMenu()
+    {
+        FindAnyObjectByType<MouseSelect>().SetSelectTower(true);
+        gameObject.active = false;
+        
+    }
+
 }
