@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
         animCanvas = FindFirstObjectByType<UIManager>().GetComponent<Animator>();
 
-        if (stage != STAGEFASE.GAMEOVER & (currentHpZigurate -= damage) <= 0)
+        if (stage != STAGEFASE.GAMEOVER && currentHpZigurate - damage <= 0)
         {
 
             stage = STAGEFASE.GAMEOVER;

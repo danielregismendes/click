@@ -66,11 +66,9 @@ public class Enemy : MonoBehaviour {
 								
 			if(rotaCount >= rota.Length)
 			{
-
 				gameManager.SetHpZigurate(danoZigurate);
                 uiManager.AtualizarUI();
                 DisableEnemy();
-
             }
 			else
 			{

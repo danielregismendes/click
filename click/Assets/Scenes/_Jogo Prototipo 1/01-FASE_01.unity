@@ -6922,8 +6922,8 @@ MonoBehaviour:
   damping: 15
   stepSize: 500
   zoomDampening: 7.5
-  minHeight: 25
-  maxHeight: 120
+  minHeight: -40
+  maxHeight: 100
   zoomSpeed: 200
   maxRotationSpeed: 0.3
   edgeTolerance: 0.05
@@ -6938,7 +6938,7 @@ Transform:
   m_GameObject: {fileID: 764369107}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 100, y: 90, z: -50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11476,7 +11476,7 @@ Transform:
   m_GameObject: {fileID: 1434622122}
   serializedVersion: 2
   m_LocalRotation: {x: 0.27059805, y: -0.6532815, z: 0.27059805, w: 0.6532815}
-  m_LocalPosition: {x: 100, y: 90, z: -50}
+  m_LocalPosition: {x: 10, y: 10, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
