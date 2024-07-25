@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 25
+  maxHealth: 40
   collisionSound: {fileID: 0}
   deathSound: {fileID: 0}
   currentHealth: 0

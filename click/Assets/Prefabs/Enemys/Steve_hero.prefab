@@ -203,13 +203,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 80
+  maxHealth: 140
   collisionSound: {fileID: 0}
   deathSound: {fileID: 0}
   currentHealth: 0
-  danoZigurate: 1
+  danoZigurate: 10
   itemDrop: Corpo Amarelo
-  qtdDrop: 1
+  qtdDrop: 5
 --- !u!54 &3481241194365404438
 Rigidbody:
   m_ObjectHideFlags: 0
