@@ -4,7 +4,9 @@ using UnityEngine;
 
 public enum NodeType
 {
-    Vila,
+    VilaVermelhaAzul,
+    VilaVermelhaAmarelo,
+    VilaAmareloAzul,
     Tesouro,
     Evento,
     Boss
@@ -15,5 +17,6 @@ public class NodeConfig : ScriptableObject
 {
     public Sprite sprite;
     public NodeType nodeType;
+
 
 }
