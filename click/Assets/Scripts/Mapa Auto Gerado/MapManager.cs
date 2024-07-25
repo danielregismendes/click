@@ -33,6 +33,8 @@ public class MapManager : MonoBehaviour
 
         Debug.Log(map);
 
+        map = ConectionPathGenerator(map);
+
     }
 
 
@@ -155,6 +157,144 @@ public class MapManager : MonoBehaviour
 
     }
 
+    public Map ConectionPathGenerator(Map m)
+    {
+        int qtdPaths = 0;
+        int qtdPathsForward = 0;
+        List<int> PathsForward = new List<int>();
+        List<int> Paths = new List<int>();
+        int qtdConetionPathTotal = 0;
+        int qtdConetionPath = 0;
+        int qtdConetionPathAdd = 0;
+        int pathSobra = 0;
+
+        for (int iLayers = 0; iLayers < m.layers.Count; iLayers++)
+        {
+
+
+
+            for(int iPaths = 0; iPaths < m.layers[iLayers].paths.Count; iPaths++)
+            {
+
+                if(m.layers[iLayers].paths[iPaths].node != null)
+                {
+
+                    qtdPaths++;
+                    Paths.Add(iPaths);
+
+                }
+
+            }
+
+            if (qtdPaths == 1)
+            {
+
+                for (int iPaths = 0; iPaths < m.layers[iLayers].paths.Count; iPaths++)
+                {
+
+                    if (m.layers[iLayers].paths[iPaths].node != null && iLayers + 1 < m.layers.Count)
+                    {
+
+                        for (int iPathsForward = 0; iPathsForward < m.layers[iLayers + 1].paths.Count; iPathsForward++)
+                        {
+
+                            if (m.layers[iLayers + 1].paths[iPathsForward].node != null)
+                            {
+
+                                m.layers[iLayers].paths[iPaths].iConectPath.Add(iPathsForward);
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+            else
+            {
+
+                pathSobra = GerarRandomInt(0, qtdPaths - 1);                
+
+                for (int iPaths = 0; iPaths < m.layers[iLayers].paths.Count; iPaths++)
+                {
+
+                    if (m.layers[iLayers].paths[iPaths].node != null && iLayers + 1 < m.layers.Count)
+                    {
+
+                        for (int iPathsForward = 0; iPathsForward < m.layers[iLayers + 1].paths.Count; iPathsForward++)
+                        {
+
+                            if (m.layers[iLayers + 1].paths[iPathsForward].node != null)
+                            {
+
+                                qtdPathsForward++;
+                                PathsForward.Add(iPathsForward);
+
+                            }
+
+                        }
+
+                        if(PathsForward.Count > qtdPaths)
+                        {
+
+                            qtdConetionPathTotal = PathsForward.Count;
+
+                        }
+                        else
+                        {
+
+                            qtdConetionPathTotal = qtdPaths;
+
+                        }
+
+                        qtdConetionPath = (qtdConetionPathTotal - (qtdConetionPathTotal % qtdPaths)) / qtdPaths;
+
+                        if (Paths[pathSobra] == iPaths)
+                        {
+                            qtdConetionPath = qtdConetionPath + (qtdConetionPathTotal % qtdPaths);
+                        }
+
+                        for (int iQtdPaths = 0; iQtdPaths < qtdConetionPath; iQtdPaths++)
+                        {
+
+                            if(iQtdPaths + qtdConetionPathAdd < PathsForward.Count)
+                            {
+
+                                m.layers[iLayers].paths[iPaths].iConectPath.Add(PathsForward[iQtdPaths + qtdConetionPathAdd]);
+                                qtdConetionPathAdd++;
+
+                            }
+                            else
+                            {
+
+                                m.layers[iLayers].paths[iPaths].iConectPath.Add(PathsForward[PathsForward.Count-1]);
+
+                            }
+
+
+                        }                        
+
+                    }
+
+                    PathsForward.Clear();
+
+                }
+
+                qtdConetionPathAdd = 0;
+
+            }
+
+            qtdPaths = 0;            
+            Paths.Clear();
+
+        }
+
+        return m;
+
+    }
+
     public int GerarRandomInt(int min, int max)
     {
 
@@ -177,7 +317,7 @@ public class Path
 
     public NodeConfig node;
     public Vector2 position;
-
+    public List<int> iConectPath = new List<int>();
 
 }
 
