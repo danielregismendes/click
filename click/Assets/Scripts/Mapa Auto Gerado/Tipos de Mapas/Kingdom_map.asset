@@ -88,5 +88,5 @@ MonoBehaviour:
     - node: {fileID: 11400000, guid: e8b35469f31bfb64f96c5e8bfa05d02f, type: 2}
       spawnChance: 100
     randomPosition: 1
-    minNodes: 3
-    maxNodes: 4
+    minNodes: 1
+    maxNodes: 1
