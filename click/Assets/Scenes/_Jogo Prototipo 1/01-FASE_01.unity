@@ -1211,7 +1211,7 @@ PrefabInstance:
       objectReference: {fileID: 1993061732}
     - target: {fileID: 5806643868596110633, guid: 15463235e57888040bded6391e9df6cb, type: 3}
       propertyPath: viewAreaAtk
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6042582248505159842, guid: 15463235e57888040bded6391e9df6cb, type: 3}
       propertyPath: m_IsActive
@@ -1739,7 +1739,7 @@ PrefabInstance:
       objectReference: {fileID: 1993061732}
     - target: {fileID: 5806643868596110633, guid: 15463235e57888040bded6391e9df6cb, type: 3}
       propertyPath: viewAreaAtk
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6175667939783885021, guid: 15463235e57888040bded6391e9df6cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5777,6 +5777,10 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 1993061732}
+    - target: {fileID: 5806643868596110633, guid: 15463235e57888040bded6391e9df6cb, type: 3}
+      propertyPath: viewAreaAtk
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6175667939783885021, guid: 15463235e57888040bded6391e9df6cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.1
