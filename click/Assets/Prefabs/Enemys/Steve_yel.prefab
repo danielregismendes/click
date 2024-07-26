@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6759999714666530532}
   - component: {fileID: 3481241194365404438}
   m_Layer: 6
-  m_Name: Yellow
+  m_Name: Steve_yel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 15
+  maxHealth: 30
   collisionSound: {fileID: 0}
   deathSound: {fileID: 0}
   currentHealth: 0

@@ -16,8 +16,8 @@ MonoBehaviour:
   towerDescription: Blue Tower Bem Pika
   gameModelTower: {fileID: 4370247311566578446, guid: 1d0460ad6fd0508498b0fae9c5743a47, type: 3}
   gameModelTroop: {fileID: 6840000713685518651, guid: df2eca715b9d8454d9e886ae88290551, type: 3}
-  atkSpeed: 0.4
-  atkDamage: 3
-  atkRaio: 10
+  atkSpeed: 0.8
+  atkDamage: 4
+  atkRaio: 20
   tipoRecurso: Corpo Azul
   qtdRecurso: 10
