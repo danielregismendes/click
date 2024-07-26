@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512aa9944c3c70646836acb1db24bfe3, type: 3}
   m_Name: VilaVermelhaAzul
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 68531f483e288c1488039d57eea4a6b5, type: 3}
+  sprite: {fileID: 21300000, guid: 1bbc387f3e0ca5f468deba50eb82f5a0, type: 3}
   nodeType: 0

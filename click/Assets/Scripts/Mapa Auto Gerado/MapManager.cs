@@ -21,8 +21,13 @@ public class MapManager : MonoBehaviour
     public MapOrientation orientation;
     public MapConfig mapConfig;
     public GameObject nodePrefab;
+    public GameObject linePrefab;
     public Sprite background;
+    public Vector2 nodeArea;
     public Map map;
+
+    private GameObject firstParent;
+    private GameObject mapParent;
 
     private void Start()
     {
@@ -31,9 +36,7 @@ public class MapManager : MonoBehaviour
 
         map = MapGenerator(mapConfig);
 
-        Debug.Log(map);
-
-        map = ConectionPathGenerator(map);
+        InstantiateMap(map);
 
     }
 
@@ -141,6 +144,8 @@ public class MapManager : MonoBehaviour
 
                     mapData.layers[iLayers].paths[iPaths].node = node.node;
                     mapData.layers[iLayers].paths[iPaths].position = new Vector2(xPosition, yPosition);
+                    mapData.layers[iLayers].paths[iPaths].mapLayerIndex = iLayers;
+                    mapData.layers[iLayers].paths[iPaths].mapPathIndex = iPaths;
 
                     randPosNode = false;
                     node = null;                    
@@ -152,6 +157,8 @@ public class MapManager : MonoBehaviour
         }
 
         Debug.Log("Depois dos loops");
+
+        mapData = ConectionPathGenerator(mapData);
 
         return mapData;
 
@@ -309,14 +316,108 @@ public class MapManager : MonoBehaviour
 
     }
 
+
+    public void InstantiateMap(Map m)
+    {
+
+        firstParent = new GameObject("Map");
+        mapParent = new GameObject("MapScroll");
+
+        mapParent.transform.SetParent(firstParent.transform);
+
+        for(int iLayers = 0; iLayers < m.layers.Count; iLayers++)
+        {
+
+            for(int iPaths = 0; iPaths < m.layers[iLayers].paths.Count; iPaths++)
+            {
+
+                if (m.layers[iLayers].paths[iPaths].node != null)
+                {
+
+                    float x = iLayers * nodeArea.x;
+                    float y = iPaths * nodeArea.y * -1;
+
+                    InstantiateNode(new Vector2(x, y), m.layers[iLayers].paths[iPaths]) ;
+
+
+                }
+
+            }
+
+        }
+
+        for (int iLayers = 0; iLayers < m.layers.Count; iLayers++)
+        {
+
+            for (int iPaths = 0; iPaths < m.layers[iLayers].paths.Count; iPaths++)
+            {
+
+                if (m.layers[iLayers].paths[iPaths].node != null)
+                {
+                                        
+                    for(int iLines = 0; iLines < m.layers[iLayers].paths[iPaths].iConectPath.Count; iLines++)
+                    {
+
+                        float xOrigem = (iLayers * nodeArea.x) + 
+                            nodePrefab.transform.GetChild(0).transform.position.x +
+                            m.layers[iLayers].paths[iPaths].position.x;
+
+                        float yOrigem = (iPaths * nodeArea.y * -1) + 
+                            nodePrefab.transform.GetChild(0).transform.position.y +
+                            m.layers[iLayers].paths[iPaths].position.y;
+
+                        float xDestino = ((iLayers+1) * nodeArea.x) + 
+                            nodePrefab.transform.GetChild(0).transform.position.x +
+                            m.layers[iLayers+1].paths[m.layers[iLayers].paths[iPaths].iConectPath[iLines]].position.x;
+
+                        float yDestino = (m.layers[iLayers].paths[iPaths].iConectPath[iLines] * nodeArea.y * -1) + 
+                            nodePrefab.transform.GetChild(0).transform.position.y +
+                            m.layers[iLayers + 1].paths[m.layers[iLayers].paths[iPaths].iConectPath[iLines]].position.y;
+
+                        InstantiateLine(new Vector2(xOrigem, yOrigem), new Vector2(xDestino, yDestino));
+
+                    }                    
+
+
+                }
+
+            }
+
+        }
+
+    }
+
+    public void InstantiateNode(Vector2 xY, Path path)
+    {
+
+        GameObject node = Instantiate(nodePrefab, new Vector3(xY.x, xY.y, 0), Quaternion.identity);
+
+        node.GetComponent<NodeManager>().SetPath(path);
+
+        node.transform.SetParent(mapParent.transform);
+
+    }
+
+    public void InstantiateLine(Vector2 origem, Vector2 destino)
+    {
+
+        GameObject line  = Instantiate(linePrefab, new Vector3(origem.x, origem.y, 0), Quaternion.identity);
+
+        line.GetComponent<LineRenderer>().SetPosition(0, new Vector3(origem.x, origem.y, 0));
+        line.GetComponent<LineRenderer>().SetPosition(1, new Vector3(destino.x, destino.y, 0));
+
+    }
+
 }
 
-[Serializable]
+    [Serializable]
 public class Path
 {
 
     public NodeConfig node;
     public Vector2 position;
+    public int mapPathIndex;
+    public int mapLayerIndex;
     public List<int> iConectPath = new List<int>();
 
 }

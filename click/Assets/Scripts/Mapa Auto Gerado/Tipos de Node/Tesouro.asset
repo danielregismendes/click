@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512aa9944c3c70646836acb1db24bfe3, type: 3}
   m_Name: Tesouro
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ff94c9c46a07ce746ae6eb6d8b8fc084, type: 3}
-  nodeType: 1
+  sprite: {fileID: 21300000, guid: de441e91bca4946438ef3aef47480645, type: 3}
+  nodeType: 3

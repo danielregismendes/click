@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512aa9944c3c70646836acb1db24bfe3, type: 3}
   m_Name: Evento
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 8ecae933bc771ee47a074be184d907e5, type: 3}
-  nodeType: 2
+  sprite: {fileID: 21300000, guid: e798c4fc0e654604cac7c3c28b96c9bb, type: 3}
+  nodeType: 4
