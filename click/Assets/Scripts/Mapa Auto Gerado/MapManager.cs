@@ -1,8 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 public enum MapOrientation
@@ -28,6 +32,7 @@ public class MapManager : MonoBehaviour
 
     private GameObject firstParent;
     private GameObject mapParent;
+    private GameObject line;
 
     private void Start()
     {
@@ -334,12 +339,18 @@ public class MapManager : MonoBehaviour
                 if (m.layers[iLayers].paths[iPaths].node != null)
                 {
 
+                    if(iLayers == 0)
+                    {
+
+                        m.layers[iLayers].paths[iPaths].status = StatusPath.open;
+
+                    }
+
                     float x = iLayers * nodeArea.x;
                     float y = iPaths * nodeArea.y * -1;
 
-                    InstantiateNode(new Vector2(x, y), m.layers[iLayers].paths[iPaths]) ;
-
-
+                    m.layers[iLayers].paths[iPaths].gameObject = InstantiateNode(new Vector2(x, y), m.layers[iLayers].paths[iPaths]) ;
+                                        
                 }
 
             }
@@ -376,8 +387,9 @@ public class MapManager : MonoBehaviour
 
                         InstantiateLine(new Vector2(xOrigem, yOrigem), new Vector2(xDestino, yDestino));
 
-                    }                    
+                        m.layers[iLayers].paths[iPaths].conectPath.Add(line);
 
+                    }           
 
                 }
 
@@ -387,7 +399,7 @@ public class MapManager : MonoBehaviour
 
     }
 
-    public void InstantiateNode(Vector2 xY, Path path)
+    public GameObject InstantiateNode(Vector2 xY, Path path)
     {
 
         GameObject node = Instantiate(nodePrefab, new Vector3(xY.x, xY.y, 0), Quaternion.identity);
@@ -396,29 +408,84 @@ public class MapManager : MonoBehaviour
 
         node.transform.SetParent(mapParent.transform);
 
+        return node;
+
     }
 
     public void InstantiateLine(Vector2 origem, Vector2 destino)
     {
 
-        GameObject line  = Instantiate(linePrefab, new Vector3(origem.x, origem.y, 0), Quaternion.identity);
+        line  = Instantiate(linePrefab, new Vector3(origem.x, origem.y, 0), Quaternion.identity);
 
         line.GetComponent<LineRenderer>().SetPosition(0, new Vector3(origem.x, origem.y, 0));
         line.GetComponent<LineRenderer>().SetPosition(1, new Vector3(destino.x, destino.y, 0));
+
+        line.transform.SetParent(mapParent.transform);        
+
+    }
+
+    public void MapProgress(Path path)
+    {
+
+        for(int iPath = 0; iPath < map.layers[path.mapLayerIndex].paths.Count; iPath++)
+        {
+
+            if (map.layers[path.mapLayerIndex].paths[iPath].gameObject != null)
+            {
+
+                if(iPath == path.mapPathIndex)
+                {
+
+                    map.layers[path.mapLayerIndex].paths[iPath].status = StatusPath.visited;
+                    map.layers[path.mapLayerIndex].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = StatusPath.visited;
+
+                }
+                else
+                {
+
+                    map.layers[path.mapLayerIndex].paths[iPath].status = StatusPath.close;
+                    map.layers[path.mapLayerIndex].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = StatusPath.close;
+
+                }
+
+            }
+
+        }
+
+        for (int iPath = 0; iPath < map.layers[path.mapLayerIndex + 1].paths.Count; iPath++)
+        {
+
+            if (map.layers[path.mapLayerIndex + 1].paths[iPath] != null)
+            {
+
+                if (path.iConectPath.Contains(iPath))
+                {
+
+                    map.layers[path.mapLayerIndex + 1].paths[iPath].status = StatusPath.open;
+                    map.layers[path.mapLayerIndex + 1].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = StatusPath.open;
+
+                }
+
+            }
+
+        }
 
     }
 
 }
 
-    [Serializable]
+[Serializable]
 public class Path
 {
 
+    public GameObject gameObject;
+    public StatusPath status = StatusPath.close;
     public NodeConfig node;
     public Vector2 position;
     public int mapPathIndex;
     public int mapLayerIndex;
     public List<int> iConectPath = new List<int>();
+    public List<GameObject> conectPath = new List<GameObject>();
 
 }
 

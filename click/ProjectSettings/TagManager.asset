@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Node
+    uniqueID: 485112827
+    locked: 0
+  - name: Line
+    uniqueID: 3104093431
+    locked: 0
