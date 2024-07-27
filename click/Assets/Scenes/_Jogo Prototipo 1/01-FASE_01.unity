@@ -11498,6 +11498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2db7aa8f834cc429396d392aa2ba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: 2
   maxDistance: 1000
 --- !u!1001 &1437773043
 PrefabInstance:

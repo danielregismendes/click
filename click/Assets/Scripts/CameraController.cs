@@ -163,6 +163,11 @@ public class CameraMovement : MonoBehaviour
         else if (mousePosition.x > (1f - edgeTolerance) * Screen.width)
             moveDirection += GetCameraRight();
 
+        if (mousePosition.y < edgeTolerance * Screen.height)
+            moveDirection += -GetCameraForward();
+        else if (mousePosition.y > (1f - edgeTolerance) * Screen.height)
+            moveDirection += GetCameraForward();
+
         if (this.transform.localPosition.z > maxXYZ.z && moveDirection.z > 0)
         {
             moveDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
@@ -172,12 +177,6 @@ public class CameraMovement : MonoBehaviour
         {
             moveDirection = new Vector3(moveDirection.x, moveDirection.y, 0);
         }
-
-
-        if (mousePosition.y < edgeTolerance * Screen.height)
-            moveDirection += -GetCameraForward();
-        else if (mousePosition.y > (1f - edgeTolerance) * Screen.height)
-            moveDirection += GetCameraForward();
 
 
         if (this.transform.localPosition.x > maxXYZ.x && moveDirection.x > 0)
