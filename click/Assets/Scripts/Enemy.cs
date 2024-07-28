@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour {
     public Transform[] rota;
 	public int rotaCount = 0;
 	public int maxHealth;
-	public AudioClip collisionSound, deathSound;
     public int currentHealth;
 	public int danoZigurate;
 
@@ -25,7 +24,6 @@ public class Enemy : MonoBehaviour {
 	private Rigidbody rb;
 	protected Animator anim;
 	protected bool isDead = false;
-	private AudioSource audioS;
 	private GameManager	gameManager;
 	private UIManager uiManager;
 

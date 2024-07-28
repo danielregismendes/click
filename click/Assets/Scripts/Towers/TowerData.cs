@@ -21,7 +21,7 @@ public class TowerData : ScriptableObject
     public float atkRaio;
 
     [Header("Parametros de Construção")]
-    public string tipoRecurso;
+    public List<string> tipoRecurso = new List<string>();
     public int qtdRecurso;
 
 }

@@ -101,9 +101,36 @@ public class PlaceTower : MonoBehaviour
     public void BuildingTower(string nameTower)
     {
 
-        string tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso;
-        int qtdRecurso = gameManager.GetInventario(tipoRecurso);
+        string tipoRecurso = null;        
         int custoTorre = gameManager.GetTower(nameTower).qtdRecurso;
+
+        for(int iRec = 0; iRec < gameManager.GetTower(nameTower).tipoRecurso.Count; iRec++)
+        {
+
+            if(gameManager.GetTower(nameTower).tipoRecurso.Count == 1)
+            {
+
+                tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso[iRec];
+
+            }
+            else
+            {
+
+                if (gameManager.GetInventario(gameManager.GetTower(nameTower).tipoRecurso[iRec]) >= custoTorre)
+                {
+
+                    tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso[iRec];
+                    break;
+
+                }
+
+            }
+
+        }
+
+        if(tipoRecurso == null) tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso[0];
+
+        int qtdRecurso = gameManager.GetInventario(tipoRecurso);
 
         if (qtdRecurso >= custoTorre)
         {

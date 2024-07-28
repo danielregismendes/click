@@ -19,5 +19,6 @@ MonoBehaviour:
   atkSpeed: 0.8
   atkDamage: 4
   atkRaio: 25
-  tipoRecurso: Corpo Azul
+  tipoRecurso:
+  - Corpo Azul
   qtdRecurso: 8
