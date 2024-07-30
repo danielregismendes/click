@@ -3,6 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DIFICULDADE
+{
+
+    INTRO,
+    MID,
+    LATE,
+
+}
 
 [CreateAssetMenu]
 public class MapConfig : ScriptableObject
@@ -26,6 +34,7 @@ public class LayerMap
     public int minNodes;
     [Tooltip("A quantidade de nodes deve ser no maximo o valor da variavel maxPaths.")]
     public int maxNodes;
+    public DIFICULDADE dif;
 
 }
 

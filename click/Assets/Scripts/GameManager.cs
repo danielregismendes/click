@@ -23,13 +23,16 @@ public class GameManager : MonoBehaviour
     private STAGEFASE stage = STAGEFASE.MENU;
 
     [Header("Lista de Torres")]
-    public TowerList[] torres;
+    public List<TowerList> torres = new List<TowerList>();
 
     [Header("Lista de Reliquias")]
-    public RelicData[] reliquias;
+    public List<RelicData> reliquias = new List<RelicData>();
 
     [Header("Lista de Eventos")]
-    public EventData[] eventos;
+    public List<EventData> eventos = new List<EventData>();
+
+    [Header("Lista de Tesouros")]
+    public List<EventData> tesouros = new List<EventData>();
 
     [Header("Inventário")]
     public Inventario[] inventario;
@@ -88,7 +91,7 @@ public class GameManager : MonoBehaviour
     public TowerData GetTower(string towerName)
     {
 
-        for(int i = 0;i < torres.Length; i++)
+        for(int i = 0;i < torres.Count; i++)
         {
 
             if(towerName == torres[i].torres.towerName)
@@ -127,6 +130,37 @@ public class GameManager : MonoBehaviour
         {
 
             currentHpZigurate -= damage;
+
+        }
+
+    }
+
+    public void SetRelic(RelicData relic)
+    {
+
+        bool add = true;
+
+        for(int iRelic = 0; iRelic < reliquias.Count; iRelic++)
+        {
+
+            if(reliquias != null)
+            {
+
+                if (reliquias[iRelic].nomeRelic == relic.nomeRelic)
+                {
+
+                    add = false;
+
+                }
+
+            }
+
+        }
+
+        if (add)
+        {
+
+            reliquias.Add(relic);
 
         }
 
