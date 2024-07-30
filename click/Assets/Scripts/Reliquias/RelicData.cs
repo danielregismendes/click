@@ -29,7 +29,7 @@ public class RelicData : ScriptableObject
     [Tooltip("Soma o valor a variavel de drop de recurso")]
     public int drop;
     [Tooltip("Libera construção com o tipo de recurso a seguir")]
-    public int addTipoRecurso;
+    public string addTipoRecurso;
 
 
 }

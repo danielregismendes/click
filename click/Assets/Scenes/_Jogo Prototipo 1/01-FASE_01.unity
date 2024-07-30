@@ -4001,6 +4001,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
+      propertyPath: reliquias.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
       propertyPath: inventario.Array.data[0].qtd
       value: 5
       objectReference: {fileID: 0}

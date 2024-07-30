@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     [Header("Lista de Reliquias")]
     public RelicData[] reliquias;
 
+    [Header("Lista de Eventos")]
+    public EventData[] eventos;
+
     [Header("Inventário")]
     public Inventario[] inventario;
 
