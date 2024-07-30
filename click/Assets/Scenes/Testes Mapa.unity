@@ -265,7 +265,7 @@ MonoBehaviour:
   zoomSpeed: 0
   maxRotationSpeed: 0
   edgeTolerance: 0.05
-  maxXYZ: {x: 25, y: 0, z: -20}
+  maxXYZ: {x: 50, y: 0, z: -20}
   minXYZ: {x: 15, y: 0, z: -20}
 --- !u!4 &737554334
 Transform:
@@ -528,11 +528,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: 0
-  mapConfig: {fileID: 11400000, guid: 47691125221407e4fa3736150238a1c8, type: 2}
+  mapConfig: {fileID: 11400000, guid: f6de20904318edf4b9069698dd23a2b7, type: 2}
   nodePrefab: {fileID: 8397530133649802206, guid: 56daafb12ca6d0b40ac55276d3933c3d, type: 3}
   linePrefab: {fileID: 4393359230331590924, guid: bd2c47cff8723ae4487c4d54fc175274, type: 3}
   background: {fileID: 21300000, guid: b27bd53790311ae4a8964f84ea2e7d02, type: 3}
-  nodeArea: {x: 5, y: 5}
+  nodeArea: {x: 10, y: 5}
   map:
     layers: []
 --- !u!1660057539 &9223372036854775807

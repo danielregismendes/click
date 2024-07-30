@@ -342,7 +342,7 @@ public class MapManager : MonoBehaviour
                     if(iLayers == 0)
                     {
 
-                        m.layers[iLayers].paths[iPaths].status = StatusPath.open;
+                        m.layers[iLayers].paths[iPaths].status = STATUSPATH.open;
 
                     }
 
@@ -436,15 +436,15 @@ public class MapManager : MonoBehaviour
                 if(iPath == path.mapPathIndex)
                 {
 
-                    map.layers[path.mapLayerIndex].paths[iPath].status = StatusPath.visited;
-                    map.layers[path.mapLayerIndex].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = StatusPath.visited;
+                    map.layers[path.mapLayerIndex].paths[iPath].status = STATUSPATH.visited;
+                    map.layers[path.mapLayerIndex].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = STATUSPATH.visited;
 
                 }
                 else
                 {
 
-                    map.layers[path.mapLayerIndex].paths[iPath].status = StatusPath.close;
-                    map.layers[path.mapLayerIndex].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = StatusPath.close;
+                    map.layers[path.mapLayerIndex].paths[iPath].status = STATUSPATH.close;
+                    map.layers[path.mapLayerIndex].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = STATUSPATH.close;
 
                 }
 
@@ -461,8 +461,8 @@ public class MapManager : MonoBehaviour
                 if (path.iConectPath.Contains(iPath))
                 {
 
-                    map.layers[path.mapLayerIndex + 1].paths[iPath].status = StatusPath.open;
-                    map.layers[path.mapLayerIndex + 1].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = StatusPath.open;
+                    map.layers[path.mapLayerIndex + 1].paths[iPath].status = STATUSPATH.open;
+                    map.layers[path.mapLayerIndex + 1].paths[iPath].gameObject.GetComponent<NodeManager>().path.status = STATUSPATH.open;
 
                 }
 
@@ -479,7 +479,7 @@ public class Path
 {
 
     public GameObject gameObject;
-    public StatusPath status = StatusPath.close;
+    public STATUSPATH status = STATUSPATH.close;
     public NodeConfig node;
     public Vector2 position;
     public int mapPathIndex;

@@ -21,3 +21,8 @@ MonoBehaviour:
     tipoRecurso: 
     qtdRecurso: 0
     vidaZigurate: 0
+  - txtOption: 
+    reliquia: {fileID: 0}
+    tipoRecurso: 
+    qtdRecurso: 0
+    vidaZigurate: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum NodeType
+public enum NODETYPE
 {
     VilaVermelhaAzul,
     VilaVermelhaAmarelo,
@@ -16,7 +16,7 @@ public enum NodeType
 public class NodeConfig : ScriptableObject
 {
     public Sprite sprite;
-    public NodeType nodeType;
+    public NODETYPE nodeType;
 
 
 }

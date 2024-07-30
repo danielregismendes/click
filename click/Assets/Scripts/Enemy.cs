@@ -20,12 +20,12 @@ public class Enemy : MonoBehaviour {
 	public int qtdDrop;
 
     private NavMeshAgent navMesh;
-
 	private Rigidbody rb;
 	protected Animator anim;
 	protected bool isDead = false;
 	private GameManager	gameManager;
 	private UIManager uiManager;
+	private int bonusDrop = 0;
 
 
     void Start () 
@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour {
         gameManager = FindFirstObjectByType<GameManager>();
         navMesh.SetDestination(rota[rotaCount].position);
         uiManager = FindFirstObjectByType<UIManager>();
+		SetBonusRelic();
 
     }
 	
@@ -90,7 +91,7 @@ public class Enemy : MonoBehaviour {
 
 				isDead = true;
 				navMesh.enabled = false;
-				gameManager.SetInventario(itemDrop, qtdDrop);
+				gameManager.SetInventario(itemDrop, qtdDrop + bonusDrop);
 				uiManager.AtualizarUI();
 				anim.SetBool("Death", true);
 
@@ -124,5 +125,32 @@ public class Enemy : MonoBehaviour {
 		rota = enemyRota;
 
 	}
+
+    public void SetBonusRelic()
+    {
+
+        for (int iRelic = 0; iRelic < gameManager.reliquias.Count; iRelic++)
+        {
+
+            if (gameManager.reliquias[iRelic].tower != "")
+            {
+
+
+            }
+            else
+            {
+
+                if (itemDrop == gameManager.reliquias[iRelic].tipoRecurso)
+                {
+
+                    bonusDrop += gameManager.reliquias[iRelic].drop;
+
+                }
+
+            }
+
+        }
+
+    }
 
 }

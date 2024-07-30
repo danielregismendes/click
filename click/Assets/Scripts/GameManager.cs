@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
     [Header("Lista de Torres")]
     public List<TowerList> torres = new List<TowerList>();
 
+    [Header("Inventário")]
+    public Inventario[] inventario;
+
+    [Header("Lista de Cenas do Mapa")]
+    public List<FaseList> fases = new List<FaseList>();
+
     [Header("Lista de Reliquias")]
     public List<RelicData> reliquias = new List<RelicData>();
 
@@ -34,8 +40,8 @@ public class GameManager : MonoBehaviour
     [Header("Lista de Tesouros")]
     public List<EventData> tesouros = new List<EventData>();
 
-    [Header("Inventário")]
-    public Inventario[] inventario;
+
+
 
 
     void Awake()
@@ -44,6 +50,8 @@ public class GameManager : MonoBehaviour
         currentHpZigurate = maxHpZigurate;
 
         inventarioInicial = inventario;
+
+        SetBonusRelic();
 
         if (gameManager == null)
         {
@@ -162,6 +170,89 @@ public class GameManager : MonoBehaviour
 
             reliquias.Add(relic);
 
+            SetBonusRelic();
+
+        }
+
+    }
+
+    public void SetBonusRelic()
+    {
+
+        for(int iRelic = 0; iRelic < reliquias.Count; iRelic++)
+        {
+
+            if (reliquias[iRelic].tower != "")
+            {
+
+                for(int iTower = 0; iTower < torres.Count; iTower++)
+                {
+
+                    if (torres[iTower].torres.name == reliquias[iRelic].tower)
+                    {
+
+                        bool add = true;
+
+                        for(int iRecurso = 0; iRecurso < torres[iTower].torres.tipoRecurso.Count; iRecurso++)
+                        {
+
+                            if (torres[iTower].torres.tipoRecurso[iRecurso] == reliquias[iRelic].addTipoRecurso)
+                            {
+
+                                add = false;
+
+                            }
+
+                        }
+
+                        if(add)
+                        {
+
+                            torres[iTower].torres.tipoRecurso.Add(reliquias[iRelic].addTipoRecurso);
+
+                        }
+
+                    }
+
+                }
+
+            }
+            else
+            {
+
+                for (int iTower = 0; iTower < torres.Count; iTower++)
+                {
+
+                    if (torres[iTower].torres.tipoRecurso[0] == reliquias[iRelic].tipoRecurso)
+                    {
+
+                        bool add = true;
+
+                        for (int iRecurso = 0; iRecurso < torres[iTower].torres.tipoRecurso.Count; iRecurso++)
+                        {
+
+                            if (torres[iTower].torres.tipoRecurso[iRecurso] == reliquias[iRelic].addTipoRecurso)
+                            {
+
+                                add = false;
+
+                            }
+
+                        }
+
+                        if (add)
+                        {
+
+                            torres[iTower].torres.tipoRecurso.Add(reliquias[iRelic].addTipoRecurso);
+
+                        }
+
+                    }
+
+                }
+
+            }
+
         }
 
     }
@@ -181,6 +272,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
 
     }
+
+}
+
+[Serializable]
+public class FaseList
+{
+
+    public int indexScene;
+    public NODETYPE nodeType;
+    public DIFICULDADE dif;
 
 }
 

@@ -28,6 +28,10 @@ public class PlaceTower : MonoBehaviour
     private GameObject t1;
     private GameObject t2;
     private GameObject t3;
+    
+    private int bonusAtk = 0;
+    private float bonusAtkSpeed = 0;
+    private int bonusCustTower = 0;
 
 
     private void Start()
@@ -101,8 +105,10 @@ public class PlaceTower : MonoBehaviour
     public void BuildingTower(string nameTower)
     {
 
+        SetBonusRelic(nameTower);
+
         string tipoRecurso = null;        
-        int custoTorre = gameManager.GetTower(nameTower).qtdRecurso;
+        int custoTorre = gameManager.GetTower(nameTower).qtdRecurso + bonusCustTower;
 
         for(int iRec = 0; iRec < gameManager.GetTower(nameTower).tipoRecurso.Count; iRec++)
         {
@@ -146,10 +152,51 @@ public class PlaceTower : MonoBehaviour
             troopArea.SetActive(true);
             troopArea.GetComponent<SphereCollider>().radius = towerData.atkRaio;
             //DrawAreaAtk();
-            attack.SetAtk(towerData.atkSpeed, towerData.atkDamage);
+            attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed, towerData.atkDamage + bonusAtk);
             t1 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
             t2 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(0).rotation);
             t3 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(0).rotation);
+
+        }              
+
+    }
+
+    public void SetBonusRelic(string nameTower)
+    {
+
+        bonusAtk = 0;
+        bonusAtkSpeed = 0;
+        bonusCustTower = 0;
+
+        for (int iRelic = 0; iRelic < gameManager.reliquias.Count; iRelic++)
+        {
+
+            if (gameManager.reliquias[iRelic].tower != "")
+            {
+
+                if (nameTower == gameManager.reliquias[iRelic].tower)
+                {
+
+                    bonusAtk += gameManager.reliquias[iRelic].towerAtkDamage;
+                    bonusAtkSpeed += gameManager.reliquias[iRelic].towerAtkSpeed;
+                    bonusCustTower += gameManager.reliquias[iRelic].custTower;
+
+                }
+
+            }
+            else
+            {
+
+                if (gameManager.GetTower(nameTower).tipoRecurso[0] == gameManager.reliquias[iRelic].tipoRecurso)
+                {
+
+                    bonusAtk += gameManager.reliquias[iRelic].towerAtkDamage;
+                    bonusAtkSpeed += gameManager.reliquias[iRelic].towerAtkSpeed;
+                    bonusCustTower += gameManager.reliquias[iRelic].custTower;
+
+                }
+
+            }
 
         }
 

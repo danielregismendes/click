@@ -4001,6 +4001,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
+      propertyPath: fases.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
       propertyPath: reliquias.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -4015,6 +4019,10 @@ PrefabInstance:
     - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
       propertyPath: inventario.Array.data[2].qtd
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
+      propertyPath: fases.Array.data[0].indexScene
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8961207134702638987, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
       propertyPath: m_Name

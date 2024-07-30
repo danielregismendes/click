@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum StatusPath
+public enum STATUSPATH
 {
 
     close,
@@ -75,7 +75,7 @@ public class NodeManager : MonoBehaviour
 
     }
 
-    public StatusPath GetStatusPath()
+    public STATUSPATH GetStatusPath()
     {
 
         return path.status;
@@ -88,7 +88,7 @@ public class NodeManager : MonoBehaviour
         switch (path.status)
         {
             
-            case StatusPath.open:
+            case STATUSPATH.open:
 
                 anim.SetBool("open", true);
                 anim.SetBool("close", false);
@@ -96,7 +96,7 @@ public class NodeManager : MonoBehaviour
 
                 break;
 
-            case StatusPath.close:
+            case STATUSPATH.close:
 
                 anim.SetBool("open", false);
                 anim.SetBool("close", true);
@@ -104,7 +104,7 @@ public class NodeManager : MonoBehaviour
 
                 break;
 
-            case StatusPath.visited:
+            case STATUSPATH.visited:
 
                 anim.SetBool("open", false);
                 anim.SetBool("close", false);
@@ -122,7 +122,7 @@ public class NodeManager : MonoBehaviour
         switch (path.status)
         {
 
-            case StatusPath.open:
+            case STATUSPATH.open:
 
                 if (select && Input.GetMouseButtonDown(0))
                 {
@@ -133,10 +133,10 @@ public class NodeManager : MonoBehaviour
 
                 break;
 
-            case StatusPath.close:
+            case STATUSPATH.close:
                 break;
 
-            case StatusPath.visited:
+            case STATUSPATH.visited:
                 break;
 
         }
