@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     [Header("Lista de Torres")]
     public TowerList[] torres;
 
+    [Header("Lista de Reliquias")]
+    public RelicData[] reliquias;
+
     [Header("Inventário")]
     public Inventario[] inventario;
 
