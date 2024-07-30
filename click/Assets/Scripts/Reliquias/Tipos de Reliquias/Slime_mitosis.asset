@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd8017d8389f1c74aa36bb92236b8e2b, type: 3}
-  m_Name: Teste
+  m_Name: Slime_mitosis
   m_EditorClassIdentifier: 
-  nomeRelic: 
-  desBonusRelic: 
-  torreAfetada: 
+  nomeRelic: Mitose
+  imgRelic: {fileID: 21300000, guid: d9224f2b3a69dd24f807cb7beea0b51a, type: 3}
+  descBonusRelic: "Aumenta o n\xFAmero de corpos azuis ganhados em 1"
+  tower: 
+  tipoRecurso: Corpo Azul
   towerAtkDamage: 0
   towerAtkSpeed: 0
+  custTower: 0
+  drop: 1
+  addTipoRecurso: 0
