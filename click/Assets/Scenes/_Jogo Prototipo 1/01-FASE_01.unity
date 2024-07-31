@@ -4009,6 +4009,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
+      propertyPath: 'reliquias.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: db80755d10cf6bd46a34a1107f9ec8b9, type: 2}
+    - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
+      propertyPath: 'reliquias.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8dbfa166c949bff48871c477da8336b4, type: 2}
+    - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
       propertyPath: inventario.Array.data[0].qtd
       value: 5
       objectReference: {fileID: 0}

@@ -16,9 +16,9 @@ MonoBehaviour:
   imgRelic: {fileID: 0}
   descBonusRelic: 
   tower: 
-  tipoRecurso: Corpo Vermelho
-  towerAtkDamage: 1
-  towerAtkSpeed: -1.5
-  custTower: 1
-  drop: 0
+  tipoRecurso: Corpo Azul
+  towerAtkDamage: 2
+  towerAtkSpeed: 3
+  custTower: 4
+  drop: 20
   addTipoRecurso: Corpo Azul

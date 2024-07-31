@@ -20,5 +20,5 @@ MonoBehaviour:
   towerAtkDamage: 1
   towerAtkSpeed: -1.5
   custTower: 1
-  drop: 0
+  drop: 5
   addTipoRecurso: Corpo Azul

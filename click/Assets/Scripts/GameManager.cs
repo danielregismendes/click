@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private GameManager gameManager;
 
     public int maxHpZigurate;
-    private int currentHpZigurate;
+    [SerializeField] private int currentHpZigurate;
     private Inventario[] inventarioInicial;
     private STAGEFASE stage = STAGEFASE.MENU;
 
@@ -39,10 +39,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Lista de Tesouros")]
     public List<EventData> tesouros = new List<EventData>();
-
-
-
-
 
     void Awake()
     {
@@ -123,15 +119,15 @@ public class GameManager : MonoBehaviour
     public void SetHpZigurate(int damage)
     {
 
-        Animator animCanvas;
+        //Animator animCanvas;
 
-        animCanvas = FindFirstObjectByType<UIManager>().GetComponent<Animator>();
+        //animCanvas = FindFirstObjectByType<UIManager>().GetComponent<Animator>();
 
         if (stage != STAGEFASE.GAMEOVER && currentHpZigurate - damage <= 0)
         {
 
             stage = STAGEFASE.GAMEOVER;
-            animCanvas.SetTrigger("Game Over");
+            //animCanvas.SetTrigger("Game Over");
 
         }
         else
@@ -151,7 +147,7 @@ public class GameManager : MonoBehaviour
         for(int iRelic = 0; iRelic < reliquias.Count; iRelic++)
         {
 
-            if(reliquias != null)
+            if(reliquias.Count > 0)
             {
 
                 if (reliquias[iRelic].nomeRelic == relic.nomeRelic)
