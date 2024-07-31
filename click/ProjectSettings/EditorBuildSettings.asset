@@ -6,10 +6,46 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/_Jogo Prototipo 1/00-MENU.unity
-    guid: 254d5cc2bbb6e6a4ab9a0869ebc706bf
+    path: Assets/Scenes/_Build Definitiva/00-MENU.unity
+    guid: 18e422fd1846f46478fe6e563e8055db
   - enabled: 1
-    path: Assets/Scenes/_Jogo Prototipo 1/01-FASE_01.unity
-    guid: 7be17d9b80f7b5a4581909837099a551
+    path: Assets/Scenes/_Build Definitiva/01-CREDITOS.unity
+    guid: 77b4a0bc23aeeca45965e5fd9103fe47
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/02-MAPA.unity
+    guid: 3abab6ca31af1fe45b6738d8c76e22d8
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/03-EVENTOS.unity
+    guid: fe00ec462b0149e4aaf7c1de1aef1367
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/04-FASE VER_AZU 01.unity
+    guid: 8f560b317bac2974cb60718b5a89befa
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/05-FASE VER_AZU 02.unity
+    guid: 0d8538b2d162c494ead9d742db36406e
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/06-FASE VER_AZU 03.unity
+    guid: bdcb8983cff22cc4ba9210fa70c09b08
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/07-FASE VER_AMA 01.unity
+    guid: 4a60cd0a5aaeaf943853cddaf615e11b
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/08-FASE VER_AMA 02.unity
+    guid: ae02e0a25187aa04b9b16db28213e30c
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/09-FASE VER_AMA 03.unity
+    guid: dd58c7c9bcdb1f940b4c8f8b87c861b9
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/10-FASE AMA_AZU 01.unity
+    guid: 65830396f05039543969a1a5080faa4a
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/11-FASE AMA_AZU 02.unity
+    guid: c052f8dce61d89e42b70ef54c488d80a
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/12-FASE AMA_AZU 03.unity
+    guid: 50a02a0917fe90040bcc8195d44c303a
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/13-FASE BOSS.unity
+    guid: ae401a182000d9e4e8a9d4c2dc18ff1a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -32,6 +32,15 @@ public class WaveSpawn : MonoBehaviour
 
         if (!win) SpawnWave();
 
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.I) && Input.GetKey(KeyCode.N))
+        {
+
+            Animator animCanvas = uiManager.GetComponent<Animator>();
+            animCanvas.SetTrigger("Win");
+            win = true;
+
+        }
+
     }
 
     public void NextSpawn()

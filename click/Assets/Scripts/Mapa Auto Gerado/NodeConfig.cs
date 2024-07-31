@@ -15,8 +15,8 @@ public enum NODETYPE
 [CreateAssetMenu]
 public class NodeConfig : ScriptableObject
 {
+
     public Sprite sprite;
     public NODETYPE nodeType;
-
 
 }

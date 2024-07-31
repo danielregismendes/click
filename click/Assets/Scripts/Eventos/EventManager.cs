@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class EventManager : MonoBehaviour
+public class EventoManager : MonoBehaviour
 {
 
     public EventData eventData;
@@ -23,6 +24,9 @@ public class EventManager : MonoBehaviour
     {
 
         gameManager = FindFirstObjectByType<GameManager>();
+
+        SetEvent(gameManager.GetCurrentEventData());
+
         AtualizarUI();
 
     }
@@ -100,6 +104,8 @@ public class EventManager : MonoBehaviour
 
         if (eventData.options[iOption].vidaZigurate != 0)
             gameManager.SetHpZigurate(eventData.options[iOption].vidaZigurate);
+
+        SceneManager.LoadScene(2);
 
     }
 

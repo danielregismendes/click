@@ -33,13 +33,18 @@ public class MapManager : MonoBehaviour
     private GameObject firstParent;
     private GameObject mapParent;
     private GameObject line;
+    private GameManager gameManager;
 
     private void Start()
     {
 
-        Debug.Log("Antes do processo");
+        gameManager = FindFirstObjectByType<GameManager>();
 
-        map = MapGenerator(mapConfig);
+        map = gameManager.GetMap();
+
+        if (map.layers.Count == 0)
+            map = MapGenerator(mapConfig);
+            gameManager.SetMap(map);
 
         InstantiateMap(map);
 
@@ -151,6 +156,7 @@ public class MapManager : MonoBehaviour
                     mapData.layers[iLayers].paths[iPaths].position = new Vector2(xPosition, yPosition);
                     mapData.layers[iLayers].paths[iPaths].mapLayerIndex = iLayers;
                     mapData.layers[iLayers].paths[iPaths].mapPathIndex = iPaths;
+                    mapData.layers[iLayers].paths[iPaths].dif = m.layers[iLayers].dif;
 
                     randPosNode = false;
                     node = null;                    
@@ -341,8 +347,21 @@ public class MapManager : MonoBehaviour
 
                     if(iLayers == 0)
                     {
+                        bool open = true;
 
-                        m.layers[iLayers].paths[iPaths].status = STATUSPATH.open;
+                        for(int i = 0; i < m.layers[0].paths.Count; i++)
+                        {
+
+                            if(m.layers[0].paths[i].status == STATUSPATH.visited)
+                            {
+
+                                open = false;
+
+                            }
+
+                        }
+
+                        if(open) m.layers[iLayers].paths[iPaths].status = STATUSPATH.open;
 
                     }
 
@@ -452,10 +471,10 @@ public class MapManager : MonoBehaviour
 
         }
 
-        for (int iPath = 0; iPath < map.layers[path.mapLayerIndex + 1].paths.Count; iPath++)
+        for (int iPath = 0; iPath < map.layers[path.mapLayerIndex].paths.Count; iPath++)
         {
 
-            if (map.layers[path.mapLayerIndex + 1].paths[iPath] != null)
+            if (map.layers[path.mapLayerIndex].paths[iPath] != null)
             {
 
                 if (path.iConectPath.Contains(iPath))
@@ -469,6 +488,8 @@ public class MapManager : MonoBehaviour
             }
 
         }
+
+        gameManager.SetMap(map);
 
     }
 
@@ -486,6 +507,7 @@ public class Path
     public int mapLayerIndex;
     public List<int> iConectPath = new List<int>();
     public List<GameObject> conectPath = new List<GameObject>();
+    public DIFICULDADE dif;
 
 }
 

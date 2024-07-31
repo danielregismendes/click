@@ -24,6 +24,7 @@ MonoBehaviour:
     randomPosition: 1
     minNodes: 2
     maxNodes: 4
+    dif: 0
   - layerData:
     - node: {fileID: 11400000, guid: a2ba5e7acb22f864b942e937e8882af1, type: 2}
       spawnChance: 20
@@ -36,12 +37,14 @@ MonoBehaviour:
     randomPosition: 1
     minNodes: 3
     maxNodes: 4
+    dif: 0
   - layerData:
     - node: {fileID: 11400000, guid: 5c03e3fa7da5c104cb0e7ca3ecf3861d, type: 2}
       spawnChance: 100
     randomPosition: 1
     minNodes: 3
     maxNodes: 4
+    dif: 1
   - layerData:
     - node: {fileID: 11400000, guid: a2ba5e7acb22f864b942e937e8882af1, type: 2}
       spawnChance: 20
@@ -54,6 +57,7 @@ MonoBehaviour:
     randomPosition: 1
     minNodes: 3
     maxNodes: 4
+    dif: 1
   - layerData:
     - node: {fileID: 11400000, guid: a2ba5e7acb22f864b942e937e8882af1, type: 2}
       spawnChance: 20
@@ -66,12 +70,14 @@ MonoBehaviour:
     randomPosition: 1
     minNodes: 3
     maxNodes: 4
+    dif: 1
   - layerData:
     - node: {fileID: 11400000, guid: 5c03e3fa7da5c104cb0e7ca3ecf3861d, type: 2}
       spawnChance: 100
     randomPosition: 1
     minNodes: 3
     maxNodes: 4
+    dif: 2
   - layerData:
     - node: {fileID: 11400000, guid: a2ba5e7acb22f864b942e937e8882af1, type: 2}
       spawnChance: 15
@@ -84,9 +90,11 @@ MonoBehaviour:
     randomPosition: 1
     minNodes: 3
     maxNodes: 4
+    dif: 2
   - layerData:
     - node: {fileID: 11400000, guid: e8b35469f31bfb64f96c5e8bfa05d02f, type: 2}
       spawnChance: 100
     randomPosition: 1
     minNodes: 1
     maxNodes: 1
+    dif: 0

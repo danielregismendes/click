@@ -18,7 +18,7 @@ public class BtMenuInicial : MonoBehaviour
     public void NewGame()
     {
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
 
     }
 

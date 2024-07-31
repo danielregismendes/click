@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ca3a4d9295e919478b2168e69787ac3, type: 3}
-  m_Name: New Event Data
+  m_Name: TESTE 3
   m_EditorClassIdentifier: 
-  nomeEvento: Suruba na Floresta
+  nomeEvento: TESTE 3
   descEvento: "Ao longo do caminho encontrei um grupo de humanos se procriando na
     floresta, o rosto de susto deles quando minha fortaleza pousou pr\xF3xima a eles
     foi impag\xE1vel, mas n\xE3o mais do que o que fiz com eles em seguida:"

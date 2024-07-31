@@ -24,12 +24,14 @@ public class NodeManager : MonoBehaviour
     private Animator anim;
     private bool select = false;
     private MapManager mapManager;
+    private GameManager gameManager;
 
     private void Start()
     {
         
         anim = GetComponent<Animator>();
         mapManager = FindFirstObjectByType<MapManager>().GetComponent<MapManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
 
     }
 
@@ -128,6 +130,7 @@ public class NodeManager : MonoBehaviour
                 {
 
                     mapManager.MapProgress(path);
+                    gameManager.LoadFase(path);
 
                 }
 

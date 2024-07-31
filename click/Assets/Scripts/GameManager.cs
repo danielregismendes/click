@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public enum STAGEFASE
 {
     MENU,
-    FASE,
-    CLEARFASE,
-    GAMEOVER,
+    RUN,
+    GAMEOVER
+
 }
 
 public class GameManager : MonoBehaviour
@@ -18,9 +18,11 @@ public class GameManager : MonoBehaviour
     private GameManager gameManager;
 
     public int maxHpZigurate;
-    [SerializeField] private int currentHpZigurate;
+    private int currentHpZigurate;
     private Inventario[] inventarioInicial;
     private STAGEFASE stage = STAGEFASE.MENU;
+    [SerializeField] private Map currentMap;
+    private EventData currentEvent;
 
     [Header("Lista de Torres")]
     public List<TowerList> torres = new List<TowerList>();
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-
+        
         currentHpZigurate = maxHpZigurate;
 
         inventarioInicial = inventario;
@@ -253,6 +255,86 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void SetMap(Map m)
+    {
+
+        currentMap = m;
+
+    }
+
+    public Map GetMap()
+    {
+
+        return currentMap;
+
+    }
+
+    public int GerarRandomInt(int min, int max)
+    {
+
+        return UnityEngine.Random.Range(min, max);
+
+    }
+
+    public EventData GetCurrentEventData()
+    {
+
+        return currentEvent;
+
+    }
+
+    public void LoadFase(Path path)
+    {
+
+        List<int> listFases = new List<int>();
+        int randEvent = 0;
+        int randFase = 0;
+
+        for(int iFases = 0; iFases < fases.Count; iFases++)
+        {
+
+            if(path.node.nodeType == fases[iFases].nodeType && path.dif == fases[iFases].dif)
+            {
+
+                listFases.Add(fases[iFases].indexScene);
+
+            }
+
+        }
+
+        randFase = GerarRandomInt(0, listFases.Count);
+
+        switch (path.node.nodeType)
+        {
+
+            case NODETYPE.Tesouro:
+
+                randEvent = GerarRandomInt(0, tesouros.Count);
+                currentEvent = tesouros[randEvent];
+                SceneManager.LoadScene(listFases[randFase]);
+                listFases.Clear();
+                break;
+
+            case NODETYPE.Evento:
+
+                randEvent = GerarRandomInt(0, eventos.Count);
+                currentEvent = eventos[randEvent];
+                SceneManager.LoadScene(listFases[randFase]);
+                listFases.Clear();
+                break;
+
+            default:
+                Debug.Log("Rand " + randFase);
+                Debug.Log("Lista " + listFases.Count);
+                Debug.Log("Fase " + listFases[randFase]);
+                SceneManager.LoadScene(listFases[randFase]);
+                listFases.Clear();
+                break;
+
+        }
+
+    }
+
     public void GameOver()
     {
 
@@ -264,8 +346,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
 
-        inventario = inventarioInicial;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
 
     }
 
