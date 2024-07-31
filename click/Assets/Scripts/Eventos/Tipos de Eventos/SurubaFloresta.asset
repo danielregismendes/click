@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ca3a4d9295e919478b2168e69787ac3, type: 3}
-  m_Name: TESTE 3
+  m_Name: SurubaFloresta
   m_EditorClassIdentifier: 
-  nomeEvento: TESTE 3
+  nomeEvento: Suruba na Floresta
   descEvento: "Ao longo do caminho encontrei um grupo de humanos se procriando na
     floresta, o rosto de susto deles quando minha fortaleza pousou pr\xF3xima a eles
     foi impag\xE1vel, mas n\xE3o mais do que o que fiz com eles em seguida:"
-  background: {fileID: 21300000, guid: cf6ef17fcc91f9a46a8091bd8b87ebf7, type: 3}
+  background: {fileID: 0}
   options:
   - txtOption: "Mandei os meus esqueletos com osso ereto para fazer parte da festa,
       mas os humanos n\xE3o aguentaram receber os ossos grandes dos esqueletos...
       [rel\xEDquia memento da suruba]"
-    reliquia: {fileID: 11400000, guid: db80755d10cf6bd46a34a1107f9ec8b9, type: 2}
+    reliquia: {fileID: 11400000, guid: f906ee2f074fbc843857cc186f4f3254, type: 2}
     tipoRecurso: 
     qtdRecurso: 0
     vidaZigurate: 0
@@ -30,4 +30,4 @@ MonoBehaviour:
     reliquia: {fileID: 0}
     tipoRecurso: Corpo Amarelo
     qtdRecurso: 20
-    vidaZigurate: -5
+    vidaZigurate: 0
