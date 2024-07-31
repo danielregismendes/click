@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca3a4d9295e919478b2168e69787ac3, type: 3}
+  m_Name: FrutoN
+  m_EditorClassIdentifier: 
+  nomeEvento: "O fruto nunca cai longe da cabe\xE7a"
+  descEvento: "Encontrei um corpo de um humano morto escorado do lado de uma macieira,
+    um verme estava saindo da cabe\xE7a do humano e pr\xF3ximo dele uma ma\xE7a podre,
+    a causa da morte"
+  background: {fileID: 21300000, guid: 997525503c0c9c24fa53cb0d9aaa3d1f, type: 3}
+  options:
+  - txtOption: "Levei a macieira pra minha fortaleza para matar mais humanos [rel\xEDquia
+      Macieira Newtoniana]"
+    reliquia: {fileID: 11400000, guid: a7ea3c5ad988e6844a00956dac2d4103, type: 2}
+    tipoRecurso: 
+    qtdRecurso: 0
+    vidaZigurate: 0
+  - txtOption: "Reanimei o corpo mas parece que o verme preso junto tamb\xE9m foi
+      afetado... pra minha sorte o verme era mais esperto que o dono do corpo [rel\xEDquia
+      Verme Newtoniano]"
+    reliquia: {fileID: 11400000, guid: 45cb3965fce04f340b89388dbd478e8b, type: 2}
+    tipoRecurso: 
+    qtdRecurso: 0
+    vidaZigurate: 0

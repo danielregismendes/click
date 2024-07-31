@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca3a4d9295e919478b2168e69787ac3, type: 3}
+  m_Name: DificuldadeFD
+  m_EditorClassIdentifier: 
+  nomeEvento: Dificuldades para ficar duro
+  descEvento: "Meus esqueletos vieram at\xE9 mim dizendo que est\xE3o com dificuldade
+    em deixar o osso deles ereto, capturei uma herbalista e mandei ela se virar para
+    resolver o problema"
+  background: {fileID: 0}
+  options:
+  - txtOption: "Ela deu uma pilula azul para os meus esqueletos e agora n\xE3o s\xF3
+      eles voltaram a ficar mais ereto como \xE9 mais f\xE1cil fazer novos esqueletos
+      [rel\xEDquia pilula azul]"
+    reliquia: {fileID: 11400000, guid: 7b364e1ea89bf0a4490fe489be8b4f46, type: 2}
+    tipoRecurso: 
+    qtdRecurso: 0
+    vidaZigurate: 0
+  - txtOption: "Ela disse que eles tem se \"exercitado\" demais e est\xE3o desnutridos,
+      s\xF3 o que me faltava...mas pelo menos o refor\xE7o de c\xE1lcio que ela fez
+      parece que eles est\xE3o mais fortes e duros [rel\xEDquia refor\xE7o de c\xE1lcio]"
+    reliquia: {fileID: 11400000, guid: 70c50674e3bfbfd41b4714d6b3db3c8d, type: 2}
+    tipoRecurso: 
+    qtdRecurso: 0
+    vidaZigurate: 0

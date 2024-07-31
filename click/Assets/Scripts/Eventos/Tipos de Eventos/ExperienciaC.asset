@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca3a4d9295e919478b2168e69787ac3, type: 3}
+  m_Name: ExperienciaC
+  m_EditorClassIdentifier: 
+  nomeEvento: "Uma experi\xEAncia cat\xE1rtica"
+  descEvento: "Um zumbi inteligente veio a mim me contar sobre as novas tend\xEAncias
+    do mundo humano e estutando ele tentei aderir \xE0 moda. Fiz um financiamento
+    coletivo para fazer mais zumbis..., "
+  background: {fileID: 0}
+  options:
+  - txtOption: "e isso acabou atraindo algumas minhocas especiais que n\xE3o s\xF3
+      financiaram mas consegui com elas bater metas extras [rel\xEDquia esfor\xE7o
+      coletivo]"
+    reliquia: {fileID: 11400000, guid: 6f6d00186c0f5454c8e15c66aa916ff6, type: 2}
+    tipoRecurso: 
+    qtdRecurso: 0
+    vidaZigurate: 0
+  - txtOption: "N\xE3o consegui bater as metas extras mas pelo menos consegui o suficiente
+      para poder fazer mais zumbis [+20 corpos vermelhos]"
+    reliquia: {fileID: 0}
+    tipoRecurso: Corpo Vemerlho
+    qtdRecurso: 20
+    vidaZigurate: 0

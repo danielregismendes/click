@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca3a4d9295e919478b2168e69787ac3, type: 3}
+  m_Name: ReformaS
+  m_EditorClassIdentifier: 
+  nomeEvento: Reforma na sala
+  descEvento: "Achei um casal de pedreiros montando uma casa bonita no meio de uma
+    cidade e decidi \"contrata-los\" para reformar meu castelo, desde que coloquei
+    os vermes na cabe\xE7a deles eles pararam de falar, mas continuam efiencientes
+    no trabalho."
+  background: {fileID: 21300000, guid: 15c085fd36b30744d9af927ad117e200, type: 3}
+  options:
+  - txtOption: "\xC0s minhas ordens, eles constru\xEDram um sal\xE3o de festas para
+      celebrar minhas conquistas. Claro, os humanos foram convidados... como comida.
+      O sal\xE3o est\xE1 sempre cheio de alegria, gritos e o som de mastiga\xE7\xE3o. 
+      [+10 corpos azuis]"
+    reliquia: {fileID: 0}
+    tipoRecurso: Corpo Azul
+    qtdRecurso: 10
+    vidaZigurate: 0
+  - txtOption: "\xC0s minhas ordens, eles refor\xE7aram as torres do castelo. Agora
+      posso observar o reino inteiro e lan\xE7ar meus feiti\xE7os com mais precis\xE3o.
+      Alguns humanos tentaram derrubar as torres, mas logo aprenderam a voar... sem
+      asas. [recupera at\xE9 10 de vida do zigurate] "
+    reliquia: {fileID: 0}
+    tipoRecurso: 
+    qtdRecurso: 0
+    vidaZigurate: 10

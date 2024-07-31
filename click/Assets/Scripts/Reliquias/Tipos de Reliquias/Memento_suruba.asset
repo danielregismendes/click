@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8017d8389f1c74aa36bb92236b8e2b, type: 3}
+  m_Name: Memento_suruba
+  m_EditorClassIdentifier: 
+  nomeRelic: Memento da Suruba
+  imgRelic: {fileID: 21300000, guid: deec609c4e12bcb4db0782cb9564226e, type: 3}
+  descBonusRelic: "Aumenta o n\xFAmero de corpos amarelos ganhados em 1"
+  tower: 
+  tipoRecurso: Corpo Amarelo
+  towerAtkDamage: 0
+  towerAtkSpeed: 0
+  custTower: 0
+  drop: 1
+  addTipoRecurso: 0
