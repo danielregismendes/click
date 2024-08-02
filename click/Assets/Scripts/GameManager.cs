@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public int maxHpZigurate;
     private int currentHpZigurate;
     private Inventario[] inventarioInicial;
-    private STAGEFASE stage = STAGEFASE.MENU;
+    public STAGEFASE stage = STAGEFASE.MENU;
     [SerializeField] private Map currentMap;
     private EventData currentEvent;
 
@@ -121,15 +121,16 @@ public class GameManager : MonoBehaviour
     public void SetHpZigurate(int damage)
     {
 
-        //Animator animCanvas;
+        Animator animCanvas;
 
-        //animCanvas = FindFirstObjectByType<UIManager>().GetComponent<Animator>();
+        animCanvas = FindFirstObjectByType<UIManager>().GetComponent<Animator>();
 
         if (stage != STAGEFASE.GAMEOVER && currentHpZigurate - damage <= 0)
         {
 
             stage = STAGEFASE.GAMEOVER;
-            //animCanvas.SetTrigger("Game Over");
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.vinheta_derrota, Camera.main.transform.position);
+            animCanvas.SetTrigger("Game Over");
 
         }
         else

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{717c458d-d01d-4244-9bdb-3f0707c40c2f}">
+		<property name="assetPath">
+			<value>Designed, Boom, Impact, Thud, Deep Hit, Heavy, Reverb SND37420.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.5055729166666665</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9c3c0542-de59-40a4-abcf-9e8ea2cef935}</destination>
+		</relationship>
+	</object>
+</objects>

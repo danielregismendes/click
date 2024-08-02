@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{82024318-720b-4b1c-ab74-ced40672f4c2}">
+		<property name="name">
+			<value>vinhetas</value>
+		</property>
+		<relationship name="masters">
+			<destination>{f9b7ef7b-9c03-43b7-b4c1-18595170fcf4}</destination>
+		</relationship>
+		<relationship name="effectChain">
+			<destination>{cc2b3532-6fa9-4416-bc89-9ff808bd3074}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{7c6f213e-633a-45c3-843d-6340cff54116}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{295a0a0f-d992-45f6-b372-a21b28aebc4a}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{cc2b3532-6fa9-4416-bc89-9ff808bd3074}">
+		<relationship name="effects">
+			<destination>{8e07d39b-9fe3-4043-af1f-41dccf18eabe}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{7c6f213e-633a-45c3-843d-6340cff54116}" />
+	<object class="MixerBusFader" id="{8e07d39b-9fe3-4043-af1f-41dccf18eabe}" />
+</objects>

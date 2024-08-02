@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FMOD.Studio;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,68 +15,74 @@ public class Enemy : MonoBehaviour {
     public int currentHealth;
 	public int danoZigurate;
 
-
     [Header("Drop de Item")]
 	public string itemDrop;
 	public int qtdDrop;
 
     private NavMeshAgent navMesh;
-	private Rigidbody rb;
 	protected Animator anim;
 	protected bool isDead = false;
 	private GameManager	gameManager;
 	private UIManager uiManager;
 	private int bonusDrop = 0;
-
+    private EventInstance enemyFootsteps;
 
     void Start () 
 	{
 
         navMesh = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 		currentHealth = maxHealth;
         gameManager = FindFirstObjectByType<GameManager>();
         navMesh.SetDestination(rota[rotaCount].position);
         uiManager = FindFirstObjectByType<UIManager>();
 		SetBonusRelic();
-
-    }
-	
-
-	void Update () 
-	{
-
-        //anim.SetFloat("Velocidade", navMesh.velocity.magnitude);
+        enemyFootsteps = AudioManager.instance.CreateInstance(FMODEvents.instance.inimigo_steps);
+        enemyFootsteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        enemyFootsteps.start();
 
     }
 
-	void FixedUpdate()
+    private void Update()
+    {
+        
+        if(gameManager.stage == STAGEFASE.GAMEOVER) DisableEnemy();
+
+    }
+
+    void FixedUpdate()
 	{
 	
-        if(!isDead) AiRota();
+        AiRota();
+        UpdateSound();
 
     }
 
 	void AiRota()
-	{     
+	{
+        if (!isDead)
+        {
 
-        if (navMesh.remainingDistance < navMesh.stoppingDistance+1)
+            if (navMesh.remainingDistance < navMesh.stoppingDistance + 1)
             {
-								
-			if(rotaCount >= rota.Length)
-			{
-				gameManager.SetHpZigurate(danoZigurate);
-                uiManager.AtualizarUI();
-                DisableEnemy();
-            }
-			else
-			{
-                navMesh.SetDestination(rota[rotaCount].position);
-                rotaCount++;
-            }
+
+                if (rotaCount >= rota.Length)
+                {
+                    AudioManager.instance.PlayOneShot(FMODEvents.instance.litch_dano, gameObject.transform.position);
+                    gameManager.SetHpZigurate(danoZigurate);
+                    uiManager.AtualizarUI();
+                    enemyFootsteps.setPaused(true);
+                    DisableEnemy();
+                }
+                else
+                {
+                    navMesh.SetDestination(rota[rotaCount].position);
+                    rotaCount++;
+                }
 
             }
+
+        }
         
     }
 
@@ -88,10 +95,12 @@ public class Enemy : MonoBehaviour {
 			anim.SetTrigger("HitDamage");
 			if(currentHealth <= 0)
 			{
-
-				isDead = true;
+                enemyFootsteps.stop(STOP_MODE.IMMEDIATE);
+                enemyFootsteps.release();
+                isDead = true;
 				navMesh.enabled = false;
-				gameManager.SetInventario(itemDrop, qtdDrop + bonusDrop);
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_morte, gameObject.transform.position);
+                gameManager.SetInventario(itemDrop, qtdDrop + bonusDrop);
 				uiManager.AtualizarUI();
 				anim.SetBool("Death", true);
 
@@ -99,10 +108,15 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 	
+
+
 	public void DisableEnemy()
 	{
 
-		Destroy(gameObject);
+        enemyFootsteps.stop(STOP_MODE.IMMEDIATE);
+        enemyFootsteps.release();
+        if (isDead) AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_morte_contatoaosolo, Camera.main.transform.position);
+        Destroy(gameObject);
 
 	}
 
@@ -150,6 +164,13 @@ public class Enemy : MonoBehaviour {
             }
 
         }
+
+    }
+
+    private void UpdateSound()
+    {
+    
+        enemyFootsteps.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
     }
 

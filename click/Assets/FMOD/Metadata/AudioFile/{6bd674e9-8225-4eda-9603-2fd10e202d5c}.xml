@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6bd674e9-8225-4eda-9603-2fd10e202d5c}">
+		<property name="assetPath">
+			<value>IGDA - Click (SFX) - danolitch4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9c3c0542-de59-40a4-abcf-9e8ea2cef935}</destination>
+		</relationship>
+	</object>
+</objects>

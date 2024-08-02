@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{61f92293-e8c2-4b55-acf5-29c38795d3e1}">
+		<property name="assetPath">
+			<value>Danse in The Hall of Montain the Macabre King master.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>163.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9c3c0542-de59-40a4-abcf-9e8ea2cef935}</destination>
+		</relationship>
+	</object>
+</objects>

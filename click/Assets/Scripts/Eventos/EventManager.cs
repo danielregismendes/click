@@ -25,6 +25,8 @@ public class EventoManager : MonoBehaviour
 
         gameManager = FindFirstObjectByType<GameManager>();
 
+        AudioManager.instance.InitializeMusic(FMODEvents.instance.music_eventos);
+
         SetEvent(gameManager.GetCurrentEventData());
 
         AtualizarUI();

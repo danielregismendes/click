@@ -33,6 +33,7 @@ public class Attack : MonoBehaviour
             {
 
                 enemy[i].TookDamage(atkDamage);
+                AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_dano, gameObject.transform.position);
 
             }
             

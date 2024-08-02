@@ -1,0 +1,249 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &456349360035524878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6586394692543338221}
+  - component: {fileID: 3734598530650771046}
+  m_Layer: 0
+  m_Name: FMODEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6586394692543338221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456349360035524878}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1369860879240186812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3734598530650771046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456349360035524878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c73dac36eb42cf41beaabba29a3d2ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <music_eventos>k__BackingField:
+    Guid:
+      Data1: -622944956
+      Data2: 1226294454
+      Data3: -1718743673
+      Data4: 22394136
+    Path: event:/Music/music_eventos
+  <music_gameplay>k__BackingField:
+    Guid:
+      Data1: -1788575663
+      Data2: 1131186217
+      Data3: 1827998097
+      Data4: 656726133
+    Path: event:/Music/music_gameplay
+  <ambiencia_gamplay>k__BackingField:
+    Guid:
+      Data1: -1332384984
+      Data2: 1205386097
+      Data3: 645520812
+      Data4: 1569863130
+    Path: event:/SFX/Gameplay/ambiencia_gameplay
+  <ambiencia_mapa_level_escolha>k__BackingField:
+    Guid:
+      Data1: 2000692389
+      Data2: 1316775360
+      Data3: -1675848311
+      Data4: -361455325
+    Path: event:/SFX/Gameplay/ambiencia_mapa_level_escolha
+  <coin_points>k__BackingField:
+    Guid:
+      Data1: -1387028345
+      Data2: 1127241140
+      Data3: 982172549
+      Data4: -56628708
+    Path: event:/SFX/Gameplay/coin_points
+  <colocar_torre>k__BackingField:
+    Guid:
+      Data1: -563007800
+      Data2: 1118312700
+      Data3: 946228390
+      Data4: -1726550275
+    Path: event:/SFX/Gameplay/colocar_torre
+  <compratorres>k__BackingField:
+    Guid:
+      Data1: -1344488443
+      Data2: 1266055155
+      Data3: 1613811901
+      Data4: 1064655164
+    Path: event:/SFX/Gameplay/compratorres
+  <inicio_de_orda>k__BackingField:
+    Guid:
+      Data1: -1434437461
+      Data2: 1322840827
+      Data3: 891905717
+      Data4: 15339579
+    Path: event:/SFX/Gameplay/inicio_de_orda
+  <inimigo_dano>k__BackingField:
+    Guid:
+      Data1: -842804224
+      Data2: 1173731507
+      Data3: -1200304211
+      Data4: 1833604486
+    Path: event:/SFX/Gameplay/inimigo_dano
+  <inimigo_morte>k__BackingField:
+    Guid:
+      Data1: -1773844098
+      Data2: 1336985487
+      Data3: 1538831488
+      Data4: -146725432
+    Path: event:/SFX/Gameplay/inimigo_morte
+  <inimigo_morte_contatoaosolo>k__BackingField:
+    Guid:
+      Data1: -891051675
+      Data2: 1334563749
+      Data3: 1514452896
+      Data4: -1084758579
+    Path: event:/SFX/Gameplay/inimigo_morte_contatoaosolo
+  <inimigo_steps>k__BackingField:
+    Guid:
+      Data1: 1471090930
+      Data2: 1252354753
+      Data3: 1110392462
+      Data4: -2142436155
+    Path: event:/SFX/Gameplay/inimigo_steps
+  <litch_dano>k__BackingField:
+    Guid:
+      Data1: -816192294
+      Data2: 1226338572
+      Data3: 1494052239
+      Data4: -219357143
+    Path: event:/SFX/Gameplay/litch_dano
+  <ui_click_main_menu_avanco>k__BackingField:
+    Guid:
+      Data1: -907734987
+      Data2: 1107414133
+      Data3: -1609993795
+      Data4: 1917877199
+    Path: event:/SFX/UI/ui_click_main_menu_avanco
+  <ui_click_main_menu_estatico>k__BackingField:
+    Guid:
+      Data1: 328918921
+      Data2: 1279096260
+      Data3: -1395618425
+      Data4: 2008916390
+    Path: event:/SFX/UI/ui_click_main_menu_estatico
+  <ui_click_main_menu_hover>k__BackingField:
+    Guid:
+      Data1: 1329703414
+      Data2: 1089043632
+      Data3: 1517361301
+      Data4: -548710340
+    Path: event:/SFX/UI/ui_click_main_menu_hover
+  <ui_click_main_menu_retorno>k__BackingField:
+    Guid:
+      Data1: 1278965785
+      Data2: 1156548771
+      Data3: 1564386945
+      Data4: -2120675664
+    Path: event:/SFX/UI/ui_click_main_menu_retorno
+  <ui_click_main_menu_startgame>k__BackingField:
+    Guid:
+      Data1: 1926302263
+      Data2: 1157171591
+      Data3: 206863760
+      Data4: -1358295508
+    Path: event:/SFX/UI/ui_click_main_menu_startgame
+  <ui_click_submenu_menu>k__BackingField:
+    Guid:
+      Data1: -1785538670
+      Data2: 1111560738
+      Data3: 223690655
+      Data4: -2075540705
+    Path: event:/SFX/UI/ui_click_submenu_menu
+  <vinheta_derrota>k__BackingField:
+    Guid:
+      Data1: -406301193
+      Data2: 1107195600
+      Data3: 571447456
+      Data4: 363108960
+    Path: event:/vinhetas/vinheta_derrota
+  <vinheta_vitoria_jogo>k__BackingField:
+    Guid:
+      Data1: -1238229495
+      Data2: 1265045260
+      Data3: -1037149036
+      Data4: -1497487320
+    Path: event:/vinhetas/vinheta_vitoria_jogo
+  <vinheta_vitoriaestagio>k__BackingField:
+    Guid:
+      Data1: 637424630
+      Data2: 1267814382
+      Data3: -1028120912
+      Data4: 480824590
+    Path: event:/vinhetas/vinheta_vitoriaestagio
+--- !u!1 &9132180042438361824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1369860879240186812}
+  - component: {fileID: 2655073560331584879}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1369860879240186812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132180042438361824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.678375, y: 20.143463, z: -37.42063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6586394692543338221}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2655073560331584879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132180042438361824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d878091cf0e34984ab9d913db9854eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  vinhetasVolume: 1
+  SFXVolume: 1

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112836010429105881}
   - component: {fileID: 6221202424989541756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Node_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2612269838412330088}
   - component: {fileID: 4545577867035379317}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Node_Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 111978711869601347}
   - component: {fileID: 3409192555416811773}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Node_Visited
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 7446027364641948748}
   - component: {fileID: 2744527188980133971}
   - component: {fileID: 1849675725326680239}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,6 +320,7 @@ MonoBehaviour:
     mapLayerIndex: 0
     iConectPath: 
     conectPath: []
+    dif: 0
 --- !u!95 &2744527188980133971
 Animator:
   serializedVersion: 7

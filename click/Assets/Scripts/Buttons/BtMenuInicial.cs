@@ -10,7 +10,9 @@ public class BtMenuInicial : MonoBehaviour
 
     private void Start()
     {
-        
+
+        AudioManager.instance.InitializeMusic(FMODEvents.instance.music_eventos);
+
         gameManager = FindFirstObjectByType<GameManager>();
 
     }

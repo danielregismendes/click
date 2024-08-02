@@ -4,8 +4,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 
@@ -30,13 +34,17 @@ public class MapManager : MonoBehaviour
     public Vector2 nodeArea;
     public Map map;
 
+    private GameObject scrollView;
     private GameObject firstParent;
     private GameObject mapParent;
+    private GameObject viewPort;
     private GameObject line;
     private GameManager gameManager;
 
     private void Start()
     {
+
+        AudioManager.instance.InitializeAmbience(FMODEvents.instance.ambiencia_mapa_level_escolha);
 
         gameManager = FindFirstObjectByType<GameManager>();
 
@@ -327,16 +335,45 @@ public class MapManager : MonoBehaviour
 
     }
 
-
     public void InstantiateMap(Map m)
     {
 
         firstParent = new GameObject("Map");
-        mapParent = new GameObject("MapScroll");
+        scrollView = new GameObject("scrollView");
+        viewPort = new GameObject("viewPort");
+        mapParent = new GameObject("content");
 
-        mapParent.transform.SetParent(firstParent.transform);
+        scrollView.transform.SetParent(firstParent.transform);
+        viewPort.transform.SetParent(scrollView.transform);
+        mapParent.transform.SetParent(viewPort.transform);
 
-        for(int iLayers = 0; iLayers < m.layers.Count; iLayers++)
+        mapParent.layer = 5;
+        mapParent.AddComponent<RectTransform>();
+        mapParent.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
+        mapParent.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+        mapParent.GetComponent<RectTransform>().pivot = new Vector2(0, 0);
+        mapParent.transform.position = new Vector3(0, 0, 0);
+        mapParent.GetComponent<RectTransform>().position = new Vector3(0, 0, 0);
+
+        firstParent.layer = 5;
+        firstParent.AddComponent<Canvas>();
+
+        viewPort.layer = 5;
+        viewPort.AddComponent<CanvasRenderer>();
+        viewPort.AddComponent<Mask>();
+
+        scrollView.layer = 5;
+        scrollView.AddComponent<ScrollRect>();
+        scrollView.AddComponent<CanvasRenderer>();
+        scrollView.GetComponent<ScrollRect>().content = mapParent.GetComponent<RectTransform>();
+        scrollView.GetComponent<ScrollRect>().vertical = false;
+        scrollView.GetComponent<ScrollRect>().horizontal = true;
+        scrollView.GetComponent<ScrollRect>().viewport = viewPort.GetComponent<RectTransform>();
+
+        
+
+
+        for (int iLayers = 0; iLayers < m.layers.Count; iLayers++)
         {
 
             for(int iPaths = 0; iPaths < m.layers[iLayers].paths.Count; iPaths++)
@@ -433,13 +470,14 @@ public class MapManager : MonoBehaviour
 
     public void InstantiateLine(Vector2 origem, Vector2 destino)
     {
-
         line  = Instantiate(linePrefab, new Vector3(origem.x, origem.y, 0), Quaternion.identity);
+
+        line.transform.SetParent(mapParent.transform);
 
         line.GetComponent<LineRenderer>().SetPosition(0, new Vector3(origem.x, origem.y, 0));
         line.GetComponent<LineRenderer>().SetPosition(1, new Vector3(destino.x, destino.y, 0));
 
-        line.transform.SetParent(mapParent.transform);        
+         
 
     }
 

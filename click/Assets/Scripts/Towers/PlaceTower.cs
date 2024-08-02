@@ -51,10 +51,11 @@ public class PlaceTower : MonoBehaviour
 
             case TOWERSTATE.VAZIO:
 
-                if (select.active & Input.GetMouseButtonDown(0))
+                if (select.activeSelf & Input.GetMouseButtonDown(0))
                 {
-                    if (!towerMenu.active)
+                    if (!towerMenu.activeSelf)
                     {
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.compratorres, Camera.main.transform.position);
                         towerMenu.SetActive(true);
                         FindAnyObjectByType<MouseSelect>().SetSelectTower(false);
                     }
@@ -67,9 +68,9 @@ public class PlaceTower : MonoBehaviour
 
             case TOWERSTATE.CONSTRUIDO:
 
-                if (select.active & Input.GetMouseButtonDown(0))
+                if (select.activeSelf & Input.GetMouseButtonDown(0))
                 {
-                    if (!destroyMenu.active)
+                    if (!destroyMenu.activeSelf)
                     {
                         destroyMenu.SetActive(true);
                         destroyMenu.GetComponent<BtTower>().SetPlaceTower(gameObject);
@@ -86,7 +87,7 @@ public class PlaceTower : MonoBehaviour
 
     public void Select(bool toggle)
     {
-
+               
         select.SetActive(toggle);
 
     }
@@ -140,7 +141,7 @@ public class PlaceTower : MonoBehaviour
 
         if (qtdRecurso >= custoTorre)
         {
-
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.colocar_torre, Camera.main.transform.position);
             towerMenu.SetActive(false);
             FindAnyObjectByType<MouseSelect>().SetSelectTower(true);
             gameManager.SetInventario(tipoRecurso, custoTorre * -1);

@@ -19,7 +19,7 @@ public class BtTower : MonoBehaviour
 
         FindAnyObjectByType<MouseSelect>().SetSelectTower(true);
         placeTower.DestroyTower();
-        gameObject.active = false;
+        gameObject.SetActive(false);
 
     }
 
@@ -33,7 +33,7 @@ public class BtTower : MonoBehaviour
     public void CloseMenu()
     {
         FindAnyObjectByType<MouseSelect>().SetSelectTower(true);
-        gameObject.active = false;
+        gameObject.SetActive(false);
         
     }
 

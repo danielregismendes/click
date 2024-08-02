@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHpZigurate: 10
+  currentMap:
+    layers: []
   torres:
   - torres: {fileID: 11400000, guid: b8b49e5200db2f447ac08c23c5b81c12, type: 2}
   - torres: {fileID: 11400000, guid: dc5f06df9a23e304f87abeeed5d68287, type: 2}
@@ -56,3 +58,71 @@ MonoBehaviour:
     qtd: 10
   - nome: Corpo Amarelo
     qtd: 10
+  fases:
+  - indexScene: 3
+    nodeType: 4
+    dif: 0
+  - indexScene: 3
+    nodeType: 4
+    dif: 1
+  - indexScene: 3
+    nodeType: 4
+    dif: 2
+  - indexScene: 3
+    nodeType: 3
+    dif: 0
+  - indexScene: 3
+    nodeType: 3
+    dif: 1
+  - indexScene: 3
+    nodeType: 3
+    dif: 2
+  - indexScene: 4
+    nodeType: 0
+    dif: 0
+  - indexScene: 5
+    nodeType: 0
+    dif: 1
+  - indexScene: 6
+    nodeType: 0
+    dif: 2
+  - indexScene: 7
+    nodeType: 1
+    dif: 0
+  - indexScene: 8
+    nodeType: 1
+    dif: 1
+  - indexScene: 9
+    nodeType: 1
+    dif: 2
+  - indexScene: 10
+    nodeType: 2
+    dif: 0
+  - indexScene: 11
+    nodeType: 2
+    dif: 1
+  - indexScene: 12
+    nodeType: 2
+    dif: 2
+  - indexScene: 13
+    nodeType: 5
+    dif: 0
+  - indexScene: 13
+    nodeType: 5
+    dif: 1
+  - indexScene: 13
+    nodeType: 5
+    dif: 2
+  reliquias: []
+  eventos:
+  - {fileID: 11400000, guid: 25784f3003a2aaf4d8472449641e4162, type: 2}
+  - {fileID: 11400000, guid: 5efc15a9ceaa37a4e8dbdef1a632ca00, type: 2}
+  - {fileID: 11400000, guid: 55b37fe7b1ffb564a96130d1128a8395, type: 2}
+  - {fileID: 11400000, guid: 9c0f019c930b33a46931b5963a1422fd, type: 2}
+  - {fileID: 11400000, guid: 6b887aaf78a363d459861b912809ef97, type: 2}
+  - {fileID: 11400000, guid: eab5b1cd900e5cd4982a6c2e3116e734, type: 2}
+  - {fileID: 11400000, guid: 6e73f05879a79c1409adf97d621623ec, type: 2}
+  - {fileID: 11400000, guid: 02cd47d34f5615143a78a7d325c0fc81, type: 2}
+  - {fileID: 11400000, guid: 5f6fc0125e2b02f458bcbe4e7e07e646, type: 2}
+  tesouros:
+  - {fileID: 11400000, guid: 5f6fc0125e2b02f458bcbe4e7e07e646, type: 2}

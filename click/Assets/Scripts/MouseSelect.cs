@@ -16,6 +16,7 @@ public class MouseSelect : MonoBehaviour
     public Scenes scene;
     public float maxDistance = 500;
 
+    [SerializeField] private LayerMask layerMask;
     private PlaceTower placeTower;
     private NodeManager nodeManager;
     private bool selectTower = true;
@@ -60,7 +61,7 @@ public class MouseSelect : MonoBehaviour
                     }
                 }
 
-                placeTower = GetMouseObject().GetComponent<PlaceTower>();
+                if(GetMouseObject() != null) placeTower = GetMouseObject().GetComponent<PlaceTower>();
 
                 if (placeTower != null)
                 {
@@ -78,7 +79,6 @@ public class MouseSelect : MonoBehaviour
                     placeTower = null;
 
                 }
-
 
             }
             else if (placeTower != null)
@@ -108,7 +108,7 @@ public class MouseSelect : MonoBehaviour
                 }
             }
 
-            nodeManager = GetMouseObject().GetComponent<NodeManager>();
+            if (GetMouseObject() != null) nodeManager = GetMouseObject().GetComponent<NodeManager>();
 
             if (nodeManager != null)
             {
@@ -144,13 +144,15 @@ public class MouseSelect : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         GameObject obj = null;
-        
-        if(Physics.Raycast(ray, out hit, maxDistance))
+
+        if (Physics.Raycast(ray, out hit, maxDistance, layerMask))
         {
 
             obj = hit.transform.gameObject;
 
         }
+
+
 
         return obj;
 

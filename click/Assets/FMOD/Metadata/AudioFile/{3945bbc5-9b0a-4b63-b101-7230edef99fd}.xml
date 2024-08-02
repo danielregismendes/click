@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{3945bbc5-9b0a-4b63-b101-7230edef99fd}">
+		<property name="assetPath">
+			<value>IGDA - Click (SFX) - vinhetaderrota.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>13.6546875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9c3c0542-de59-40a4-abcf-9e8ea2cef935}</destination>
+		</relationship>
+	</object>
+</objects>

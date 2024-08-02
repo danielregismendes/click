@@ -8,7 +8,6 @@ public class CameraMovement : MonoBehaviour
     private InputAction movement;
     private Transform cameraTransform;
 
-
     [Header("Horizontal Translation")]
     [SerializeField]
     private float maxSpeed = 5f;
@@ -40,6 +39,10 @@ public class CameraMovement : MonoBehaviour
     private float edgeTolerance = 0.05f;
     public Vector3 maxXYZ = new Vector3(200, 0, 260);
     public Vector3 minXYZ = new Vector3(-140, 0, -280);
+
+    public bool freezeX;
+    public bool freezeY;
+    public bool freezeZ;
 
     private Vector3 targetPosition;
 
@@ -194,8 +197,30 @@ public class CameraMovement : MonoBehaviour
 
     }
 
+    public void FreezeCamera()
+    {
+
+        if (freezeX)
+        {
+            targetPosition.x = 0;
+        }
+        if (freezeY)
+        {
+            targetPosition.y = 0;
+
+        }
+        if (freezeZ)
+        {
+            targetPosition.z = 0;
+        }
+
+    }
+
     private void UpdateBasePosition()
     {
+
+        FreezeCamera();
+
         if (targetPosition.sqrMagnitude > 0.1f)
         {
 
@@ -209,8 +234,8 @@ public class CameraMovement : MonoBehaviour
             transform.position += horizontalVelocity * Time.deltaTime;
         }
 
-
         targetPosition = Vector3.zero;
+
     }
 
     private void ZoomCamera(InputAction.CallbackContext obj)
@@ -230,6 +255,8 @@ public class CameraMovement : MonoBehaviour
 
     private void UpdateCameraPosition()
     {
+
+        FreezeCamera();
 
         Vector3 zoomTarget = new Vector3(cameraTransform.localPosition.x, zoomHeight, cameraTransform.localPosition.z);
 

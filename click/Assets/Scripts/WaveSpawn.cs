@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,25 +20,32 @@ public class WaveSpawn : MonoBehaviour
     private float timerSpawn = 0;
     private UIManager uiManager;
     private bool win = false;
+    private GameManager gameManager;
+
+    private EventInstance music;
+    private EventInstance ambient;
 
     private void Start()
     {
 
         uiManager = FindFirstObjectByType<UIManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
+        AudioManager.instance.InitializeMusic(FMODEvents.instance.music_gameplay);
+        AudioManager.instance.InitializeAmbience(FMODEvents.instance.ambiencia_gamplay);
 
     }
 
     private void Update()
-    {
+    {        
 
-        if (!win) SpawnWave();
+        if (!win && gameManager.stage != STAGEFASE.GAMEOVER) SpawnWave();
 
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.I) && Input.GetKey(KeyCode.N))
+        if (currentWave == waves.Length) AudioManager.instance.SetMusicParameter("situacao", 2);
+
+        if (!win && Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.I) && Input.GetKey(KeyCode.N))
         {
 
-            Animator animCanvas = uiManager.GetComponent<Animator>();
-            animCanvas.SetTrigger("Win");
-            win = true;
+            ClearFase();
 
         }
 
@@ -49,6 +57,7 @@ public class WaveSpawn : MonoBehaviour
         if (waveOrder < waves.Length)
         {
 
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.inicio_de_orda, Camera.main.transform.position);
             waveOrder++;
             uiManager.AtualizarUI();
 
@@ -124,9 +133,7 @@ public class WaveSpawn : MonoBehaviour
                 if (enemy == null)
                 {
 
-                    Animator animCanvas = uiManager.GetComponent<Animator>();                    
-                    animCanvas.SetTrigger("Win");
-                    win = true;
+                    ClearFase();
 
                 }
 
@@ -134,6 +141,18 @@ public class WaveSpawn : MonoBehaviour
 
 
         }
+
+    }
+
+    public void ClearFase()
+    {
+
+        Animator animCanvas = uiManager.GetComponent<Animator>();
+        animCanvas.SetTrigger("Win");
+        AudioManager.instance.StopMusic();
+        AudioManager.instance.StopAmbient();
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.vinheta_vitoriaestagio, Camera.main.transform.position);
+        win = true;
 
     }
     
