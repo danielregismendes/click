@@ -132,8 +132,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
-  m_Acceleration: 8
+  m_Speed: 7
+  m_Acceleration: 7
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 2
@@ -204,8 +204,6 @@ MonoBehaviour:
   rota: []
   rotaCount: 0
   maxHealth: 60
-  collisionSound: {fileID: 0}
-  deathSound: {fileID: 0}
   currentHealth: 0
   danoZigurate: 2
   itemDrop: Corpo Vermelho
