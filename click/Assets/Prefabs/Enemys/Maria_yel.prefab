@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 15
+  maxHealth: 40
   currentHealth: 0
   danoZigurate: 2
   itemDrop: Corpo Amarelo

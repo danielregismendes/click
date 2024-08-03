@@ -98,9 +98,9 @@ GameObject:
   - component: {fileID: 1530957200794508641}
   - component: {fileID: 7457287193423332023}
   - component: {fileID: 6759999714666530532}
-  - component: {fileID: 2843222396647027307}
+  - component: {fileID: 7070625019020259089}
   m_Layer: 6
-  m_Name: Maria_blue
+  m_Name: Maria_hero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,8 +116,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 142159108202624094}
   m_Father: {fileID: 0}
@@ -136,7 +136,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 0
@@ -154,7 +154,7 @@ Animator:
   m_GameObject: {fileID: 2646855961359984585}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f14902b2e506e7149a0f79ad32d40ff9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 35489bee11008bc4c86901da969253c1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -203,12 +203,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 60
+  maxHealth: 195
   currentHealth: 0
-  danoZigurate: 2
-  itemDrop: Corpo Azul
+  danoZigurate: 10
+  itemDrop: Corpo Vermelho
   qtdDrop: 2
---- !u!54 &2843222396647027307
+--- !u!54 &7070625019020259089
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,10 +523,10 @@ Transform:
   - {fileID: 4542145604092383463}
   - {fileID: 4007646444386930398}
   - {fileID: 2257424979641605096}
-  - {fileID: 6564586712716891730}
+  - {fileID: 5252823729649610529}
   m_Father: {fileID: 5619524872398389935}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1001 &6670008794719728057
+--- !u!1001 &5723932346764003530
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -574,7 +574,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -3922292275718100687, guid: 37adda08f571d71499386b2e9a4296b8, type: 3}
+    - target: {fileID: -4778849649637572924, guid: 37adda08f571d71499386b2e9a4296b8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -591,8 +591,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37adda08f571d71499386b2e9a4296b8, type: 3}
---- !u!4 &6564586712716891730 stripped
+--- !u!4 &5252823729649610529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 37adda08f571d71499386b2e9a4296b8, type: 3}
-  m_PrefabInstance: {fileID: 6670008794719728057}
+  m_PrefabInstance: {fileID: 5723932346764003530}
   m_PrefabAsset: {fileID: 0}
