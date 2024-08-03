@@ -56,4 +56,11 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void ZerarGame()
+    {
+
+        gameManager.ZerarGame();
+
+    }
+
 }

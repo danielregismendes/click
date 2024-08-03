@@ -139,7 +139,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 40.066666
-    functionName: 
+    functionName: LeaveCreditos
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

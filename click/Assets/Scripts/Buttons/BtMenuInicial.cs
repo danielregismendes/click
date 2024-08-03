@@ -24,4 +24,18 @@ public class BtMenuInicial : MonoBehaviour
 
     }
 
+    public void Creditos()
+    {
+
+        SceneManager.LoadScene(1);
+
+    }
+
+    public void Exit()
+    {
+
+        Application.Quit();
+
+    }
+
 }

@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public STAGEFASE stage = STAGEFASE.MENU;
     [SerializeField] private Map currentMap;
     private EventData currentEvent;
+    private bool ultimaFase;
 
     [Header("Lista de Torres")]
     public List<TowerList> torres = new List<TowerList>();
@@ -336,6 +337,20 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void SetUltimaFase(bool ultimaFase)
+    {
+
+        this.ultimaFase = ultimaFase;
+
+    }
+
+    public bool GetUltimaFase()
+    {
+
+        return ultimaFase;
+
+    }
+
     public void GameOver()
     {
 
@@ -348,6 +363,13 @@ public class GameManager : MonoBehaviour
     {
 
         SceneManager.LoadScene(2);
+
+    }
+
+    public void ZerarGame()
+    {
+
+        SceneManager.LoadScene(1);
 
     }
 

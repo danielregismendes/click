@@ -147,12 +147,27 @@ public class WaveSpawn : MonoBehaviour
     public void ClearFase()
     {
 
-        Animator animCanvas = uiManager.GetComponent<Animator>();
-        animCanvas.SetTrigger("Win");
-        AudioManager.instance.StopMusic();
-        AudioManager.instance.StopAmbient();
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.vinheta_vitoriaestagio, Camera.main.transform.position);
-        win = true;
+        if (gameManager.GetUltimaFase() == false)
+        {
+            Animator animCanvas = uiManager.GetComponent<Animator>();
+            animCanvas.SetTrigger("Win");
+            AudioManager.instance.StopMusic();
+            AudioManager.instance.StopAmbient();
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.vinheta_vitoriaestagio, Camera.main.transform.position);
+            win = true;
+        }
+        else
+        {
+
+            Animator animCanvas = uiManager.GetComponent<Animator>();
+            animCanvas.SetTrigger("UltimaFaseWin");
+            AudioManager.instance.StopMusic();
+            AudioManager.instance.StopAmbient();
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.vinheta_vitoria_jogo, Camera.main.transform.position);
+            win = true;
+
+        }
+
 
     }
     

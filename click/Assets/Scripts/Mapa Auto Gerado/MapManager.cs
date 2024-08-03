@@ -527,6 +527,13 @@ public class MapManager : MonoBehaviour
 
         }
 
+        if(path.mapLayerIndex == map.layers.Count)
+        {
+
+            gameManager.SetUltimaFase(true);
+
+        }
+
         gameManager.SetMap(map);
 
     }
