@@ -527,7 +527,7 @@ public class MapManager : MonoBehaviour
 
         }
 
-        if(path.mapLayerIndex == map.layers.Count)
+        if(path.mapLayerIndex == map.layers.Count-1)
         {
 
             gameManager.SetUltimaFase(true);

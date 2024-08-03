@@ -63,4 +63,11 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void NexSpawn()
+    {
+
+        waveSpawn.NextSpawn();
+
+    }
+
 }

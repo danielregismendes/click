@@ -115,6 +115,7 @@ public class Enemy : MonoBehaviour {
 
         enemyFootsteps.stop(STOP_MODE.IMMEDIATE);
         enemyFootsteps.release();
+
         if (isDead)
         {
             AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_morte_contatoaosolo, Camera.main.transform.position);
