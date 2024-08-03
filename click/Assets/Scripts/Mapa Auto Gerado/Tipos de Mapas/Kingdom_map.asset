@@ -37,7 +37,7 @@ MonoBehaviour:
     randomPosition: 1
     minNodes: 3
     maxNodes: 4
-    dif: 0
+    dif: 1
   - layerData:
     - node: {fileID: 11400000, guid: 5c03e3fa7da5c104cb0e7ca3ecf3861d, type: 2}
       spawnChance: 100
@@ -70,7 +70,7 @@ MonoBehaviour:
     randomPosition: 1
     minNodes: 3
     maxNodes: 4
-    dif: 1
+    dif: 2
   - layerData:
     - node: {fileID: 11400000, guid: 5c03e3fa7da5c104cb0e7ca3ecf3861d, type: 2}
       spawnChance: 100
@@ -97,4 +97,4 @@ MonoBehaviour:
     randomPosition: 1
     minNodes: 1
     maxNodes: 1
-    dif: 0
+    dif: 2
