@@ -203,9 +203,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 50
+  maxHealth: 120
   currentHealth: 0
-  danoZigurate: 1
+  danoZigurate: 4
   itemDrop: Corpo Vermelho
   qtdDrop: 3
 --- !u!54 &7070625019020259089
