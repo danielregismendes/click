@@ -8,6 +8,7 @@ public class Attack : MonoBehaviour
     private int atkDamage;
     private float timer;
     private bool canHit = true;
+    private Animator t1, t2, t3;
 
 
 
@@ -33,6 +34,9 @@ public class Attack : MonoBehaviour
             {
 
                 enemy[i].TookDamage(atkDamage);
+                t1.SetTrigger("Attack");
+                t2.SetTrigger("Attack");
+                t3.SetTrigger("Attack");
                 AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_dano, gameObject.transform.position);
 
             }
@@ -43,9 +47,10 @@ public class Attack : MonoBehaviour
 
     }
 
-    public void SetAtk(float atkSpeed, int atkDamage)
+    public void SetAtk(float atkSpeed, int atkDamage, Animator t1, Animator t2, Animator t3)
     {
         this.atkSpeed = atkSpeed; this.atkDamage = atkDamage;
+        this.t1 = t1; this.t2 = t2; this.t3 = t3;
     }
 
 }

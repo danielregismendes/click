@@ -153,10 +153,10 @@ public class PlaceTower : MonoBehaviour
             troopArea.SetActive(true);
             troopArea.GetComponent<SphereCollider>().radius = towerData.atkRaio;
             //DrawAreaAtk();
-            attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed, towerData.atkDamage + bonusAtk);
             t1 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
             t2 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(1).rotation);
             t3 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(2).rotation);
+            attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed, towerData.atkDamage + bonusAtk, t1.transform.GetChild(0).GetComponent<Animator>(), t2.transform.GetChild(0).GetComponent<Animator>(), t3.transform.GetChild(0).GetComponent<Animator>());
 
         }              
 
