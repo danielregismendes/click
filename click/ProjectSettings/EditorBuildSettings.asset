@@ -18,34 +18,73 @@ EditorBuildSettings:
     path: Assets/Scenes/_Build Definitiva/03-EVENTOS.unity
     guid: fe00ec462b0149e4aaf7c1de1aef1367
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/04-FASE VER_AZU 01.unity
-    guid: 8f560b317bac2974cb60718b5a89befa
+    path: Assets/Scenes/_Build Definitiva/04-PMF_YB.unity
+    guid: b94574101f2acd843a9e6eb52c8b1db5
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/05-FASE VER_AZU 02.unity
-    guid: 0d8538b2d162c494ead9d742db36406e
+    path: Assets/Scenes/_Build Definitiva/05-PMF_RY.unity
+    guid: 81aced22930a36549bf4790689b2c131
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/06-FASE VER_AZU 03.unity
-    guid: bdcb8983cff22cc4ba9210fa70c09b08
+    path: Assets/Scenes/_Build Definitiva/06-PMF_RB.unity
+    guid: 857f45cf38d87c44eaf806236d9c738e
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/07-FASE VER_AMA 01.unity
-    guid: 4a60cd0a5aaeaf943853cddaf615e11b
+    path: Assets/Scenes/_Build Definitiva/07-PM_RY.unity
+    guid: 9a988a74e4cb7684d82cea2a33e7cd16
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/08-FASE VER_AMA 02.unity
-    guid: ae02e0a25187aa04b9b16db28213e30c
+    path: Assets/Scenes/_Build Definitiva/08-PM_RY2.unity
+    guid: 911b4dc8fb0488446a31e1beb30f0650
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/09-FASE VER_AMA 03.unity
-    guid: dd58c7c9bcdb1f940b4c8f8b87c861b9
+    path: Assets/Scenes/_Build Definitiva/09-PM_RB.unity
+    guid: ce1b25a572e98f74e8fd9fe277df2064
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/10-FASE AMA_AZU 01.unity
-    guid: 65830396f05039543969a1a5080faa4a
+    path: Assets/Scenes/_Build Definitiva/10-PM_RB2.unity
+    guid: a3dedc073584cc241a1f388981c6b3d7
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/11-FASE AMA_AZU 02.unity
-    guid: c052f8dce61d89e42b70ef54c488d80a
+    path: Assets/Scenes/_Build Definitiva/11-PM_YB.unity
+    guid: 45afa9694ed975341b9b0ddb1f4b3075
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/12-FASE AMA_AZU 03.unity
-    guid: 50a02a0917fe90040bcc8195d44c303a
+    path: Assets/Scenes/_Build Definitiva/12-PM_YB2.unity
+    guid: 274411f7fab6c524d81a45683adfeaf0
   - enabled: 1
-    path: Assets/Scenes/_Build Definitiva/13-FASE BOSS.unity
-    guid: ae401a182000d9e4e8a9d4c2dc18ff1a
+    path: Assets/Scenes/_Build Definitiva/13-RM_RY.unity
+    guid: a330a46b51eddfd44b9146e4274c8bc7
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/14-RM_RB.unity
+    guid: 0945c90bbe058144599ea244512423ed
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/15-RM_YB.unity
+    guid: f1405f59bf14bac4ebe6df239c480aef
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/16-RM_YB2.unity
+    guid: 51678a57c4462c8469192751d7414a31
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/17-RM_RB.unity
+    guid: ab912825e1d32fd4fad6130c7b8e37d8
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/18-RM_RY.unity
+    guid: e0bf1898753d19c41b9db3a6bb5d749b
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/19-RM_RY2.unity
+    guid: 4297b685c57d3214eb4406d259e6a12b
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/20-CC_RY.unity
+    guid: 3691acb710966a54b8dffed101207d12
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/21-CC_RB.unity
+    guid: 7f3f953672d7ecf47a1d5a2aa1ca7f54
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/22-CC_YB.unity
+    guid: 153192c3704a8f34a975ec71821cc24e
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/23-VB_RY.unity
+    guid: 334ab4bba6231c243bc0e50f87809b55
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/24-VB_RB.unity
+    guid: 7c60a51ae3d753d49bb7d7bb8d05dc5a
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/25-VB_YB.unity
+    guid: c72f87b87b628444baa37ba081521654
+  - enabled: 1
+    path: Assets/Scenes/_Build Definitiva/26-Boss.unity
+    guid: 4b4e8c6dd78d9ae4593451fc875a9309
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

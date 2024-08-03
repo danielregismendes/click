@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour {
 
     private NavMeshAgent navMesh;
 	protected Animator anim;
-	protected bool isDead = false;
+	[SerializeField] protected bool isDead = false;
 	private GameManager	gameManager;
 	private UIManager uiManager;
 	private int bonusDrop = 0;
@@ -115,7 +115,12 @@ public class Enemy : MonoBehaviour {
 
         enemyFootsteps.stop(STOP_MODE.IMMEDIATE);
         enemyFootsteps.release();
-        if (isDead) AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_morte_contatoaosolo, Camera.main.transform.position);
+        if (isDead)
+        {
+            AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_morte_contatoaosolo, Camera.main.transform.position);
+
+        }
+
         Destroy(gameObject);
 
 	}
