@@ -68,7 +68,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: Corpo/SM_Marias/SM_Maria_Yellow
+    path: Corpo/SM_Steve/SM_Steve_Yellow
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -107,7 +107,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: Corpo/SM_Marias/SM_Maria_Yellow
+    path: Corpo/SM_Steve/SM_Steve_Yellow
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -146,7 +146,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: Corpo/SM_Marias/SM_Maria_Yellow
+    path: Corpo/SM_Steve/SM_Steve_Yellow
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -167,7 +167,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: Corpo/SM_Marias/SM_Maria_Yellow
+    path: Corpo/SM_Steve/SM_Steve_Yellow
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -189,7 +189,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 303400899
+      path: 57920418
       attribute: 1571785585
       script: {fileID: 0}
       typeID: 23
@@ -198,7 +198,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 303400899
+      path: 57920418
       attribute: 1840221041
       script: {fileID: 0}
       typeID: 23
@@ -207,7 +207,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 303400899
+      path: 57920418
       attribute: 1303350129
       script: {fileID: 0}
       typeID: 23
@@ -216,7 +216,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 303400899
+      path: 57920418
       attribute: 2108656497
       script: {fileID: 0}
       typeID: 23
@@ -362,7 +362,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.r
-    path: Corpo/SM_Marias/SM_Maria_Yellow
+    path: Corpo/SM_Steve/SM_Steve_Yellow
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -401,7 +401,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.g
-    path: Corpo/SM_Marias/SM_Maria_Yellow
+    path: Corpo/SM_Steve/SM_Steve_Yellow
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -440,7 +440,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.b
-    path: Corpo/SM_Marias/SM_Maria_Yellow
+    path: Corpo/SM_Steve/SM_Steve_Yellow
     classID: 23
     script: {fileID: 0}
     flags: 0
@@ -461,7 +461,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: material._Color.a
-    path: Corpo/SM_Marias/SM_Maria_Yellow
+    path: Corpo/SM_Steve/SM_Steve_Yellow
     classID: 23
     script: {fileID: 0}
     flags: 0

@@ -54,7 +54,7 @@ public class WaveSpawn : MonoBehaviour
     public void NextSpawn()
     {
 
-        if (waveOrder < waves.Length)
+        if (waveOrder==0 || waveOrder+1 < waves.Length)
         {
 
             AudioManager.instance.PlayOneShot(FMODEvents.instance.inicio_de_orda, Camera.main.transform.position);
@@ -67,7 +67,7 @@ public class WaveSpawn : MonoBehaviour
 
     void SpawnWave()
     {
-        if (currentWave==0 || currentWave < waveOrder)
+        if (currentWave==0 || currentWave <= waveOrder)
         {
 
             if (currentSpawn + 1 <= waves[currentWave].spawns.Length)
@@ -124,7 +124,7 @@ public class WaveSpawn : MonoBehaviour
         else
         {
 
-            if(waveOrder == waves.Length)
+            if(waveOrder+1 == waves.Length)
             {
 
                 Enemy enemy;

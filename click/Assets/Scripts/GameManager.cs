@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -122,16 +123,16 @@ public class GameManager : MonoBehaviour
     public void SetHpZigurate(int damage)
     {
 
-        Animator animCanvas;
+        UIManager animCanvas;
 
-        animCanvas = FindFirstObjectByType<UIManager>().GetComponent<Animator>();
+        animCanvas = FindFirstObjectByType<UIManager>();            
 
         if (stage != STAGEFASE.GAMEOVER && currentHpZigurate - damage <= 0)
         {
 
             stage = STAGEFASE.GAMEOVER;
             AudioManager.instance.PlayOneShot(FMODEvents.instance.vinheta_derrota, Camera.main.transform.position);
-            animCanvas.SetTrigger("Game Over");
+            if (animCanvas) animCanvas.GetComponent<Animator>().SetTrigger("Game Over");
 
         }
         else
@@ -356,6 +357,7 @@ public class GameManager : MonoBehaviour
 
         inventario = inventarioInicial;
         SceneManager.LoadScene(0);
+        Destroy(gameObject);
 
     }
 
@@ -370,6 +372,7 @@ public class GameManager : MonoBehaviour
     {
 
         SceneManager.LoadScene(1);
+        Destroy(gameObject);
 
     }
 

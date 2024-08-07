@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
         recAmarelo.text = gameManager.GetInventario("Corpo Amarelo").ToString();
 
         hpZigurate.text = gameManager.GetHpZigurate().ToString();
-        wave.text = waveSpawn.GetCurrentWave() + "/" + waveSpawn.waves.Length.ToString();
+        wave.text = waveSpawn.GetCurrentWave() + "/" + (waveSpawn.waves.Length -1).ToString();
 
     }
 
