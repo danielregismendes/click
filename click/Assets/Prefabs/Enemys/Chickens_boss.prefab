@@ -206,7 +206,7 @@ MonoBehaviour:
   maxHealth: 300
   currentHealth: 0
   danoZigurate: 100
-  itemDrop: Corpo Amarelo
+  itemDrop: Moeda
   qtdDrop: 10
   isDead: 0
 --- !u!54 &3481241194365404438

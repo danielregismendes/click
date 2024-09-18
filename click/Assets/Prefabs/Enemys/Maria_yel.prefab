@@ -206,8 +206,9 @@ MonoBehaviour:
   maxHealth: 40
   currentHealth: 0
   danoZigurate: 2
-  itemDrop: Corpo Amarelo
+  itemDrop: Moeda
   qtdDrop: 2
+  isDead: 0
 --- !u!54 &3481241194365404438
 Rigidbody:
   m_ObjectHideFlags: 0

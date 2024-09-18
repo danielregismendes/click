@@ -20,5 +20,5 @@ MonoBehaviour:
   atkDamage: 4
   atkRaio: 25
   tipoRecurso:
-  - Corpo Azul
+  - Moeda
   qtdRecurso: 8

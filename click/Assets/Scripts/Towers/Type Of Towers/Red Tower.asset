@@ -20,5 +20,5 @@ MonoBehaviour:
   atkDamage: 60
   atkRaio: 12
   tipoRecurso:
-  - Corpo Vermelho
+  - Moeda
   qtdRecurso: 5
