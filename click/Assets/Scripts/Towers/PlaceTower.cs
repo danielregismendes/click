@@ -105,38 +105,28 @@ public class PlaceTower : MonoBehaviour
 
     public void BuildingTower(string nameTower)
     {
-
         SetBonusRelic(nameTower);
 
-        string tipoRecurso = null;        
+        string tipoRecurso = null;
         int custoTorre = gameManager.GetTower(nameTower).qtdRecurso + bonusCustTower;
 
-        for(int iRec = 0; iRec < gameManager.GetTower(nameTower).tipoRecurso.Count; iRec++)
+        for (int iRec = 0; iRec < gameManager.GetTower(nameTower).tipoRecurso.Count; iRec++)
         {
-
-            if(gameManager.GetTower(nameTower).tipoRecurso.Count == 1)
+            if (gameManager.GetTower(nameTower).tipoRecurso.Count == 1)
             {
-
                 tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso[iRec];
-
             }
             else
             {
-
                 if (gameManager.GetInventario(gameManager.GetTower(nameTower).tipoRecurso[iRec]) >= custoTorre)
                 {
-
                     tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso[iRec];
                     break;
-
                 }
-
             }
-
         }
 
-        if(tipoRecurso == null) tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso[0];
-
+        if (tipoRecurso == null) tipoRecurso = gameManager.GetTower(nameTower).tipoRecurso[0];
         int qtdRecurso = gameManager.GetInventario(tipoRecurso);
 
         if (qtdRecurso >= custoTorre)
@@ -152,15 +142,16 @@ public class PlaceTower : MonoBehaviour
             tower.SetActive(true);
             troopArea.SetActive(true);
             troopArea.GetComponent<SphereCollider>().radius = towerData.atkRaio;
-            //DrawAreaAtk();
+
             t1 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
             t2 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(1).rotation);
             t3 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(2).rotation);
-            attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed, towerData.atkDamage + bonusAtk, t1.transform.GetChild(0).GetComponent<Animator>(), t2.transform.GetChild(0).GetComponent<Animator>(), t3.transform.GetChild(0).GetComponent<Animator>());
 
-        }              
-
+            // Set attack type here
+            attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed, towerData.atkDamage + bonusAtk, t1.transform.GetChild(0).GetComponent<Animator>(), t2.transform.GetChild(0).GetComponent<Animator>(), t3.transform.GetChild(0).GetComponent<Animator>(), towerData.attackType);
+        }
     }
+
 
     public void SetBonusRelic(string nameTower)
     {
