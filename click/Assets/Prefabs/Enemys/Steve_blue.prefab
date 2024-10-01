@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 40
+  maxHealth: 25
   currentHealth: 0
   danoZigurate: 1
   itemDrop: Moeda

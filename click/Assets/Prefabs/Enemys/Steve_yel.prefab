@@ -136,7 +136,7 @@ NavMeshAgent:
   m_Acceleration: 14
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 56
+  m_StoppingDistance: 8
   m_AutoTraverseOffMeshLink: 0
   m_AutoBraking: 1
   m_AutoRepath: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 20
+  maxHealth: 15
   currentHealth: 0
   danoZigurate: 1
   itemDrop: Moeda
