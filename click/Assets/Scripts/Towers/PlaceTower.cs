@@ -7,6 +7,7 @@ public enum TOWERSTATE
 {
     VAZIO,
     CONSTRUIDO,
+    DORMENTE,
 }
 
 public class PlaceTower : MonoBehaviour
@@ -20,6 +21,10 @@ public class PlaceTower : MonoBehaviour
     public TOWERSTATE state = TOWERSTATE.VAZIO;
     public TowerData towerData = null;
     public bool viewAreaAtk = false;
+    private float lastClickTime = 0f; // Tracks the last click time
+    private float doubleClickThreshold = 0.3f; // Time threshold for double click in seconds
+    public int moedaCostToActivate = 20; // Cost in "moeda" to go from DORMENTE to VAZIO
+
 
     private GameManager gameManager;
     private Attack attack;
@@ -40,18 +45,30 @@ public class PlaceTower : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
         attack = troopArea.GetComponent<Attack>();
         uiManager = FindFirstObjectByType<UIManager>();
+
     }
 
     void Update()
     {
-
         switch (state)
+        {
+            case TOWERSTATE.DORMENTE:
+                if (select.activeSelf && Input.GetMouseButtonDown(0))
+                {
+                    float timeSinceLastClick = Time.time - lastClickTime;
 
-        {           
+                    if (timeSinceLastClick <= doubleClickThreshold)
+                    {
+                        // It's a double-click, attempt to transition to VAZIO
+                        AttemptToActivateSlot();
+                    }
+
+                    lastClickTime = Time.time;
+                }
+                break;
 
             case TOWERSTATE.VAZIO:
-
-                if (select.activeSelf & Input.GetMouseButtonDown(0))
+                if (select.activeSelf && Input.GetMouseButtonDown(0))
                 {
                     if (!towerMenu.activeSelf)
                     {
@@ -61,14 +78,11 @@ public class PlaceTower : MonoBehaviour
                     }
 
                     towerMenu.GetComponent<BtTower>().SetPlaceTower(gameObject);
-
                 }
-
                 break;
 
             case TOWERSTATE.CONSTRUIDO:
-
-                if (select.activeSelf & Input.GetMouseButtonDown(0))
+                if (select.activeSelf && Input.GetMouseButtonDown(0))
                 {
                     if (!destroyMenu.activeSelf)
                     {
@@ -76,13 +90,9 @@ public class PlaceTower : MonoBehaviour
                         destroyMenu.GetComponent<BtTower>().SetPlaceTower(gameObject);
                         FindAnyObjectByType<MouseSelect>().SetSelectTower(false);
                     }
-
                 }
-
                 break;
-
         }
-
     }
 
     public void Select(bool toggle)
@@ -90,6 +100,36 @@ public class PlaceTower : MonoBehaviour
                
         select.SetActive(toggle);
 
+    }
+
+    private void AttemptToActivateSlot()
+    {
+        int currentMoeda = gameManager.GetInventario("moeda");
+
+        // Debug to check the current moeda value
+        Debug.Log("Current moeda available: " + currentMoeda);
+        Debug.Log("Moeda required to activate: " + moedaCostToActivate);
+
+        if (currentMoeda >= moedaCostToActivate)
+        {
+            // Deduct the required "moeda" to activate the slot
+            gameManager.SetInventario("moeda", -moedaCostToActivate);
+
+            // Verify if the moeda was successfully deducted
+            currentMoeda = gameManager.GetInventario("moeda");
+            Debug.Log("Moeda after deduction: " + currentMoeda);
+
+            uiManager.AtualizarUI(); // Update the UI to reflect the new resource count
+
+            // Transition the state to VAZIO
+            state = TOWERSTATE.VAZIO;
+            Debug.Log("Slot activated. State changed to VAZIO.");
+        }
+        else
+        {
+            // Notify the player that they don't have enough "moeda"
+            Debug.Log("Not enough 'moeda' to activate this slot.");
+        }
     }
 
     public void DestroyTower()

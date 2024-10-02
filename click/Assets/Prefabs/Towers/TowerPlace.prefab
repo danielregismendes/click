@@ -57,6 +57,8 @@ MonoBehaviour:
   state: 0
   towerData: {fileID: 0}
   viewAreaAtk: 0
+  moedaCostToActivate: 10
+  targetRenderer: {fileID: 1135892285319390794}
 --- !u!135 &5670213749529672551
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -674,6 +676,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43c9cb2d40638da4d90a7303eeef2520, type: 3}
+--- !u!23 &1135892285319390794 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 43c9cb2d40638da4d90a7303eeef2520, type: 3}
+  m_PrefabInstance: {fileID: 1135892285321559594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1135892285321684138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 43c9cb2d40638da4d90a7303eeef2520, type: 3}

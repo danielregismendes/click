@@ -1934,7 +1934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
       propertyPath: inventario.Array.data[0].qtd
-      value: 5
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 4665033686861629752, guid: 25e725e67bf5dd147a7aca1289cbba0e, type: 3}
       propertyPath: inventario.Array.data[1].qtd
@@ -8989,6 +8989,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 515810631}
     - target: {fileID: 1744162583759126618, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: state
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744162583759126618, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
       value: 
       objectReference: {fileID: 515810632}
@@ -8996,6 +9000,18 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 1744162583759126618, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: moedaCostToActivate
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455590032778951547, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: m_Name
+      value: TowerPlace_ZigMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626644336261917395, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: state
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2626644336261917395, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
       value: 
@@ -9004,6 +9020,10 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 2626644336261917395, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: moedaCostToActivate
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3077896085948500594, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.7
@@ -9052,6 +9072,22 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 4633246947614744300, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: m_Name
+      value: TowerPlace_ZigMain (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659099931194741286, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659099931194741286, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904897698952302329, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: state
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4904897698952302329, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
       value: 
@@ -9060,9 +9096,17 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 4904897698952302329, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: moedaCostToActivate
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6011477799157309922, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: m_Name
       value: Torres Zig
+      objectReference: {fileID: 0}
+    - target: {fileID: 6272536181863108621, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: state
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6272536181863108621, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
@@ -9072,6 +9116,14 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 6272536181863108621, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: moedaCostToActivate
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294113402114192299, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: state
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6294113402114192299, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
       value: 
@@ -9080,6 +9132,14 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 6294113402114192299, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: moedaCostToActivate
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562834536794298007, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: state
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6562834536794298007, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
       value: 
@@ -9088,6 +9148,14 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 6562834536794298007, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: moedaCostToActivate
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069068639828721743, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: state
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7069068639828721743, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
       value: 
@@ -9096,6 +9164,10 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 7069068639828721743, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: moedaCostToActivate
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7297624591343072753, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
       value: 
@@ -9105,6 +9177,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 515810631}
     - target: {fileID: 8821453480830412237, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: state
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821453480830412237, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
       propertyPath: towerMenu
       value: 
       objectReference: {fileID: 515810632}
@@ -9112,6 +9188,10 @@ PrefabInstance:
       propertyPath: destroyMenu
       value: 
       objectReference: {fileID: 515810631}
+    - target: {fileID: 8821453480830412237, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
+      propertyPath: moedaCostToActivate
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3647716964964143376, guid: 4b6929338c82dc641b639dabb221e184, type: 3}
