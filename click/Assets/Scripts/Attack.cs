@@ -17,6 +17,8 @@ public class Attack : MonoBehaviour
     private Enemy currentTarget;
     private Animator t1, t2, t3;
     private AttackType attackType;
+    public float slowPercentage = 0.3f; // Default value, can be overridden
+
 
     private void Update()
     {
@@ -109,6 +111,7 @@ public class Attack : MonoBehaviour
         if (enemy != null && !enemiesInRange.Contains(enemy))
         {
             enemiesInRange.Add(enemy);
+            enemy.ApplySlow(slowPercentage); // Apply slow effect
         }
     }
 
@@ -118,6 +121,8 @@ public class Attack : MonoBehaviour
         if (enemy != null)
         {
             enemiesInRange.Remove(enemy);
+            enemy.RemoveSlow(); // Remove slow effect
+
             if (currentTarget == enemy)
             {
                 currentTarget = null;  // Clear target if it left the area
@@ -133,6 +138,7 @@ public class Attack : MonoBehaviour
         this.t2 = t2;
         this.t3 = t3;
         this.attackType = attackType;
+        this.slowPercentage = slowPercentage;
     }
 }
 

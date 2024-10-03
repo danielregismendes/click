@@ -19,6 +19,8 @@ MonoBehaviour:
   atkSpeed: 0.4
   atkDamage: 3
   atkRaio: 20
+  attackType: 0
+  slowPercentage: 0
   tipoRecurso:
   - Moeda
-  qtdRecurso: 5
+  qtdRecurso: 25

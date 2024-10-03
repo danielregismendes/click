@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour {
 	public string itemDrop;
 	public int qtdDrop;
 
+    public float originalSpeed;
+    public bool isSlowed = false;
     private NavMeshAgent navMesh;
 	protected Animator anim;
 	[SerializeField] protected bool isDead = false;
@@ -29,9 +31,9 @@ public class Enemy : MonoBehaviour {
 
     void Start () 
 	{
-
         navMesh = GetComponent<NavMeshAgent>();
-		anim = GetComponent<Animator>();
+        originalSpeed = navMesh.speed;  // Store the initial speed
+        anim = GetComponent<Animator>();
 		currentHealth = maxHealth;
         gameManager = FindFirstObjectByType<GameManager>();
         navMesh.SetDestination(rota[rotaCount].position);
@@ -107,10 +109,28 @@ public class Enemy : MonoBehaviour {
             }
 		}
 	}
-	
+
+    public void ApplySlow(float slowPercentage)
+    {
+        if (!isSlowed)
+        {
+            originalSpeed = navMesh.speed; // Store the original speed before applying slow
+            navMesh.speed *= (1 - slowPercentage); // Reduce the speed based on slow percentage
+            isSlowed = true;
+        }
+    }
+
+    public void RemoveSlow()
+    {
+        if (isSlowed)
+        {
+            navMesh.speed = originalSpeed; // Restore the original speed
+            isSlowed = false;
+        }
+    }
 
 
-	public void DisableEnemy()
+    public void DisableEnemy()
 	{
 
         enemyFootsteps.stop(STOP_MODE.IMMEDIATE);

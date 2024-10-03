@@ -25,7 +25,6 @@ public class PlaceTower : MonoBehaviour
     private float doubleClickThreshold = 0.3f; // Time threshold for double click in seconds
     public int moedaCostToActivate = 20; // Cost in "moeda" to go from DORMENTE to VAZIO
 
-
     private GameManager gameManager;
     private Attack attack;
     private UIManager uiManager;
@@ -190,8 +189,8 @@ public class PlaceTower : MonoBehaviour
             // Set attack type here
             attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed, towerData.atkDamage + bonusAtk, t1.transform.GetChild(0).GetComponent<Animator>(), t2.transform.GetChild(0).GetComponent<Animator>(), t3.transform.GetChild(0).GetComponent<Animator>(), towerData.attackType);
         }
-    }
 
+    }
 
     public void SetBonusRelic(string nameTower)
     {

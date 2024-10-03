@@ -19,6 +19,8 @@ public class TowerData : ScriptableObject
     [Range(0.01f, 100.00f)]
     public float atkRaio;
     public AttackType attackType; // Add this to specify attack type
+    public float slowPercentage;  // Add this to define the slowdown effect for each tower
+
 
     [Header("Parametros de Construção")]
     public List<string> tipoRecurso = new List<string>();
