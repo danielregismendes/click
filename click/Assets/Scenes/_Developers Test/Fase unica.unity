@@ -2265,7 +2265,7 @@ MonoBehaviour:
   minHeight: -40
   maxHeight: 100
   zoomSpeed: 500
-  keyboardSpeed: 6
+  keyboardSpeed: 4
   maxRotationSpeed: 0.4
   keyboardRotationSpeed: 50
   edgeTolerance: 0.05

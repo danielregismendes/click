@@ -44,53 +44,44 @@ public class MouseSelect : MonoBehaviour
 
     public void SelectTower()
     {
-
         if (selectTower)
         {
-
             if (GetMouseObject() != null)
             {
-
                 if (placeTower != null)
                 {
                     if (placeTower.transform != GetMouseObject().transform)
                     {
-
-                        placeTower.Select(false);
-
+                        placeTower.Select(false); // Deselect the previous tower
                     }
                 }
 
-                if(GetMouseObject() != null) placeTower = GetMouseObject().GetComponent<PlaceTower>();
+                if (GetMouseObject() != null)
+                {
+                    placeTower = GetMouseObject().GetComponent<PlaceTower>();
+                }
 
                 if (placeTower != null)
                 {
-                    placeTower.Select(true);
+                    placeTower.Select(true); // Select the tower
                 }
                 else
                 {
                     if (placeTower != null)
                     {
-
-                        placeTower.Select(false);
-
+                        placeTower.Select(false); // Ensure deselection
                     }
-
                     placeTower = null;
-
                 }
-
             }
             else if (placeTower != null)
             {
-
-                placeTower.Select(false);
-
+                placeTower.Select(false); // Deselect if nothing is under the mouse
+                placeTower = null;
             }
-
         }
-
     }
+
 
     public void SelectMapNodes()
     {

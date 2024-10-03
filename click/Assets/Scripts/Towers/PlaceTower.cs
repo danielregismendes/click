@@ -96,10 +96,10 @@ public class PlaceTower : MonoBehaviour
 
     public void Select(bool toggle)
     {
-               
         select.SetActive(toggle);
-
     }
+
+
 
     private void AttemptToActivateSlot()
     {
@@ -185,9 +185,18 @@ public class PlaceTower : MonoBehaviour
             t1 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
             t2 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(1).rotation);
             t3 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(2).rotation);
+            
+            float slowPercentage = towerData.slowPercentage;
 
             // Set attack type here
-            attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed, towerData.atkDamage + bonusAtk, t1.transform.GetChild(0).GetComponent<Animator>(), t2.transform.GetChild(0).GetComponent<Animator>(), t3.transform.GetChild(0).GetComponent<Animator>(), towerData.attackType);
+            attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed,
+                          towerData.atkDamage + bonusAtk,
+                          t1.transform.GetChild(0).GetComponent<Animator>(),
+                          t2.transform.GetChild(0).GetComponent<Animator>(),
+                          t3.transform.GetChild(0).GetComponent<Animator>(),
+                          towerData.attackType,
+                          towerData.slowPercentage);  // Add the slowPercentage parameter here
+
         }
 
     }

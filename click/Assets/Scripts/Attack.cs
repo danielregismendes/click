@@ -17,34 +17,93 @@ public class Attack : MonoBehaviour
     private Enemy currentTarget;
     private Animator t1, t2, t3;
     private AttackType attackType;
+    
     public float slowPercentage = 0.3f; // Default value, can be overridden
+    public float updateInterval = 0.5f; // Time interval for applying slow effect
 
-
-    private void Update()
+    private IEnumerator AttackCoroutine()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= atkSpeed)
+        while (true)
         {
-            switch (attackType)
+            yield return new WaitForSeconds(atkSpeed);
+
+            if (enemiesInRange.Count > 0) // Only attack if there are enemies
             {
-                case AttackType.Area:
-                    AttackAllEnemies();
-                    break;
-
-                case AttackType.SingleTarget:
-                    AttackSingleEnemy();
-                    break;
+                switch (attackType)
+                {
+                    case AttackType.Area:
+                        AttackAllEnemies();
+                        break;
+                    case AttackType.SingleTarget:
+                        AttackSingleEnemy();
+                        break;
+                }
             }
-
-            timer = 0f;  // Reset timer after attack
         }
     }
 
+    private IEnumerator ApplySlowdownCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f); // Slowdown update interval
+
+            foreach (Enemy enemy in enemiesInRange)
+            {
+                if (enemy != null && !enemy.isSlowed)
+                {
+                    enemy.ApplySlow(slowPercentage);
+                }
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null && !enemiesInRange.Contains(enemy))
+        {
+            enemiesInRange.Add(enemy);
+            if (!enemy.isSlowed)
+            {
+                enemy.ApplySlow(slowPercentage);
+                Debug.Log("Applying slow to enemy: " + enemy.name); // Debug line
+            }
+
+            // Start attacking if not already attacking
+            if (enemiesInRange.Count == 1)
+            {
+                StartCoroutine(AttackCoroutine());
+                StartCoroutine(ApplySlowdownCoroutine());
+            }
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        Enemy enemy = other.GetComponent<Enemy>();
+        if (enemy != null && enemiesInRange.Contains(enemy))
+        {
+            enemiesInRange.Remove(enemy);
+            if (enemy.isSlowed)
+            {
+                enemy.RemoveSlow();
+            }
+
+            // Stop coroutines only if no enemies are left
+            if (enemiesInRange.Count == 0)
+            {
+                StopCoroutine(AttackCoroutine());
+                StopCoroutine(ApplySlowdownCoroutine());
+            }
+        }
+    }
+
+
     private void AttackAllEnemies()
     {
-        // Remove any enemies that have been destroyed before attacking
-        enemiesInRange.RemoveAll(enemy => enemy == null);
+        enemiesInRange.RemoveAll(enemy => enemy == null || enemy.isDead);  // Clean up list
 
         foreach (Enemy enemy in enemiesInRange)
         {
@@ -54,12 +113,18 @@ public class Attack : MonoBehaviour
             }
         }
 
-        // Trigger attack animations and play sound
+        // Trigger animations once
+        TriggerAttackAnimationAndSound();
+    }
+
+    private void TriggerAttackAnimationAndSound()
+    {
         t1.SetTrigger("Attack");
         t2.SetTrigger("Attack");
         t3.SetTrigger("Attack");
         AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_dano, gameObject.transform.position);
     }
+
 
     private void AttackSingleEnemy()
     {
@@ -85,52 +150,49 @@ public class Attack : MonoBehaviour
 
     private void SetNewTarget()
     {
-        // Remove destroyed enemies before setting a new target
-        enemiesInRange.RemoveAll(enemy => enemy == null);
+        currentTarget = null;
+        float minDistance = float.MaxValue;
 
-        if (enemiesInRange.Count > 0)
+        foreach (Enemy enemy in enemiesInRange)
         {
-            // Assuming enemies move in a line, the next target is the closest in the list
-            enemiesInRange.Sort((a, b) =>
+            if (enemy != null)
             {
-                if (a == null || b == null) return 0;  // Ensure no null comparison
-                return a.transform.position.z.CompareTo(b.transform.position.z);
-            });
-
-            currentTarget = enemiesInRange[0];
-        }
-        else
-        {
-            currentTarget = null;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null && !enemiesInRange.Contains(enemy))
-        {
-            enemiesInRange.Add(enemy);
-            enemy.ApplySlow(slowPercentage); // Apply slow effect
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            enemiesInRange.Remove(enemy);
-            enemy.RemoveSlow(); // Remove slow effect
-
-            if (currentTarget == enemy)
-            {
-                currentTarget = null;  // Clear target if it left the area
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    currentTarget = enemy;
+                }
             }
         }
     }
+            
+    private void CleanUpEnemies()
+    {
+        enemiesInRange.RemoveAll(enemy => enemy == null || enemy.isDead);
+    }
 
-    public void SetAtk(float atkSpeed, int atkDamage, Animator t1, Animator t2, Animator t3, AttackType attackType)
+
+    private void ApplySlowdown(Enemy enemy)
+    {
+        // Ensure the slow effect is applied only once or is reapplied only after a long interval
+        if (!enemy.isSlowed)
+        {
+            enemy.ApplySlow(slowPercentage);  // Apply the slow effect
+        }
+    }
+
+
+    private void RemoveSlowdown(Enemy enemy)
+    {
+        if (enemy.isSlowed)
+        {
+            enemy.RemoveSlow(); // Restore original speed
+        }
+    }
+
+
+    public void SetAtk(float atkSpeed, int atkDamage, Animator t1, Animator t2, Animator t3, AttackType attackType, float slowPercentage)
     {
         this.atkSpeed = atkSpeed;
         this.atkDamage = atkDamage;
@@ -138,7 +200,8 @@ public class Attack : MonoBehaviour
         this.t2 = t2;
         this.t3 = t3;
         this.attackType = attackType;
-        this.slowPercentage = slowPercentage;
+        this.slowPercentage = slowPercentage; // Correctly assigning the incoming parameter to the field.
     }
+
 }
 

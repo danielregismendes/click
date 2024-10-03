@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour {
     public bool isSlowed = false;
     private NavMeshAgent navMesh;
 	protected Animator anim;
-	[SerializeField] protected bool isDead = false;
+	public bool isDead = false;
 	private GameManager	gameManager;
 	private UIManager uiManager;
 	private int bonusDrop = 0;
@@ -114,20 +114,31 @@ public class Enemy : MonoBehaviour {
     {
         if (!isSlowed)
         {
-            originalSpeed = navMesh.speed; // Store the original speed before applying slow
-            navMesh.speed *= (1 - slowPercentage); // Reduce the speed based on slow percentage
+            originalSpeed = navMesh.speed; // Store the original speed
+            navMesh.speed = originalSpeed * (1 - slowPercentage / 100f); // Set the reduced speed directly
+
+            // Force reactivation to ensure speed change takes effect
+            navMesh.isStopped = true;
+            navMesh.isStopped = false;
+
+            Debug.Log($"Applying slow: Original Speed = {originalSpeed}, New Speed = {navMesh.speed}"); // Debug line
             isSlowed = true;
         }
     }
+
+
 
     public void RemoveSlow()
     {
         if (isSlowed)
         {
-            navMesh.speed = originalSpeed; // Restore the original speed
+            navMesh.speed = originalSpeed; // Restore original speed
+            Debug.Log($"Removing slow: Restored Speed = {originalSpeed}"); // Debug line
             isSlowed = false;
         }
     }
+
+
 
 
     public void DisableEnemy()
