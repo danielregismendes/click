@@ -104,7 +104,7 @@ public class PlaceTower : MonoBehaviour
 
     private void AttemptToActivateSlot()
     {
-        int currentMoeda = gameManager.GetInventario("moeda");
+        int currentMoeda = gameManager.GetInventario("Moeda");
 
         // Debug to check the current moeda value
         Debug.Log("Current moeda available: " + currentMoeda);
@@ -113,10 +113,10 @@ public class PlaceTower : MonoBehaviour
         if (currentMoeda >= moedaCostToActivate)
         {
             // Deduct the required "moeda" to activate the slot
-            gameManager.SetInventario("moeda", -moedaCostToActivate);
+            gameManager.SetInventario("Moeda", -moedaCostToActivate);
 
             // Verify if the moeda was successfully deducted
-            currentMoeda = gameManager.GetInventario("moeda");
+            currentMoeda = gameManager.GetInventario("Moeda");
             Debug.Log("Moeda after deduction: " + currentMoeda);
 
             uiManager.AtualizarUI(); // Update the UI to reflect the new resource count
