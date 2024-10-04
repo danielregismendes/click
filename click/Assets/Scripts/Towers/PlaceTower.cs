@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;  // Import TextMeshPro namespace
 
 public enum TOWERSTATE
 {
@@ -59,7 +60,13 @@ public class PlaceTower : MonoBehaviour
                     if (timeSinceLastClick <= doubleClickThreshold)
                     {
                         // It's a double-click, attempt to transition to VAZIO
-                        AttemptToActivateSlot();
+                        StopAllCoroutines(); // Stop any ongoing single-click coroutine
+                        AttemptToActivateSlot(true);
+                    }
+                    else
+                    {
+                        // Start a coroutine to handle the single-click action after a short delay
+                        StartCoroutine(HandleSingleClick());
                     }
 
                     lastClickTime = Time.time;
@@ -94,6 +101,15 @@ public class PlaceTower : MonoBehaviour
         }
     }
 
+    private IEnumerator HandleSingleClick()
+    {
+        // Wait for a short period to allow for a possible double-click
+        yield return new WaitForSeconds(doubleClickThreshold);
+
+        // If this point is reached, it means no double-click was detected, so handle the single-click action
+        DisplayDormantMessage();
+    }
+
     public void Select(bool toggle)
     {
         select.SetActive(toggle);
@@ -101,35 +117,32 @@ public class PlaceTower : MonoBehaviour
 
 
 
-    private void AttemptToActivateSlot()
+    private void AttemptToActivateSlot(bool doubleClick)
     {
-        int currentMoeda = gameManager.GetInventario("Moeda");
-
-        // Debug to check the current moeda value
-        Debug.Log("Current moeda available: " + currentMoeda);
-        Debug.Log("Moeda required to activate: " + moedaCostToActivate);
-
-        if (currentMoeda >= moedaCostToActivate)
+        if (doubleClick)
         {
-            // Deduct the required "moeda" to activate the slot
-            gameManager.SetInventario("Moeda", -moedaCostToActivate);
+            int currentMoeda = gameManager.GetInventario("Moeda");
 
-            // Verify if the moeda was successfully deducted
-            currentMoeda = gameManager.GetInventario("Moeda");
-            Debug.Log("Moeda after deduction: " + currentMoeda);
+            if (currentMoeda >= moedaCostToActivate)
+            {
+                // Deduct the required "moeda" to activate the slot
+                gameManager.SetInventario("Moeda", -moedaCostToActivate);
+                uiManager.AtualizarUI(); // Update the UI to reflect the new resource count
 
-            uiManager.AtualizarUI(); // Update the UI to reflect the new resource count
+                // Transition the state to VAZIO
+                state = TOWERSTATE.VAZIO;
 
-            // Transition the state to VAZIO
-            state = TOWERSTATE.VAZIO;
-            Debug.Log("Slot activated. State changed to VAZIO.");
-        }
-        else
-        {
-            // Notify the player that they don't have enough "moeda"
-            Debug.Log("Not enough 'moeda' to activate this slot.");
+                // Show the "Torre despertada" message
+                DisplayAwakenedMessage();
+            }
+            else
+            {
+                // Show the insufficient "moeda" message
+                DisplayInsufficientMoedaMessage();
+            }
         }
     }
+
 
     public void DestroyTower()
     {
@@ -200,6 +213,123 @@ public class PlaceTower : MonoBehaviour
         }
 
     }
+
+    private void DisplayDormantMessage()
+    {
+        // Create a new GameObject to display the text
+        GameObject dormantTextObject = new GameObject("DormantText");
+        dormantTextObject.transform.position = transform.position + new Vector3(0, 15.0f, 0);  // Adjust Y position as needed
+
+        // Set the layer to "UI"
+        dormantTextObject.layer = LayerMask.NameToLayer("UI");
+
+        // Add a TextMeshPro component and set up the properties
+        TextMeshPro textMeshPro = dormantTextObject.AddComponent<TextMeshPro>();
+        textMeshPro.text = $"Torre em estado Dormente, gaste {moedaCostToActivate} moedas para despertar.";
+        textMeshPro.enableAutoSizing = false;
+        textMeshPro.fontSize = 50;  // Set font size for visibility
+        textMeshPro.alignment = TextAlignmentOptions.Center;
+        textMeshPro.color = Color.yellow;  // Set color for the text
+        textMeshPro.fontStyle = FontStyles.Bold;
+
+        // Set the transform scale appropriately
+        textMeshPro.transform.localScale = Vector3.one;
+
+        // Adjust the bounding box size to give more room for the text
+        RectTransform rectTransform = textMeshPro.GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(500, 200);  // Increase width to avoid line breaks
+
+        // Set the sorting order extremely high to make sure the text is always rendered on top
+        textMeshPro.sortingOrder = 1000;  // Set a high value to ensure it's rendered above other objects
+
+        // Add a simple script to make the text always face the camera
+        dormantTextObject.AddComponent<Billboard>();
+
+        // Set the render mode to overlay
+        textMeshPro.GetComponent<Renderer>().material.renderQueue = 4000; // Forces overlay rendering
+
+        // Destroy the text after 2 seconds
+        Destroy(dormantTextObject, 2.0f);
+    }
+
+    private void DisplayInsufficientMoedaMessage()
+    {
+        // Create a new GameObject to display the text
+        GameObject insufficientMoedaTextObject = new GameObject("InsufficientMoedaText");
+        insufficientMoedaTextObject.transform.position = transform.position + new Vector3(0, 15.0f, 0);  // Adjust Y position as needed
+
+        // Set the layer to "UI"
+        insufficientMoedaTextObject.layer = LayerMask.NameToLayer("UI");
+
+        // Add a TextMeshPro component and set up the properties
+        TextMeshPro textMeshPro = insufficientMoedaTextObject.AddComponent<TextMeshPro>();
+        textMeshPro.text = "Moedas insuficientes para despertar a torre";
+        textMeshPro.enableAutoSizing = false;
+        textMeshPro.fontSize = 50;  // Set font size for visibility
+        textMeshPro.alignment = TextAlignmentOptions.Center;
+        textMeshPro.color = Color.red;  // Set color for the text
+        textMeshPro.fontStyle = FontStyles.Bold;
+
+        // Set the transform scale appropriately
+        textMeshPro.transform.localScale = Vector3.one;
+
+        // Adjust the bounding box size to give more room for the text
+        RectTransform rectTransform = textMeshPro.GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(500, 200);  // Increase width to avoid line breaks
+
+        // Set the sorting order extremely high to make sure the text is always rendered on top
+        textMeshPro.sortingOrder = 1000;  // Set a high value to ensure it's rendered above other objects
+
+        // Add a simple script to make the text always face the camera
+        insufficientMoedaTextObject.AddComponent<Billboard>();
+
+        // Set the render mode to overlay
+        textMeshPro.GetComponent<Renderer>().material.renderQueue = 4000; // Forces overlay rendering
+
+        // Destroy the text after 2 seconds
+        Destroy(insufficientMoedaTextObject, 2.0f);
+    }
+
+
+    private void DisplayAwakenedMessage()
+    {
+        // Create a new GameObject to display the text
+        GameObject awakenedTextObject = new GameObject("AwakenedText");
+        awakenedTextObject.transform.position = transform.position + new Vector3(0, 15.0f, 0);  // Adjust Y position as needed
+
+        // Set the layer to "UI"
+        awakenedTextObject.layer = LayerMask.NameToLayer("UI");
+
+        // Add a TextMeshPro component and set up the properties
+        TextMeshPro textMeshPro = awakenedTextObject.AddComponent<TextMeshPro>();
+        textMeshPro.text = "Torre despertada";
+        textMeshPro.enableAutoSizing = false;
+        textMeshPro.fontSize = 50;  // Set font size for visibility
+        textMeshPro.alignment = TextAlignmentOptions.Center;
+        textMeshPro.color = Color.green;  // Set color for the text
+        textMeshPro.fontStyle = FontStyles.Bold;
+
+        // Set the transform scale appropriately
+        textMeshPro.transform.localScale = Vector3.one;
+
+        // Adjust the bounding box size to give more room for the text
+        RectTransform rectTransform = textMeshPro.GetComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(500, 200);  // Increase width to avoid line breaks
+
+        // Set the sorting order extremely high to make sure the text is always rendered on top
+        textMeshPro.sortingOrder = 1000;  // Set a high value to ensure it's rendered above other objects
+
+        // Add a simple script to make the text always face the camera
+        awakenedTextObject.AddComponent<Billboard>();
+
+        // Set the render mode to overlay
+        textMeshPro.GetComponent<Renderer>().material.renderQueue = 4000; // Forces overlay rendering
+
+        // Destroy the text after 2 seconds
+        Destroy(awakenedTextObject, 2.0f);
+    }
+
+
 
     public void SetBonusRelic(string nameTower)
     {
