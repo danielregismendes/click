@@ -43,7 +43,6 @@ public class CameraMovement : MonoBehaviour
     [Header("Edge Movement")]
     [SerializeField]
     [Range(0f, 0.1f)]
-    private float edgeTolerance = 0.05f;
     public Vector3 maxXYZ = new Vector3(200, 0, 260);
     public Vector3 minXYZ = new Vector3(-140, 0, -280);
 
