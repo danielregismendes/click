@@ -1,0 +1,116 @@
+Test log: GameDataLogger started successfully.
+Tower built during wave 0: Yellow Tower
+Remaining Moeda after tower build: 0
+Tower built during wave 1: Blue Tower
+Remaining Moeda after tower build: 1
+Tower built during wave 1: Red Tower
+Remaining Moeda after tower build: 10
+Tower transitioned from DORMENTE to VAZIO during wave 1
+Remaining Moeda after tower transition: 5
+Tower built during wave 1: Blue Tower
+Remaining Moeda after tower build: 2
+Tower built during wave 2: Red Tower
+Remaining Moeda after tower build: 0
+Test log: GameDataLogger started successfully.
+Tower built during wave 0: Yellow Tower
+Remaining Moeda after tower build: 0
+Tower built during wave 1: Blue Tower
+Remaining Moeda after tower build: 1
+Tower built during wave 1: Red Tower
+Remaining Moeda after tower build: 9
+Tower built during wave 1: Red Tower
+Remaining Moeda after tower build: 1
+Tower transitioned from DORMENTE to VAZIO during wave 2
+Remaining Moeda after tower transition: 3
+Tower built during wave 2: Red Tower
+Remaining Moeda after tower build: 1
+Tower transitioned from DORMENTE to VAZIO during wave 2
+Remaining Moeda after tower transition: 3
+Tower built during wave 2: Red Tower
+Remaining Moeda after tower build: 6
+Test log: GameDataLogger started successfully.
+Tower built during wave 0: Blue Tower
+Remaining Moeda after tower build: 6
+Tower built during wave 1: Red Tower
+Remaining Moeda after tower build: 2
+Test log: GameDataLogger started successfully.
+Test log: GameDataLogger started successfully.
+Tower built during wave 0: Blue Tower
+Remaining Moeda after tower build: 6
+Tower built during wave 1: Red Tower
+Remaining Moeda after tower build: 5
+Tower built during wave 1: Red Tower
+Remaining Moeda after tower build: 3
+Tower built during wave 1: Yellow Tower
+Remaining Moeda after tower build: 2
+Tower transitioned from DORMENTE to VAZIO during wave 2
+Remaining Moeda after tower transition: 7
+Tower built during wave 2: Red Tower
+Remaining Moeda after tower build: 0
+Tower transitioned from DORMENTE to VAZIO during wave 2
+Remaining Moeda after tower transition: 14
+Tower built during wave 2: Red Tower
+Remaining Moeda after tower build: 9
+Tower transitioned from DORMENTE to VAZIO during wave 3
+Remaining Moeda after tower transition: 10
+Tower transitioned from DORMENTE to VAZIO during wave 3
+Remaining Moeda after tower transition: 3
+Tower built during wave 3: Yellow Tower
+Remaining Moeda after tower build: 5
+Tower built during wave 3: Yellow Tower
+Remaining Moeda after tower build: 93
+Tower transitioned from DORMENTE to VAZIO during wave 3
+Remaining Moeda after tower transition: 97
+Tower built during wave 4: Red Tower
+Remaining Moeda after tower build: 95
+Tower transitioned from DORMENTE to VAZIO during wave 4
+Remaining Moeda after tower transition: 65
+Tower transitioned from DORMENTE to VAZIO during wave 4
+Remaining Moeda after tower transition: 25
+Tower transitioned from DORMENTE to VAZIO during wave 4
+Remaining Moeda after tower transition: 25
+Tower built during wave 4: Yellow Tower
+Remaining Moeda after tower build: 17
+Tower built during wave 4: Blue Tower
+Remaining Moeda after tower build: 14
+Tower transitioned from DORMENTE to VAZIO during wave 4
+Remaining Moeda after tower transition: 17
+Test log: GameDataLogger started successfully.
+Tower built during wave 0: Red Tower
+Remaining Moeda after tower build: 2
+Tower built during wave 1: Blue Tower
+Remaining Moeda after tower build: 0
+Tower built during wave 1: Red Tower
+Remaining Moeda after tower build: 8
+Tower built during wave 1: Yellow Tower
+Remaining Moeda after tower build: 0
+Tower transitioned from DORMENTE to VAZIO during wave 2
+Remaining Moeda after tower transition: 2
+Tower built during wave 2: Red Tower
+Remaining Moeda after tower build: 1
+Tower transitioned from DORMENTE to VAZIO during wave 2
+Remaining Moeda after tower transition: 0
+Tower built during wave 2: Blue Tower
+Remaining Moeda after tower build: 4
+Tower transitioned from DORMENTE to VAZIO during wave 3
+Remaining Moeda after tower transition: 25
+Tower built during wave 3: Yellow Tower
+Remaining Moeda after tower build: 15
+Tower transitioned from DORMENTE to VAZIO during wave 3
+Remaining Moeda after tower transition: 17
+Tower built during wave 3: Red Tower
+Remaining Moeda after tower build: 16
+Tower transitioned from DORMENTE to VAZIO during wave 4
+Remaining Moeda after tower transition: 12
+Tower built during wave 4: Blue Tower
+Remaining Moeda after tower build: 8
+Tower transitioned from DORMENTE to VAZIO during wave 4
+Remaining Moeda after tower transition: 4
+Stage Start:
+Starting Moeda: 10
+Starting Zigurate HP: 10
+Total Waves: 6
+Final Moeda: 5
+Final Zigurate HP: 9
+Stage End.
+--------------------------------------------------

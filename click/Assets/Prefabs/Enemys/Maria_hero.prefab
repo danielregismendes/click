@@ -203,12 +203,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rota: []
   rotaCount: 0
-  maxHealth: 195
+  maxHealth: 90
   currentHealth: 0
   danoZigurate: 10
   itemDrop: Moeda
-  qtdDrop: 2
+  qtdDrop: 5
+  originalSpeed: 0
+  isSlowed: 0
   isDead: 0
+  damageTextPrefab: {fileID: 0}
+  damageResistance: 4
+  slowResistance: 0
 --- !u!54 &7070625019020259089
 Rigidbody:
   m_ObjectHideFlags: 0

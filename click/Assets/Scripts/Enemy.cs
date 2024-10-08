@@ -50,6 +50,9 @@ public class Enemy : MonoBehaviour {
     public GameObject damageTextPrefab;  // Reference to a prefab with TextMesh or TextMeshPro
     private Transform cameraTransform;
 
+    // New Variables
+    public float damageResistance = 0.0f; // Reduces damage taken (percentage of damage blocked)
+    public float slowResistance = 0.0f; // Reduces effect of slow (percentage of slow blocked)
 
     void Start () 
 	{
@@ -110,11 +113,14 @@ public class Enemy : MonoBehaviour {
     {
         if (!isDead)
         {
-            currentHealth -= damage;
+            // Apply flat damage resistance and ensure final damage is not negative
+            int finalDamage = Mathf.Max(damage - Mathf.CeilToInt(damageResistance), 0);
+
+            currentHealth -= finalDamage;
             anim.SetTrigger("HitDamage");
 
             // Only display damage text if the damage is greater than 0
-            if (damage > 0)
+            if (finalDamage > 0)
             {
                 // Ensure there is a collider component to get the height
                 Collider collider = GetComponent<Collider>();
@@ -128,7 +134,7 @@ public class Enemy : MonoBehaviour {
 
                     // Add a TextMeshPro component and set up the properties
                     TextMeshPro textMeshPro = damageTextObject.AddComponent<TextMeshPro>();
-                    textMeshPro.text = damage.ToString();
+                    textMeshPro.text = finalDamage.ToString();
                     textMeshPro.enableAutoSizing = false;  // Disable auto-sizing for better control
                     textMeshPro.fontSize = 50;  // Set font size for visibility
                     textMeshPro.alignment = TextAlignmentOptions.Center;
@@ -149,6 +155,7 @@ public class Enemy : MonoBehaviour {
                 }
             }
 
+            // Check if the enemy is dead after applying damage
             if (currentHealth <= 0)
             {
                 enemyFootsteps.stop(STOP_MODE.IMMEDIATE);
@@ -195,10 +202,41 @@ public class Enemy : MonoBehaviour {
 
     public void ApplySlow(float slowPercentage)
     {
-        if (!isSlowed && navMesh != null && navMesh.isOnNavMesh && navMesh.enabled)
+        if (!isSlowed)
         {
-            originalSpeed = navMesh.speed; // Store the original speed
-            navMesh.speed = originalSpeed * (1 - slowPercentage / 100f); // Set the reduced speed directly
+            // Apply slow resistance
+            float effectiveSlow = slowPercentage * (1 - slowResistance);
+
+            // Only apply slow if the result is greater than zero
+            if (effectiveSlow > 0)
+            {
+                // Since effectiveSlow is a percentage (like 50%), we need to divide by 100
+                navMesh.speed = originalSpeed * (1 - (effectiveSlow / 100));
+
+                // Log the values for debugging
+                Debug.Log($"Enemy {gameObject.name} - Original Speed: {originalSpeed}, Slow Percentage: {slowPercentage}, " +
+                          $"Slow Resistance: {slowResistance}, Effective Slow: {effectiveSlow}, " +
+                          $"New Speed: {navMesh.speed}");
+
+                // Only call isStopped if the agent is on a valid NavMesh and active
+                if (navMesh.isOnNavMesh && navMesh.enabled)
+                {
+                    navMesh.isStopped = true;
+                    navMesh.isStopped = false;
+                }
+
+                isSlowed = true;
+            }
+        }
+    }
+
+
+
+    public void RemoveSlow()
+    {
+        if (isSlowed)
+        {
+            navMesh.speed = originalSpeed;
 
             // Only call isStopped if the agent is on a valid NavMesh and active
             if (navMesh.isOnNavMesh && navMesh.enabled)
@@ -207,26 +245,9 @@ public class Enemy : MonoBehaviour {
                 navMesh.isStopped = false;
             }
 
-            Debug.Log($"Applying slow: Original Speed = {originalSpeed}, New Speed = {navMesh.speed}"); // Debug line
-            isSlowed = true;
-        }
-    }
-
-
-
-
-    public void RemoveSlow()
-    {
-        if (isSlowed)
-        {
-            navMesh.speed = originalSpeed; // Restore original speed
-            Debug.Log($"Removing slow: Restored Speed = {originalSpeed}"); // Debug line
             isSlowed = false;
         }
     }
-
-
-
 
     public void DisableEnemy()
 	{

@@ -16,11 +16,11 @@ MonoBehaviour:
   towerDescription: Yellow Tower Bem Pika
   gameModelTower: {fileID: 4370247311566578446, guid: f581bf7952a5f614a90bda6741cacdec, type: 3}
   gameModelTroop: {fileID: 6840000713685518651, guid: 0bee20f56fe677741b5a6a570d278575, type: 3}
-  atkSpeed: 0.4
+  atkSpeed: 0.6
   atkDamage: 3
   atkRaio: 20
   attackType: 0
   slowPercentage: 0
   tipoRecurso:
   - Moeda
-  qtdRecurso: 25
+  qtdRecurso: 10

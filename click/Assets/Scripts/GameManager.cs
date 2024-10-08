@@ -15,9 +15,7 @@ public enum STAGEFASE
 
 public class GameManager : MonoBehaviour
 {
-
     private GameManager gameManager;
-
     public int maxHpZigurate;
     private int currentHpZigurate;
     private Inventario[] inventarioInicial;
@@ -25,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Map currentMap;
     private EventData currentEvent;
     private bool ultimaFase;
+
+    private GameDataLogger dataLogger; // Reference to GameDataLogger
 
     [Header("Lista de Torres")]
     public List<TowerList> torres = new List<TowerList>();
@@ -46,11 +46,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        
         currentHpZigurate = maxHpZigurate;
-
         inventarioInicial = inventario;
-
         SetBonusRelic();
 
         if (gameManager == null)
@@ -63,12 +60,10 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
     }
 
     public void SetInventario(string inventarioName, int qtd)
     {
-
         for (int i = 0; i < inventario.Length; i++)
         {
             if (inventarioName == inventario[i].nome)
@@ -77,305 +72,238 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-
     }
 
     public int GetInventario(string inventarioName)
     {
-
         for (int i = 0; i < inventario.Length; i++)
         {
             if (inventarioName == inventario[i].nome)
             {
-                return (inventario[i].qtd);
-
+                return inventario[i].qtd;
             }
         }
-
         return 0;
-
     }
 
     public TowerData GetTower(string towerName)
     {
-
-        for(int i = 0;i < torres.Count; i++)
+        for (int i = 0; i < torres.Count; i++)
         {
-
-            if(towerName == torres[i].torres.towerName)
+            if (towerName == torres[i].torres.towerName)
             {
                 return torres[i].torres;
             }
-
         }
-
         return null;
-
     }
 
     public int GetHpZigurate()
     {
-
         return currentHpZigurate;
-
     }
 
     public void SetHpZigurate(int damage)
     {
-
-        UIManager animCanvas;
-
-        animCanvas = FindFirstObjectByType<UIManager>();            
+        UIManager animCanvas = FindFirstObjectByType<UIManager>();
 
         if (stage != STAGEFASE.GAMEOVER && currentHpZigurate - damage <= 0)
         {
-
             stage = STAGEFASE.GAMEOVER;
             AudioManager.instance.PlayOneShot(FMODEvents.instance.vinheta_derrota, Camera.main.transform.position);
             if (animCanvas) animCanvas.GetComponent<Animator>().SetTrigger("Game Over");
-
         }
         else
         {
-
             currentHpZigurate -= damage;
-
         }
-
     }
 
     public void SetRelic(RelicData relic)
     {
-
         bool add = true;
 
-        for(int iRelic = 0; iRelic < reliquias.Count; iRelic++)
+        for (int iRelic = 0; iRelic < reliquias.Count; iRelic++)
         {
-
-            if(reliquias.Count > 0)
+            if (reliquias.Count > 0 && reliquias[iRelic].nomeRelic == relic.nomeRelic)
             {
-
-                if (reliquias[iRelic].nomeRelic == relic.nomeRelic)
-                {
-
-                    add = false;
-
-                }
-
+                add = false;
             }
-
         }
 
         if (add)
         {
-
             reliquias.Add(relic);
-
             SetBonusRelic();
-
         }
-
     }
 
     public void SetBonusRelic()
     {
-
-        for(int iRelic = 0; iRelic < reliquias.Count; iRelic++)
+        for (int iRelic = 0; iRelic < reliquias.Count; iRelic++)
         {
-
             if (reliquias[iRelic].tower != "")
             {
-
-                for(int iTower = 0; iTower < torres.Count; iTower++)
-                {
-
-                    if (torres[iTower].torres.name == reliquias[iRelic].tower)
-                    {
-
-                        bool add = true;
-
-                        for(int iRecurso = 0; iRecurso < torres[iTower].torres.tipoRecurso.Count; iRecurso++)
-                        {
-
-                            if (torres[iTower].torres.tipoRecurso[iRecurso] == reliquias[iRelic].addTipoRecurso)
-                            {
-
-                                add = false;
-
-                            }
-
-                        }
-
-                        if(add)
-                        {
-
-                            torres[iTower].torres.tipoRecurso.Add(reliquias[iRelic].addTipoRecurso);
-
-                        }
-
-                    }
-
-                }
-
-            }
-            else
-            {
-
                 for (int iTower = 0; iTower < torres.Count; iTower++)
                 {
-
-                    if (torres[iTower].torres.tipoRecurso[0] == reliquias[iRelic].tipoRecurso)
+                    if (torres[iTower].torres.name == reliquias[iRelic].tower)
                     {
-
                         bool add = true;
 
                         for (int iRecurso = 0; iRecurso < torres[iTower].torres.tipoRecurso.Count; iRecurso++)
                         {
-
                             if (torres[iTower].torres.tipoRecurso[iRecurso] == reliquias[iRelic].addTipoRecurso)
                             {
-
                                 add = false;
-
                             }
-
                         }
 
                         if (add)
                         {
-
                             torres[iTower].torres.tipoRecurso.Add(reliquias[iRelic].addTipoRecurso);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int iTower = 0; iTower < torres.Count; iTower++)
+                {
+                    if (torres[iTower].torres.tipoRecurso[0] == reliquias[iRelic].tipoRecurso)
+                    {
+                        bool add = true;
 
+                        for (int iRecurso = 0; iRecurso < torres[iTower].torres.tipoRecurso.Count; iRecurso++)
+                        {
+                            if (torres[iTower].torres.tipoRecurso[iRecurso] == reliquias[iRelic].addTipoRecurso)
+                            {
+                                add = false;
+                            }
                         }
 
+                        if (add)
+                        {
+                            torres[iTower].torres.tipoRecurso.Add(reliquias[iRelic].addTipoRecurso);
+                        }
                     }
-
                 }
-
             }
-
         }
-
     }
 
     public void SetMap(Map m)
     {
-
         currentMap = m;
-
     }
 
     public Map GetMap()
     {
-
         return currentMap;
-
     }
 
     public int GerarRandomInt(int min, int max)
     {
-
         return UnityEngine.Random.Range(min, max);
-
     }
 
     public EventData GetCurrentEventData()
     {
-
         return currentEvent;
-
     }
 
     public void LoadFase(Path path)
     {
-
         List<int> listFases = new List<int>();
         int randEvent = 0;
         int randFase = 0;
 
-        for(int iFases = 0; iFases < fases.Count; iFases++)
+        for (int iFases = 0; iFases < fases.Count; iFases++)
         {
-
-            if(path.node.nodeType == fases[iFases].nodeType && path.dif == fases[iFases].dif)
+            if (path.node.nodeType == fases[iFases].nodeType && path.dif == fases[iFases].dif)
             {
-
                 listFases.Add(fases[iFases].indexScene);
-
             }
-
         }
 
         randFase = GerarRandomInt(0, listFases.Count);
 
         switch (path.node.nodeType)
         {
-
             case NODETYPE.Tesouro:
-
                 randEvent = GerarRandomInt(0, tesouros.Count);
                 currentEvent = tesouros[randEvent];
                 SceneManager.LoadScene(listFases[randFase]);
                 listFases.Clear();
                 break;
-
             case NODETYPE.Evento:
-
                 randEvent = GerarRandomInt(0, eventos.Count);
                 currentEvent = eventos[randEvent];
                 SceneManager.LoadScene(listFases[randFase]);
                 listFases.Clear();
                 break;
-
             default:
-                Debug.Log("Rand " + randFase);
-                Debug.Log("Lista " + listFases.Count);
-                Debug.Log("Fase " + listFases[randFase]);
                 SceneManager.LoadScene(listFases[randFase]);
                 listFases.Clear();
                 break;
-
         }
-
     }
 
     public void SetUltimaFase(bool ultimaFase)
     {
-
         this.ultimaFase = ultimaFase;
-
     }
 
     public bool GetUltimaFase()
     {
-
         return ultimaFase;
-
     }
 
     public void GameOver()
     {
+        // Trigger the GameDataLogger to log the stage end
+        dataLogger.OnStageEnd(); // Call before resetting the scene
+        Debug.Log("Game over! OnStageEnd() called.");
 
+        // Then reset or reload the scene
         inventario = inventarioInicial;
         SceneManager.LoadScene(0);
         Destroy(gameObject);
-
     }
+
 
     public void Win()
     {
-
         SceneManager.LoadScene(2);
-
     }
 
     public void ZerarGame()
     {
-
         SceneManager.LoadScene(1);
         Destroy(gameObject);
-
     }
 
+    void Start()
+    {
+        dataLogger = FindFirstObjectByType<GameDataLogger>();  // Updated to use FindFirstObjectByType
+    }
+
+    void EndStage()
+    {
+        dataLogger.OnStageEnd(); // Call this when the stage ends (victory or game over)
+    }
+
+    public int GetMoeda()
+    {
+        int totalMoeda = 0;
+        foreach (Inventario item in inventario)
+        {
+            if (item.nome == "Moeda") // Assuming 'Moeda' is the name for currency
+            {
+                totalMoeda += item.qtd;
+            }
+        }
+        return totalMoeda;
+    }
 }
 
 [Serializable]

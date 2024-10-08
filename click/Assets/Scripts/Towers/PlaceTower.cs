@@ -39,13 +39,17 @@ public class PlaceTower : MonoBehaviour
     private int bonusCustTower = 0;
 
 
+    // Reference to the GameDataLogger
+    private GameDataLogger dataLogger;
+
     private void Start()
     {
-
         gameManager = FindFirstObjectByType<GameManager>();
         attack = troopArea.GetComponent<Attack>();
         uiManager = FindFirstObjectByType<UIManager>();
 
+        // Initialize the data logger
+        dataLogger = FindFirstObjectByType<GameDataLogger>();
     }
 
     void Update()
@@ -59,13 +63,18 @@ public class PlaceTower : MonoBehaviour
 
                     if (timeSinceLastClick <= doubleClickThreshold)
                     {
-                        // It's a double-click, attempt to transition to VAZIO
-                        StopAllCoroutines(); // Stop any ongoing single-click coroutine
+                        // Double-click: transition from DORMENTE to VAZIO
+                        StopAllCoroutines();
                         AttemptToActivateSlot(true);
+
+                        // Log the tower's state transition
+                        if (dataLogger != null)
+                        {
+                            dataLogger.OnTowerTransitionDormantToVazio();
+                        }
                     }
                     else
                     {
-                        // Start a coroutine to handle the single-click action after a short delay
                         StartCoroutine(HandleSingleClick());
                     }
 
@@ -115,8 +124,6 @@ public class PlaceTower : MonoBehaviour
         select.SetActive(toggle);
     }
 
-
-
     private void AttemptToActivateSlot(bool doubleClick)
     {
         if (doubleClick)
@@ -142,7 +149,6 @@ public class PlaceTower : MonoBehaviour
             }
         }
     }
-
 
     public void DestroyTower()
     {
@@ -198,20 +204,23 @@ public class PlaceTower : MonoBehaviour
             t1 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(0).position, troopArea.transform.GetChild(0).rotation);
             t2 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(1).position, troopArea.transform.GetChild(1).rotation);
             t3 = Instantiate(towerData.gameModelTroop, troopArea.transform.GetChild(2).position, troopArea.transform.GetChild(2).rotation);
-            
+
             float slowPercentage = towerData.slowPercentage;
 
-            // Set attack type here
             attack.SetAtk(towerData.atkSpeed + bonusAtkSpeed,
                           towerData.atkDamage + bonusAtk,
                           t1.transform.GetChild(0).GetComponent<Animator>(),
                           t2.transform.GetChild(0).GetComponent<Animator>(),
                           t3.transform.GetChild(0).GetComponent<Animator>(),
                           towerData.attackType,
-                          towerData.slowPercentage);  // Add the slowPercentage parameter here
+                          towerData.slowPercentage);
 
+            // Log tower building
+            if (dataLogger != null)
+            {
+                dataLogger.OnTowerBuilt(nameTower);
+            }
         }
-
     }
 
     private void DisplayDormantMessage()

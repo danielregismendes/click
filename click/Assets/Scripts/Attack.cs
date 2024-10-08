@@ -21,9 +21,13 @@ public class Attack : MonoBehaviour
     public float slowPercentage = 0.3f; // Default value, can be overridden
     public float updateInterval = 0.5f; // Time interval for applying slow effect
 
+    //correção de dano
+    private bool isAttacking = false;
+
+
     private IEnumerator AttackCoroutine()
     {
-        while (true)
+        while (isAttacking) // Make sure the loop only runs while attacking
         {
             yield return new WaitForSeconds(atkSpeed);
 
@@ -44,13 +48,13 @@ public class Attack : MonoBehaviour
 
     private IEnumerator ApplySlowdownCoroutine()
     {
-        while (true)
+        while (isAttacking) // Same here: Only apply while attacking
         {
-            yield return new WaitForSeconds(1.0f); // Slowdown update interval
+            yield return new WaitForSeconds(updateInterval);
 
             foreach (Enemy enemy in enemiesInRange)
             {
-                if (enemy != null && !enemy.isSlowed)
+                if (enemy != null && !enemy.isSlowed && slowPercentage > 0)
                 {
                     enemy.ApplySlow(slowPercentage);
                 }
@@ -64,21 +68,20 @@ public class Attack : MonoBehaviour
         if (enemy != null && !enemiesInRange.Contains(enemy))
         {
             enemiesInRange.Add(enemy);
-            if (!enemy.isSlowed)
+            if (!enemy.isSlowed && slowPercentage > 0)
             {
                 enemy.ApplySlow(slowPercentage);
-                Debug.Log("Applying slow to enemy: " + enemy.name); // Debug line
             }
 
-            // Start attacking if not already attacking
-            if (enemiesInRange.Count == 1)
+            // Start coroutines only if not already attacking
+            if (!isAttacking)
             {
+                isAttacking = true;
                 StartCoroutine(AttackCoroutine());
                 StartCoroutine(ApplySlowdownCoroutine());
             }
         }
     }
-
 
     private void OnTriggerExit(Collider other)
     {
@@ -96,14 +99,16 @@ public class Attack : MonoBehaviour
             {
                 StopCoroutine(AttackCoroutine());
                 StopCoroutine(ApplySlowdownCoroutine());
+                isAttacking = false;
             }
         }
     }
 
-
     private void AttackAllEnemies()
     {
-        enemiesInRange.RemoveAll(enemy => enemy == null || enemy.isDead);  // Clean up list
+        enemiesInRange.RemoveAll(enemy => enemy == null || enemy.isDead); // Clean up list
+
+        TriggerAttackAnimationAndSound();
 
         foreach (Enemy enemy in enemiesInRange)
         {
@@ -112,9 +117,6 @@ public class Attack : MonoBehaviour
                 enemy.TookDamage(atkDamage);
             }
         }
-
-        // Trigger animations once
-        TriggerAttackAnimationAndSound();
     }
 
     private void TriggerAttackAnimationAndSound()
@@ -140,11 +142,7 @@ public class Attack : MonoBehaviour
         {
             currentTarget.TookDamage(atkDamage);
 
-            // Trigger attack animations and play sound
-            t1.SetTrigger("Attack");
-            t2.SetTrigger("Attack");
-            t3.SetTrigger("Attack");
-            AudioManager.instance.PlayOneShot(FMODEvents.instance.inimigo_dano, gameObject.transform.position);
+            TriggerAttackAnimationAndSound();
         }
     }
 
